@@ -12,37 +12,38 @@ package personalized.job.matcher;
 public class Personality {
 
 	/**
-	 * @return the personalityId
+	 * @return the id
 	 */
-	public int getPersonalityId() {
-		return personalityId;
+	public int getId() {
+		return id;
 	}
 
 	/**
-	 * @param personalityId the personalityId to set
+	 * @param id the id to set
 	 */
-	public void setPersonalityId(int personalityId) {
-		this.personalityId = personalityId;
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	/**
-	 * @return the personalityType
+	 * @return the type
 	 */
-	public String getPersonalityType() {
-		return personalityType;
+	public String getType() {
+		return type;
 	}
 
 	/**
-	 * @param personalityType the personalityType to set
+	 * @param type the type to set
 	 */
-	public void setPersonalityType(String personalityType) {
-		this.personalityType = personalityType;
+	public void setType(String type) {
+		this.type = type;
 	}
-	private int personalityId;
-	private String personalityType;
+	private int id;
+	private String type;
 
-	public Personality(int personalityId, String personalityType) {
-		this.personalityId = personalityId;
-		this.personalityType = personalityType;
+	public Personality(int id, String type) {
+		this.id = id;
+		this.type = type;
 	}
 }
+
