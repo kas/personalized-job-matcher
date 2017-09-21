@@ -46,8 +46,6 @@ public class PersonalityTest {
 		int expResult = 0;
 		int result = instance.getId();
 		assertEquals(expResult, result);
-		// TODO review the generated test code and remove the default call to fail.
-		// fail("The test case is a prototype.");
 	}
 
 	/**
@@ -61,8 +59,6 @@ public class PersonalityTest {
 		instance.setId(id);
 		int result = instance.getId();
 		assertEquals(id, result);
-		// TODO review the generated test code and remove the default call to fail.
-		// fail("The test case is a prototype.");
 	}
 
 	/**
@@ -75,8 +71,6 @@ public class PersonalityTest {
 		String expResult = "rambunctious";
 		String result = instance.getType();
 		assertEquals(expResult, result);
-		// TODO review the generated test code and remove the default call to fail.
-		// fail("The test case is a prototype.");
 	}
 
 	/**
@@ -90,8 +84,6 @@ public class PersonalityTest {
 		instance.setType(type);
 		String result = instance.getType();
 		assertEquals(type, result);
-		// TODO review the generated test code and remove the default call to fail.
-		// fail("The test case is a prototype.");
 	}
 }
 

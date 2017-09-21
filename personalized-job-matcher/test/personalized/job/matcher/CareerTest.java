@@ -56,8 +56,6 @@ public class CareerTest {
 		String expResult = "assistant regional manager";
 		String result = instance.getTitle();
 		assertEquals(expResult, result);
-		// TODO review the generated test code and remove the default call to fail.
-		// fail("The test case is a prototype.");
 	}
 
 	/**
@@ -71,8 +69,6 @@ public class CareerTest {
 		instance.setTitle(title);
 		String result = instance.getTitle();
 		assertEquals(title, result);
-		// TODO review the generated test code and remove the default call to fail.
-		// fail("The test case is a prototype.");
 	}
 
 	/**
@@ -85,8 +81,6 @@ public class CareerTest {
 		ArrayList<Personality> expResult = this.personalities;
 		ArrayList<Personality> result = instance.getPersonalities();
 		assertEquals(expResult, result);
-		// TODO review the generated test code and remove the default call to fail.
-		// fail("The test case is a prototype.");
 	}
 
 	/**
@@ -105,8 +99,6 @@ public class CareerTest {
 		instance.setPersonalities(newPersonalities);
 		ArrayList<Personality> result = instance.getPersonalities();
 		assertEquals(newPersonalities, result);
-		// TODO review the generated test code and remove the default call to fail.
-		// fail("The test case is a prototype.");
 	}
 
 	/**
@@ -119,8 +111,6 @@ public class CareerTest {
 		Profile expResult = this.profile;
 		Profile result = instance.getProfile();
 		assertEquals(expResult, result);
-		// TODO review the generated test code and remove the default call to fail.
-		// fail("The test case is a prototype.");
 	}
 
 	/**
@@ -138,9 +128,6 @@ public class CareerTest {
 		instance.setProfile(newProfile);
 		Profile result = instance.getProfile();
 		assertEquals(newProfile, result);
-		// TODO review the generated test code and remove the default call to fail.
-		// fail("The test case is a prototype.");
 	}
-	
 }
 
