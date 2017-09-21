@@ -40,8 +40,10 @@ public class Profile {
 	}
 	private Personality personality;
 	private int age;
+	private int id;
 
-	public Profile(Personality personality, int age) {
+	public Profile(int id, Personality personality, int age) {
+		this.id = id;
 		this.personality = personality;
 		this.age = age;
 	}
