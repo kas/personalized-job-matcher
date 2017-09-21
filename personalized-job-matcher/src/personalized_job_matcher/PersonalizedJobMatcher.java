@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package spark;
+package personalized_job_matcher;
 
 /**
  *
  * @author kas
  */
-public class Spark {
+public class PersonalizedJobMatcher {
 	/**
 	 * @param args the command line arguments
 	 */
