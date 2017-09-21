@@ -5,6 +5,7 @@
  */
 package personalized_job_matcher;
 
+import personalized.job.matcher.User;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
