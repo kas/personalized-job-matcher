@@ -1,16 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package personalized.job.matcher;
 
-/**
- *
- * @author kas
- */
 public class Profile {
+        private Personality personality;
+	private int age;
+	private int id;
 
+	public Profile(int id, Personality personality, int age) 
+        {
+		this.id = id;
+		this.personality = personality;
+		this.age = age;
+	}
 	/**
 	 * @return the personality
 	 */
@@ -38,13 +39,19 @@ public class Profile {
 	public void setAge(int age) {
 		this.age = age;
 	}
-	private Personality personality;
-	private int age;
-	private int id;
 
-	public Profile(int id, Personality personality, int age) {
-		this.id = id;
-		this.personality = personality;
-		this.age = age;
-	}
+    /**
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
+	
 }
