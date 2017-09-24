@@ -10,5 +10,5 @@ package personalized.job.matcher;
  * @author ckk5093
  */
 public class Job {
-    
+
 }

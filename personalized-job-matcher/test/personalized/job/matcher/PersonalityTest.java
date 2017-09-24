@@ -86,4 +86,3 @@ public class PersonalityTest {
 		assertEquals(type, result);
 	}
 }
-

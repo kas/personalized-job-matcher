@@ -130,4 +130,3 @@ public class CareerTest {
 		assertEquals(newProfile, result);
 	}
 }
-

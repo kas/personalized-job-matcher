@@ -119,4 +119,3 @@ public class PersonalityTestResultTest {
 		assertEquals(expResult, result);
 	}
 }
-
