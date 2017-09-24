@@ -1,14 +1,38 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package personalized.job.matcher;
 
-/**
- *
- * @author kas
- */
+
+
+
 public class Choice {
-	
+        
+        private int choiceID = 0;
+        private String choiceText = "";
+                
+    
+	public Choice(int newChoiceID, String newChoiceText){
+            this.choiceID = newChoiceID;
+            this.choiceText = newChoiceText;
+            
+        }
+
+ 
+    public int getChoiceID() {
+        return choiceID;
+    }
+
+   
+    public void setChoiceID(int choiceID) {
+        this.choiceID = choiceID;
+    }
+
+    
+    public String getChoiceText() {
+        return choiceText;
+    }
+
+    
+    public void setChoiceText(String choiceText) {
+        this.choiceText = choiceText;
+    }
 }

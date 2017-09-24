@@ -1,23 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package personalized.job.matcher;
 
-/**
- *
- * @author eem5034
- */
+import java.util.ArrayList;
+
+
 public class Question {
     private int questionID = 0;
     private String questionText = " ";
+    ArrayList<Choice> choices = new ArrayList<>();
     
-    public Question(int newQuestionID, String newQuestionText){
+    public Question(int newQuestionID, String newQuestionText, ArrayList newChoices){
         
         this.questionID = newQuestionID;
         this.questionText = newQuestionText;
-    
+        this.choices = newChoices;
     }
 
     public int getQuestionID() {
@@ -34,5 +30,9 @@ public class Question {
 
     public void setQuestionText(String questionText) {
         this.questionText = questionText;
+    }
+    
+    public void getQuestionInfo(){
+        System.out.println(questionID + questionText);
     }
 }
