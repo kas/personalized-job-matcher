@@ -14,7 +14,7 @@ public class PersonalizedJobMatcher {
 	 * @param args the command line arguments
 	 */
 	public static void main(String[] args) {
-		TestHarness theTestHarness = new TestHarness();
+		//TestHarness theTestHarness = new TestHarness();
 	}
 	
 }
