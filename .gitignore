@@ -1,3 +1,4 @@
+# Java
 # Compiled class file
 *.class
 
@@ -23,3 +24,11 @@ hs_err_pid*
 /personalized-job-matcher/nbproject/private/
 /personalized-job-matcher/build/
 /personalized-job-matcher/dist/
+
+# NetBeans
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/

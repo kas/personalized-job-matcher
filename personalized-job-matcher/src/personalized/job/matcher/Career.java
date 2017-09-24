@@ -64,4 +64,3 @@ public class Career {
 		this.profile = profile;
 	}
 }
-

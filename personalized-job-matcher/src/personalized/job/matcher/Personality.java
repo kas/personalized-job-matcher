@@ -46,4 +46,3 @@ public class Personality {
 		this.type = type;
 	}
 }
-
