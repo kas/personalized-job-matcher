@@ -26,7 +26,7 @@ public class Career {
 	 * @return the title
 	 */
 	public String getTitle() {
-		return title;
+		return this.title;
 	}
 
 	/**
@@ -40,7 +40,7 @@ public class Career {
 	 * @return the personalities
 	 */
 	public ArrayList<Personality> getPersonalities() {
-		return personalities;
+		return this.personalities;
 	}
 
 	/**
@@ -54,7 +54,7 @@ public class Career {
 	 * @return the profile
 	 */
 	public Profile getProfile() {
-		return profile;
+		return this.profile;
 	}
 
 	/**

@@ -12,26 +12,40 @@ import java.util.ArrayList;
  * @author kas
  */
 public class PersonalityTestResult {
+	private ArrayList<Choice> choices;
+	private ArrayList<Personality> personalities;
 
-	/**
-	 * @return the userChoices
-	 */
-	public ArrayList<UserChoice> getUserChoices() {
-		return userChoices;
+	public PersonalityTestResult(ArrayList<Choice> choices, ArrayList<Personality> personalities) {
+		this.choices = choices;
+		this.personalities = personalities;
+	}
+
+	public String compareChoices() {
+		// TODO
+
+		// return this.choices[0];
+		return "compareChoices result";
 	}
 
 	/**
-	 * @param userChoices the userChoices to set
+	 * @return the choices
 	 */
-	public void setUserChoices(ArrayList<UserChoice> userChoices) {
-		this.userChoices = userChoices;
+	public ArrayList<Choice> getChoices() {
+		return this.choices;
+	}
+
+	/**
+	 * @param choices the choices to set
+	 */
+	public void setChoices(ArrayList<Choice> choices) {
+		this.choices = choices;
 	}
 
 	/**
 	 * @return the personalities
 	 */
 	public ArrayList<Personality> getPersonalities() {
-		return personalities;
+		return this.personalities;
 	}
 
 	/**
@@ -39,19 +53,5 @@ public class PersonalityTestResult {
 	 */
 	public void setPersonalities(ArrayList<Personality> personalities) {
 		this.personalities = personalities;
-	}
-	private ArrayList<UserChoice> userChoices;
-	private ArrayList<Personality> personalities;
-
-	public PersonalityTestResult(ArrayList<UserChoice> userChoices, ArrayList<Personality> personalities) {
-		this.userChoices = userChoices;
-		this.personalities = personalities;
-	}
-
-	public String compareChoices() {
-		// TODO
-
-		// return this.userChoices[0];
-		return "compareChoices result";
 	}
 }

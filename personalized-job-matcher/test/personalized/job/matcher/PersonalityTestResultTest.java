@@ -18,21 +18,23 @@ import static org.junit.Assert.*;
  * @author kas
  */
 public class PersonalityTestResultTest {
+	private ArrayList<Choice> choices;
 	private ArrayList<Personality> personalities;
-	private ArrayList<UserChoice> userChoices;
 
 	public PersonalityTestResultTest() {
+		Choice choice = new Choice(0, "a");
+
+		ArrayList<Choice> choices = new ArrayList<Choice>();
+		choices.add(choice);
+
+		this.choices = choices;
+
 		Personality personality = new Personality(0, "rambunctious");
 		
-		ArrayList<Personality> personalities = new ArrayList<Personalities>();
+		ArrayList<Personality> personalities = new ArrayList<Personality>();
 		personalities.add(personality);
 
 		this.personalities = personalities;
-
-		// TODO
-		UserChoice userChoice = new UserChoice();
-
-		this.userChoices = userChoices;
 	}
 	
 	@BeforeClass
@@ -52,28 +54,30 @@ public class PersonalityTestResultTest {
 	}
 
 	/**
-	 * Test of getUserChoices method, of class PersonalityTestResult.
+	 * Test of getChoices method, of class PersonalityTestResult.
 	 */
 	@Test
-	public void testGetUserChoices() {
-		System.out.println("getUserChoices");
-		PersonalityTestResult instance = new PersonalityTestResult(this.userChoices, this.personalities);
-		// TODO
-		ArrayList<UserChoice> expResult = this.userChoices;
-		ArrayList<UserChoice> result = instance.getUserChoices();
+	public void testGetChoices() {
+		System.out.println("getChoices");
+		PersonalityTestResult instance = new PersonalityTestResult(this.choices, this.personalities);
+		ArrayList<Choice> expResult = this.choices;
+		ArrayList<Choice> result = instance.getChoices();
 		assertEquals(expResult, result);
 	}
 
 	/**
-	 * Test of setUserChoices method, of class PersonalityTestResult.
+	 * Test of setChoices method, of class PersonalityTestResult.
 	 */
 	@Test
-	public void testSetUserChoices() {
-		// TODO
-		System.out.println("setUserChoices");
-		ArrayList<UserChoice> userChoices = null;
-		PersonalityTestResult instance = null;
-		instance.setUserChoices(userChoices);
+	public void testSetChoices() {
+		System.out.println("setChoices");
+		ArrayList<Choice> choices = new ArrayList<Choice>();
+		Choice choice = new Choice(1, "b");
+		choices.add(choice);
+		PersonalityTestResult instance = new PersonalityTestResult(this.choices, this.personalities);
+		instance.setChoices(choices);
+		ArrayList<Choice> result = instance.getChoices();
+		assertEquals(choices, result);
 	}
 
 	/**
@@ -82,7 +86,7 @@ public class PersonalityTestResultTest {
 	@Test
 	public void testGetPersonalities() {
 		System.out.println("getPersonalities");
-		PersonalityTestResult instance = new PersonalityTestResult(this.userChoices, this.personalities);
+		PersonalityTestResult instance = new PersonalityTestResult(this.choices, this.personalities);
 		ArrayList<Personality> expResult = this.personalities;
 		ArrayList<Personality> result = instance.getPersonalities();
 		assertEquals(expResult, result);
@@ -98,12 +102,12 @@ public class PersonalityTestResultTest {
 		
 		Personality personality = new Personality(1, "supercalifragilisticexpialidocious");
 		
-		ArrayList<Personality> personalities = new ArrayList<Personalities>();
+		ArrayList<Personality> personalities = new ArrayList<Personality>();
 		personalities.add(personality);
 
-		PersonalityTestResult instance = new PersonalityTestResult(this.userChoices, this.personalities);
+		PersonalityTestResult instance = new PersonalityTestResult(this.choices, this.personalities);
 		instance.setPersonalities(personalities);
-		result = instance.getPersonalities();
+		ArrayList<Personality> result = instance.getPersonalities();
 		assertEquals(personalities, result);
 	}
 
@@ -113,7 +117,7 @@ public class PersonalityTestResultTest {
 	@Test
 	public void testCompareChoices() {
 		System.out.println("compareChoices");
-		PersonalityTestResult instance = new PersonalityTestResult(this.userChoices, this.personalities);
+		PersonalityTestResult instance = new PersonalityTestResult(this.choices, this.personalities);
 		String expResult = "compareChoices result";
 		String result = instance.compareChoices();
 		assertEquals(expResult, result);
