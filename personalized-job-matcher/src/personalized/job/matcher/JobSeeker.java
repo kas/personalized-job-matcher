@@ -6,15 +6,17 @@ package personalized.job.matcher;
  * @author Christian Kim
  */
 public class JobSeeker {
-    private String firstName = " ";
-    private String lastName = " ";
-    private int profile = 0;
+    private String firstName;
+    private String lastName;
+    private int profile;
+    String password;
     
-    public JobSeeker(String newFirstName, String newLastName, int newProfile)
+    public JobSeeker(String newFirstName, String newLastName, int newProfile, String newPassword)
     {
         firstName = newFirstName;
         lastName = newLastName;
         profile = newProfile;
+        password = newPassword;
         
         
     }
