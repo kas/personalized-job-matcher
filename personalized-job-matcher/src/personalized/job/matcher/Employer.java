@@ -11,8 +11,7 @@ import java.util.ArrayList;
  *
  * @author austi
  */
-public class Employer {
-
+public class Employer extends User implements Savable {
     private String name;
     private ArrayList<Job> jobsList;
 
@@ -49,4 +48,14 @@ public class Employer {
         this.jobsList = jobsList;
     }
 
+  @Override
+  public void signIn() {
+    // replace the current sign in screen with options screen so that Employer can choose what they want to do
+    // perhaps set the currentUser variable to this instance?
+  }
+
+  @Override
+  public void save() {
+    // either save this instance to the SQL database, or serialize this object
+  }
 }
