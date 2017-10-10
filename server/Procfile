@@ -1,0 +1,3 @@
+init: python server/util/db/create.py
+web: gunicorn --pythonpath server run:app --log-file=-
+select: python server/util/db/select_.py
