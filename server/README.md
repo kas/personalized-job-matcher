@@ -29,6 +29,9 @@
 
 Remove the database volume mounted at `server/db/`
 
+## To see database contents
+`python select_.py`
+
 ## To run the server
 `export FLASK_APP=run.py`
 `flask run`
