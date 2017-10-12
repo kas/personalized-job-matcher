@@ -9,11 +9,11 @@ import java.awt.event.ActionEvent;
 public class SignInController {
     
     SignInView loginPrompt;
-    
+    JobSeekerList userList;
     
     public SignInController(){
         loginPrompt = new SignInView();
-        JobSeekerList userList = new JobSeekerList();
+        userList = new JobSeekerList();
         newButtonListeners();
     }
     
@@ -29,7 +29,7 @@ public class SignInController {
         JobSeekerController jsController = new JobSeekerController();
     }
     public void authenticateFailed(){
-        
+        loginPrompt.sip.loginFailPrompt();
         
     }
     
