@@ -29,7 +29,7 @@ public class SignInController {
     private void newButtonListeners() {
         
         
-        .addActionListener((ActionEvent evt) -> {
+        loginPrompt.sip.submit.addActionListener((ActionEvent evt) -> {
             
         });
               
