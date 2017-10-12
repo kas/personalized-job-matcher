@@ -11,12 +11,12 @@ import javax.swing.*;
 import javax.swing.JOptionPane;
 
 public class SignInPanel extends JPanel{
-    JLabel user = new JLabel("Username:");
-    JLabel pass = new JLabel("Password:");
-    JTextField userText = new JTextField(20);
-    JTextField passText = new JTextField(20);
-    JButton submit = new JButton("Log In");
-    JList employer = new JList();
+    JLabel user;
+    JLabel pass;
+    JTextField userText;
+    JTextField passText;
+    JButton submit;
+    JList employer;
     
     public SignInPanel()
     {
@@ -30,6 +30,14 @@ public class SignInPanel extends JPanel{
     
 
     private void initComponents() {
+        
+        user = new JLabel("Username:");
+        pass = new JLabel("Password:");
+        userText = new JTextField(20);
+        passText = new JTextField(20);
+        submit = new JButton("Log In");
+        employer = new JList();
+        
         add(user);
         user.setBounds(100,100,100,50);
         
