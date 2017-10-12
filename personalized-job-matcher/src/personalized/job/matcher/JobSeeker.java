@@ -5,7 +5,7 @@ package personalized.job.matcher;
  *
  * @author Christian Kim
  */
-public class JobSeeker {
+public class JobSeeker extends User {
     private String firstName;
     private String lastName;
     private int profile;
@@ -61,5 +61,10 @@ public class JobSeeker {
      */
     public void setProfile(int profile) {
         this.profile = profile;
+    }
+
+    @Override
+    public boolean signIn() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
