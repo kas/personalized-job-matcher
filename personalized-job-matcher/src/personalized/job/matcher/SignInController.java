@@ -12,8 +12,8 @@ public class SignInController {
     
     public SignInController(){
         loginPrompt = new SignInView();
-        newButtonListeners();
         JobSeekerList userList = new JobSeekerList();
+        newButtonListeners();
     }
     
     public void attemptLogin(){
