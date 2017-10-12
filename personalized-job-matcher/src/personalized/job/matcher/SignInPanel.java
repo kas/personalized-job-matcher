@@ -22,23 +22,12 @@ public class SignInPanel extends JPanel{
     {
         setLayout(null);
         setBackground(Color.white);
-        
-        
         initComponents();
-        newButtonListeners();
+        
         
     }
     
-    private void newButtonListeners() {
-        
-        
-        
-        this.submit.addActionListener((ActionEvent evt) -> {
-            
-        });
-       
-        
-    }
+    
 
     private void initComponents() {
         add(user);
