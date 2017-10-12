@@ -25,7 +25,7 @@ public class SignInController {
         JobSeekerController jsController = new JobSeekerController();
     }
     public void authenticateFailed(){
-        
+        loginPrompt.sip.loginFailPrompt();
         
     }
     
