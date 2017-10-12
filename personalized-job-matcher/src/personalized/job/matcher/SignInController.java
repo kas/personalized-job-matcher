@@ -10,6 +10,7 @@ public class SignInController {
     
     SignInView loginPrompt;
     
+    
     public SignInController(){
         loginPrompt = new SignInView();
         JobSeekerList userList = new JobSeekerList();
@@ -19,8 +20,11 @@ public class SignInController {
     public void attemptLogin(){
         String tempUserStr = loginPrompt.sip.userText.toString();
         String tempPassStr = loginPrompt.sip.passText.toString();
-        
+        String text = loginPrompt.sip.userText.getText().toString();
+        String text1 = loginPrompt.sip.passText.getText().toString();
+        System.out.println(text + "\n" + text1);
     }
+    
     public void authenticatePass(){
         JobSeekerController jsController = new JobSeekerController();
     }
