@@ -18,6 +18,7 @@ public class SignInController {
     
     public void attemptLogin(){
         String tempUserStr = loginPrompt.sip.userText.toString();
+        String tempPassStr = loginPrompt.sip.passText.toString();
         
     }
     public void authenticatePass(){
