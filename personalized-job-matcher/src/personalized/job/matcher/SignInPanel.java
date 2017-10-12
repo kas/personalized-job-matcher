@@ -31,13 +31,13 @@ public class SignInPanel extends JPanel{
     
     private void newButtonListeners() {
         
-       
-        /*
-        view.getIframe().getInp().getTop().getbSpeed1().addActionListener((ActionEvent evt) -> {
-            model.setDefaultSpeed(model.getRookieSpeed());
-            view.getIframe().getInp().getBot().repaint();
+        
+        
+        this.submit.addActionListener((ActionEvent evt) -> {
+            
         });
-        */
+       
+        
     }
 
     private void initComponents() {
