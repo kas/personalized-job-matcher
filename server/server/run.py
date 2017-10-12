@@ -13,14 +13,14 @@ def employers():
         # TODO return error
         pass
 
-    employer_list = []
+    json = {'results': []}
 
     for employer in employers:
-        employer_list.append(employer.name)
+        json['results'].append(employer.name)
 
-    json = jsonify(employer_list)
+    response = jsonify(json)
 
-    return json
+    return response
 
 @app.route('/api/employers', methods=['POST'])
 def web_sign_in():
