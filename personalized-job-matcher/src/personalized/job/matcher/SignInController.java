@@ -9,13 +9,15 @@ import java.awt.event.ActionEvent;
 public class SignInController {
     
     SignInView loginPrompt;
+    
     public SignInController(){
         loginPrompt = new SignInView();
         newButtonListeners();
-        //JobSeekerList userList = new JobSeekerList();
+        JobSeekerList userList = new JobSeekerList();
     }
     
     public void attemptLogin(){
+        String tempUserStr = loginPrompt.sip.userText.toString();
         
     }
     public void authenticatePass(){
@@ -30,7 +32,7 @@ public class SignInController {
         
         
         loginPrompt.sip.submit.addActionListener((ActionEvent evt) -> {
-            
+            attemptLogin();
         });
               
     }
