@@ -1,12 +1,17 @@
 
 package personalized.job.matcher;
 
+import java.awt.event.ActionEvent;
+
 
 
 
 public class SignInController {
+    
+    SignInView loginPrompt;
     public SignInController(){
-        SignInView loginPrompt = new SignInView();
+        loginPrompt = new SignInView();
+        newButtonListeners();
         //JobSeekerList userList = new JobSeekerList();
     }
     
@@ -19,5 +24,14 @@ public class SignInController {
     public void authenticateFailed(){
         
         
+    }
+    
+    private void newButtonListeners() {
+        
+        
+        .addActionListener((ActionEvent evt) -> {
+            
+        });
+              
     }
 }
