@@ -22,6 +22,24 @@ public class SignInPanel extends JPanel{
         setLayout(null);
         setBackground(Color.white);
         
+        
+        initComponents();
+        newButtonListeners();
+        
+    }
+    
+    private void newButtonListeners() {
+        
+       
+        /*
+        view.getIframe().getInp().getTop().getbSpeed1().addActionListener((ActionEvent evt) -> {
+            model.setDefaultSpeed(model.getRookieSpeed());
+            view.getIframe().getInp().getBot().repaint();
+        });
+        */
+    }
+
+    private void initComponents() {
         add(user);
         user.setBounds(100,100,100,50);
         
@@ -46,6 +64,5 @@ public class SignInPanel extends JPanel{
         
         JScrollPane employerScroller = new JScrollPane(employer);
         employerScroller.setPreferredSize(new Dimension(250,80));
-        
     }
 }
