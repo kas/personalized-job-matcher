@@ -9,17 +9,25 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+
 public class SignInView extends JFrame{
     
-    
+    SignInPanel sip;
     SignInView()
     {
         super("Practice");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        SignInPanel sip = new SignInPanel();
+        sip = new SignInPanel();
         add(sip);
         setSize(900,500);
         setVisible(true);
+     
     }
+    
+    
+    
+    
+
+    
     
 }

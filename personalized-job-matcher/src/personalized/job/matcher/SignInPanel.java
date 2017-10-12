@@ -8,19 +8,35 @@ package personalized.job.matcher;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import javax.swing.JOptionPane;
 
 public class SignInPanel extends JPanel{
-    JLabel user = new JLabel("Username:");
-    JLabel pass = new JLabel("Password:");
-    JTextField userText = new JTextField(20);
-    JTextField passText = new JTextField(20);
-    JButton submit = new JButton("Log In");
-    JList employer = new JList();
+    JLabel user;
+    JLabel pass;
+    JTextField userText;
+    JTextField passText;
+    JButton submit;
+    JList employer;
     
     public SignInPanel()
     {
         setLayout(null);
         setBackground(Color.white);
+        initComponents();
+        
+        
+    }
+    
+    
+
+    private void initComponents() {
+        
+        user = new JLabel("Username:");
+        pass = new JLabel("Password:");
+        userText = new JTextField(20);
+        passText = new JTextField(20);
+        submit = new JButton("Log In");
+        employer = new JList();
         
         add(user);
         user.setBounds(100,100,100,50);
@@ -46,6 +62,14 @@ public class SignInPanel extends JPanel{
         
         JScrollPane employerScroller = new JScrollPane(employer);
         employerScroller.setPreferredSize(new Dimension(250,80));
-        
+    }
+    
+    public void loginFailPrompt(){
+        /*
+        JOptionPane.showMessageDialog(fillthisinlater,
+        "Incorrect username or password",
+        "Login Error",
+        JOptionPane.ERROR_MESSAGE);
+        */
     }
 }

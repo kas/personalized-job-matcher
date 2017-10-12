@@ -11,8 +11,12 @@ import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import java.awt.event.ActionEvent;
 
 public class SignInController {
+    SignInView loginPrompt;
+    JobSeekerList userList;
+
     private static String readAll(Reader rd) throws IOException {
         StringBuilder sb = new StringBuilder();
         int cp;
@@ -34,34 +38,46 @@ public class SignInController {
         }
     }
 
-    public SignInController() throws IOException{
-        SignInView loginPrompt = new SignInView();
-        //JobSeekerList userList = new JobSeekerList();
+    public SignInController() {
+        loginPrompt = new SignInView();
+        userList = new JobSeekerList();
+        newButtonListeners();
 
         // access Employers in ArrayList
-        JSONObject json = readJsonFromUrl("http://127.0.0.1:5000/api/employers");
-        JSONArray employersJsonArray = json.getJSONArray("results");
-        ArrayList<String> employersArrayList = new ArrayList<String>();
-        for (int i = 0; i < employersJsonArray.length(); i++) {
-            employersArrayList.add(employersJsonArray.getString(i));
-        }
-        System.out.println(employersArrayList.get(0));
+	JSONObject json = null;
+	try {
+		json = readJsonFromUrl("http://127.0.0.1:5000/api/employers");
+	} catch  (IOException e) {
+		System.out.println(e.toString());
+	}
+	
+	if (json != null) {
+		JSONArray employersJsonArray = json.getJSONArray("results");
+		ArrayList<String> employersArrayList = new ArrayList<String>();
+		for (int i = 0; i < employersJsonArray.length(); i++) {
+			employersArrayList.add(employersJsonArray.getString(i));
+		}
+		System.out.println(employersArrayList.get(0));
+	}
         // end
     }
 
-    public void login(){
-
+    public void attemptLogin(){
+        String text = loginPrompt.sip.userText.getText().toString();
+        String text1 = loginPrompt.sip.passText.getText().toString();
+        System.out.println(text + "\n" + text1);
     }
+
     public void authenticatePass(){
         JobSeekerController jsController = new JobSeekerController();
     }
     public void authenticateFailed(){
+        loginPrompt.sip.loginFailPrompt();
+    }
 
-        /*
-        JOptionPane.showMessageDialog(fillthisinlater,
-        "Incorrect username or password",
-        "Login Error",
-        JOptionPane.ERROR_MESSAGE);
-        */
+    private void newButtonListeners() {
+        loginPrompt.sip.submit.addActionListener((ActionEvent evt) -> {
+            attemptLogin();
+        });
     }
 }
