@@ -8,6 +8,7 @@ package personalized.job.matcher;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import javax.swing.JOptionPane;
 
 public class SignInPanel extends JPanel{
     JLabel user = new JLabel("Username:");
@@ -64,5 +65,14 @@ public class SignInPanel extends JPanel{
         
         JScrollPane employerScroller = new JScrollPane(employer);
         employerScroller.setPreferredSize(new Dimension(250,80));
+    }
+    
+    public void loginFailPrompt(){
+        /*
+        JOptionPane.showMessageDialog(fillthisinlater,
+        "Incorrect username or password",
+        "Login Error",
+        JOptionPane.ERROR_MESSAGE);
+        */
     }
 }
