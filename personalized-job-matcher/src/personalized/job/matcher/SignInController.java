@@ -10,7 +10,7 @@ public class SignInController {
         //JobSeekerList userList = new JobSeekerList();
     }
     
-    public void login(){
+    public void attemptLogin(){
         
     }
     public void authenticatePass(){
