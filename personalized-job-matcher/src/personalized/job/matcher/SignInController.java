@@ -9,7 +9,8 @@ import java.awt.event.ActionEvent;
 public class SignInController {
     
     SignInView loginPrompt;
-    JobSeekerList userList
+    JobSeekerList userList;
+    
     public SignInController(){
         loginPrompt = new SignInView();
         userList = new JobSeekerList();
