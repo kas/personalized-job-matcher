@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 
 public class SignInController {
     public SignInController(){
-        //SignInUI loginPrompt = new SignInUI();
+        SignInView loginPrompt = new SignInView();
         //JobSeekerList userList = new JobSeekerList();
     }
     

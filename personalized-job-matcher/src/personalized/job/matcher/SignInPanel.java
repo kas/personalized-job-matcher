@@ -37,10 +37,12 @@ public class SignInPanel extends JPanel{
         add(submit);
         submit.setBounds(400, 125, 100, 25);
         
+        
         add(employer);
         employer.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
         employer.setLayoutOrientation(JList.HORIZONTAL_WRAP);
         employer.setVisibleRowCount(-1);
+        employer.setBounds(400, 200, 100, 200);
         
         JScrollPane employerScroller = new JScrollPane(employer);
         employerScroller.setPreferredSize(new Dimension(250,80));

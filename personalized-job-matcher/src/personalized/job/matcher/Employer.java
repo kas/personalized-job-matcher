@@ -49,13 +49,12 @@ public class Employer extends User implements Savable {
     }
 
   @Override
-  public void signIn() {
-    // replace the current sign in screen with options screen so that Employer can choose what they want to do
-    // perhaps set the currentUser variable to this instance?
+  public boolean signIn() {
+    return false;
   }
 
   @Override
-  public void save() {
-    // either save this instance to the SQL database, or serialize this object
+  public boolean save() {
+    return false;
   }
 }
