@@ -50,3 +50,5 @@ Remove the database volume mounted at `server/db/`
 ## When first deploying to Heroku
 
 `heroku config:set HEROKU=true`
+
+Add `gunicorn` to `requirements.txt`
