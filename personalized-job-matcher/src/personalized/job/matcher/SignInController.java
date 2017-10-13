@@ -46,7 +46,7 @@ public class SignInController {
         // access Employers in ArrayList
 	JSONObject json = null;
 	try {
-		json = readJsonFromUrl("http://127.0.0.1:5000/api/employers");
+		json = readJsonFromUrl("https://personalized-job-matcher.herokuapp.com:5000/api/employers");
 	} catch  (IOException e) {
 		System.out.println(e.toString());
 	}
