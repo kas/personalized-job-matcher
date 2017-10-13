@@ -44,6 +44,7 @@ Remove the database volume mounted at `server/db/`
 ## To run the server
 
 `export FLASK_APP=run.py`
+
 `flask run`
 
 ## When first deploying to Heroku
