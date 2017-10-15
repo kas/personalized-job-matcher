@@ -71,7 +71,7 @@ public class SignInController {
         if (userInList == true){
             authenticatePass();
         }else{
-            loginPrompt.sip.loginFailPrompt();
+            authenticateFailed();
         }
         
     }
