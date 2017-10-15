@@ -14,8 +14,8 @@ import org.json.JSONObject;
 import java.awt.event.ActionEvent;
 
 public class SignInController {
-    SignInView loginPrompt;
-    JobSeekerList userList;
+    private SignInView loginPrompt;
+    private JobSeekerList userList;
 
     private static String readAll(Reader rd) throws IOException {
         StringBuilder sb = new StringBuilder();
@@ -63,11 +63,11 @@ public class SignInController {
     }
 
     public void attemptLogin(){
-        String userText = loginPrompt.sip.userText.getText();
-        String passwordText = loginPrompt.sip.passText.getText();
+        String userText = loginPrompt.getSip().getUserText().getText();
+        String passwordText = loginPrompt.getSip().getPassText().getText();
         boolean userInList;
         
-        userInList = validateUserPass(userList.userList, userText, passwordText);
+        userInList = validateUserPass(userList.getUserList(), userText, passwordText);
         if (userInList == true){
             authenticatePass();
             
@@ -79,15 +79,15 @@ public class SignInController {
 
     public void authenticatePass(){
         loginPrompt.setVisible(false);
-        loginPrompt.sip.loginSuccessPrompt();
+        loginPrompt.getSip().loginSuccessPrompt();
         JobSeekerController jsController = new JobSeekerController();
     }
     public void authenticateFailed(){
-        loginPrompt.sip.loginFailPrompt();
+        loginPrompt.getSip().loginFailPrompt();
     }
 
     private void newButtonListeners() {
-        loginPrompt.sip.submit.addActionListener((ActionEvent evt) -> {
+        loginPrompt.getSip().getSubmit().addActionListener((ActionEvent evt) -> {
             attemptLogin();
         });
     }
@@ -103,6 +103,34 @@ public class SignInController {
             }
         }
         return authenticateFlag;
+    }
+
+    /**
+     * @return the loginPrompt
+     */
+    public SignInView getLoginPrompt() {
+        return loginPrompt;
+    }
+
+    /**
+     * @param loginPrompt the loginPrompt to set
+     */
+    public void setLoginPrompt(SignInView loginPrompt) {
+        this.loginPrompt = loginPrompt;
+    }
+
+    /**
+     * @return the userList
+     */
+    public JobSeekerList getUserList() {
+        return userList;
+    }
+
+    /**
+     * @param userList the userList to set
+     */
+    public void setUserList(JobSeekerList userList) {
+        this.userList = userList;
     }
     
 }
