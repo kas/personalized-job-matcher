@@ -70,6 +70,7 @@ public class SignInController {
         userInList = validateUserPass(userList.userList, userText, passwordText);
         if (userInList == true){
             authenticatePass();
+            
         }else{
             authenticateFailed();
         }
@@ -77,6 +78,7 @@ public class SignInController {
     }
 
     public void authenticatePass(){
+        loginPrompt.setVisible(false);
         JobSeekerController jsController = new JobSeekerController();
     }
     public void authenticateFailed(){
