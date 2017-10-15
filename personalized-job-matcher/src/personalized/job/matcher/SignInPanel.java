@@ -50,6 +50,7 @@ public class SignInPanel extends JPanel{
         add(passText);
         passText.setBounds(200, 140, 100, 20);
         
+        
         add(submit);
         submit.setBounds(400, 125, 100, 25);
         
@@ -65,11 +66,11 @@ public class SignInPanel extends JPanel{
     }
     
     public void loginFailPrompt(){
-        /*
-        JOptionPane.showMessageDialog(fillthisinlater,
+        
+        JOptionPane.showMessageDialog(new JPanel(),
         "Incorrect username or password",
         "Login Error",
         JOptionPane.ERROR_MESSAGE);
-        */
+        
     }
 }

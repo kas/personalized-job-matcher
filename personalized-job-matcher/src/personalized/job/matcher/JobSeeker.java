@@ -6,19 +6,19 @@ package personalized.job.matcher;
  * @author Christian Kim
  */
 public class JobSeeker extends User {
-	private String username;
+    private String username;
     private String firstName;
     private String lastName;
     private int profile;
-    String password;
+    private String password;
     
-    public JobSeeker(String username, String newFirstName, String newLastName, int newProfile, String newPassword)
+    public JobSeeker(String newUsername, String newFirstName, String newLastName, int newProfile, String newPassword)
     {
-	    this.username = username;
-        firstName = newFirstName;
-        lastName = newLastName;
-        profile = newProfile;
-        password = newPassword;
+	this.username = newUsername;
+        this.firstName = newFirstName;
+        this.lastName = newLastName; 
+        this.profile = newProfile;
+        this.password = newPassword;
         
         
     }
@@ -68,5 +68,33 @@ public class JobSeeker extends User {
     @Override
     public boolean signIn() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    /**
+     * @return the username
+     */
+    public String getUsername() {
+        return username;
+    }
+
+    /**
+     * @param username the username to set
+     */
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    /**
+     * @return the password
+     */
+    public String getPassword() {
+        return password;
+    }
+
+    /**
+     * @param password the password to set
+     */
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

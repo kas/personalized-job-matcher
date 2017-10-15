@@ -63,9 +63,17 @@ public class SignInController {
     }
 
     public void attemptLogin(){
-        String text = loginPrompt.sip.userText.getText().toString();
-        String text1 = loginPrompt.sip.passText.getText().toString();
-        System.out.println(text + "\n" + text1);
+        String userText = loginPrompt.sip.userText.getText();
+        String passwordText = loginPrompt.sip.passText.getText();
+        boolean userInList;
+        
+        userInList = validateUserPass(userList.userList, userText, passwordText);
+        if (userInList == true){
+            authenticatePass();
+        }else{
+            loginPrompt.sip.loginFailPrompt();
+        }
+        
     }
 
     public void authenticatePass(){
@@ -80,4 +88,18 @@ public class SignInController {
             attemptLogin();
         });
     }
+    public boolean validateUserPass(ArrayList<JobSeeker> userList, String userName,String password){
+        boolean flag = false;
+        boolean authenticateFlag = false;
+        for(JobSeeker object : userList){
+            if (object.getUsername().equalsIgnoreCase(userName)){
+                flag = true;
+                if (flag == true && object.getPassword().equals(password)){
+                    authenticateFlag = true;
+                }
+            }
+        }
+        return authenticateFlag;
+    }
+    
 }

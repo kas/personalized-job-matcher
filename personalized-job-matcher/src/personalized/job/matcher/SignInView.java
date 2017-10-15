@@ -15,7 +15,7 @@ public class SignInView extends JFrame{
     SignInPanel sip;
     SignInView()
     {
-        super("Practice");
+        super("Login");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         sip = new SignInPanel();
         add(sip);
