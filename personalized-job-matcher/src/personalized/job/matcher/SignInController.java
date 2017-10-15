@@ -79,6 +79,7 @@ public class SignInController {
 
     public void authenticatePass(){
         loginPrompt.setVisible(false);
+        loginPrompt.sip.loginSuccessPrompt();
         JobSeekerController jsController = new JobSeekerController();
     }
     public void authenticateFailed(){
