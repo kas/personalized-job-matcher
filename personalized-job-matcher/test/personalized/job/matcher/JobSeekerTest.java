@@ -43,7 +43,7 @@ public class JobSeekerTest {
     @Test
     public void testGetFirstName() {
         System.out.println("getFirstName");
-        JobSeeker instance = new JobSeeker("Bob", "Smith",1, "1234");
+        JobSeeker instance = new JobSeeker("bobross","Bob", "Smith",1, "1234");
         String expResult = "Bob";
         String result = instance.getFirstName();
         assertEquals(expResult, result);
@@ -58,7 +58,7 @@ public class JobSeekerTest {
     public void testSetFirstName() {
         System.out.println("setFirstName");
         String firstName = "";
-        JobSeeker instance = new JobSeeker("Bob", "Smith",1, "1234");
+        JobSeeker instance = new JobSeeker("bobross","Bob", "Smith",1, "1234");
         instance.setFirstName(firstName);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -70,7 +70,7 @@ public class JobSeekerTest {
     @Test
     public void testGetLastName() {
         System.out.println("getLastName");
-        JobSeeker instance = new JobSeeker("Bob", "Smith", 1, "1234");
+        JobSeeker instance = new JobSeeker("bobross","Bob", "Smith",1, "1234");
         String expResult = "Smith";
         String result = instance.getLastName();
         assertEquals(expResult, result);
@@ -85,7 +85,7 @@ public class JobSeekerTest {
     public void testSetLastName() {
         System.out.println("setLastName");
         String lastName = "";
-        JobSeeker instance = new JobSeeker("Bob", "Smith", 1, "1234");
+        JobSeeker instance = new JobSeeker("bobross","Bob", "Smith",1, "1234");
         instance.setLastName(lastName);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -97,7 +97,7 @@ public class JobSeekerTest {
     @Test
     public void testGetProfile() {
         System.out.println("getProfile");
-        JobSeeker instance = new JobSeeker("Bob", "Smith",1 , "1234");
+        JobSeeker instance = new JobSeeker("bobross","Bob", "Smith",1, "1234");
         int expResult = 1234;
         int result = instance.getProfile();
         assertEquals(expResult, result);
@@ -112,10 +112,78 @@ public class JobSeekerTest {
     public void testSetProfile() {
         System.out.println("setProfile");
         int profile = 0;
-        JobSeeker instance = new JobSeeker("Bob", "Smith", 1, "1234");
+        JobSeeker instance = new JobSeeker("bobross","Bob", "Smith",1, "1234");
         instance.setProfile(profile);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of signIn method, of class JobSeeker.
+     */
+    @Test
+    public void testSignIn() {
+        System.out.println("signIn");
+        JobSeeker instance = null;
+        boolean expResult = false;
+        boolean result = instance.signIn();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getUsername method, of class JobSeeker.
+     */
+    @Test
+    public void testGetUsername() {
+        System.out.println("getUsername");
+        JobSeeker instance = null;
+        String expResult = "";
+        String result = instance.getUsername();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of setUsername method, of class JobSeeker.
+     */
+    @Test
+    public void testSetUsername() {
+        System.out.println("setUsername");
+        String username = "";
+        JobSeeker instance = null;
+        instance.setUsername(username);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getPassword method, of class JobSeeker.
+     */
+    @Test
+    public void testGetPassword() {
+        System.out.println("getPassword");
+        JobSeeker instance = null;
+        String expResult = "";
+        String result = instance.getPassword();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of setPassword method, of class JobSeeker.
+     */
+    @Test
+    public void testSetPassword() {
+        System.out.println("setPassword");
+        String password = "";
+        JobSeeker instance = null;
+        instance.setPassword(password);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
     
 }

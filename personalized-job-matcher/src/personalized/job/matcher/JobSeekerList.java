@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class JobSeekerList {
     
-    ArrayList<JobSeeker> userList;
+    private ArrayList<JobSeeker> userList;
     
     public JobSeekerList(){
         userList = new ArrayList<>();
@@ -26,6 +26,20 @@ public class JobSeekerList {
         userList.add(user4);
         userList.add(user5);
         userList.add(user6);
+    }
+
+    /**
+     * @return the userList
+     */
+    public ArrayList<JobSeeker> getUserList() {
+        return userList;
+    }
+
+    /**
+     * @param userList the userList to set
+     */
+    public void setUserList(ArrayList<JobSeeker> userList) {
+        this.userList = userList;
     }
     
     

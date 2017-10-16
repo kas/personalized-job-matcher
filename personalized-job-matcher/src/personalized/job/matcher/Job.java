@@ -62,4 +62,18 @@ public class Job {
     public void setEmployer(int employer) {
         this.employerID = employer;
     }
+
+    /**
+     * @return the employerID
+     */
+    public int getEmployerID() {
+        return employerID;
+    }
+
+    /**
+     * @param employerID the employerID to set
+     */
+    public void setEmployerID(int employerID) {
+        this.employerID = employerID;
+    }
 }

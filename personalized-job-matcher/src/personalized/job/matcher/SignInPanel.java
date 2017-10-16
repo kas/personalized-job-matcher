@@ -11,12 +11,12 @@ import javax.swing.*;
 import javax.swing.JOptionPane;
 
 public class SignInPanel extends JPanel{
-    JLabel user;
-    JLabel pass;
-    JTextField userText;
-    JTextField passText;
-    JButton submit;
-    JList employer;
+    private JLabel user;
+    private JLabel pass;
+    private JTextField userText;
+    private JTextField passText;
+    private JButton submit;
+    private JList employer;
     
     public SignInPanel()
     {
@@ -72,5 +72,96 @@ public class SignInPanel extends JPanel{
         "Login Error",
         JOptionPane.ERROR_MESSAGE);
         
+    }
+    
+    public void loginSuccessPrompt(){
+        JOptionPane.showMessageDialog(new JPanel(),
+        "Login successful!",
+        "Login Success",
+        JOptionPane.PLAIN_MESSAGE);
+    }
+
+    /**
+     * @return the user
+     */
+    public JLabel getUser() {
+        return user;
+    }
+
+    /**
+     * @param user the user to set
+     */
+    public void setUser(JLabel user) {
+        this.user = user;
+    }
+
+    /**
+     * @return the pass
+     */
+    public JLabel getPass() {
+        return pass;
+    }
+
+    /**
+     * @param pass the pass to set
+     */
+    public void setPass(JLabel pass) {
+        this.pass = pass;
+    }
+
+    /**
+     * @return the userText
+     */
+    public JTextField getUserText() {
+        return userText;
+    }
+
+    /**
+     * @param userText the userText to set
+     */
+    public void setUserText(JTextField userText) {
+        this.userText = userText;
+    }
+
+    /**
+     * @return the passText
+     */
+    public JTextField getPassText() {
+        return passText;
+    }
+
+    /**
+     * @param passText the passText to set
+     */
+    public void setPassText(JTextField passText) {
+        this.passText = passText;
+    }
+
+    /**
+     * @return the submit
+     */
+    public JButton getSubmit() {
+        return submit;
+    }
+
+    /**
+     * @param submit the submit to set
+     */
+    public void setSubmit(JButton submit) {
+        this.submit = submit;
+    }
+
+    /**
+     * @return the employer
+     */
+    public JList getEmployer() {
+        return employer;
+    }
+
+    /**
+     * @param employer the employer to set
+     */
+    public void setEmployer(JList employer) {
+        this.employer = employer;
     }
 }
