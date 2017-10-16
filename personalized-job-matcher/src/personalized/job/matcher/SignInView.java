@@ -5,14 +5,12 @@
  */
 package personalized.job.matcher;
 
-import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
 
 
 public class SignInView extends JFrame{
     
-    SignInPanel sip;
+    private SignInPanel sip;
     SignInView()
     {
         super("Login");
@@ -22,6 +20,20 @@ public class SignInView extends JFrame{
         setSize(900,500);
         setVisible(true);
      
+    }
+
+    /**
+     * @return the sip
+     */
+    public SignInPanel getSip() {
+        return sip;
+    }
+
+    /**
+     * @param sip the sip to set
+     */
+    public void setSip(SignInPanel sip) {
+        this.sip = sip;
     }
     
     
