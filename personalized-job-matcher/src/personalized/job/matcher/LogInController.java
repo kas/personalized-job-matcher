@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -24,7 +25,10 @@ public class LogInController implements Initializable {
         userList = new JobSeekerList();
 	
     }
-            
+    
+    
+    
+    
     @FXML protected void handleSubmitButtonAction(ActionEvent event) {
         
         
@@ -47,7 +51,9 @@ public class LogInController implements Initializable {
         
         //loginPrompt.setVisible(false);
         loginSuccessPrompt();
-        //JobSeekerController jsController = new JobSeekerController();
+        Stage stage = (Stage) username.getScene().getWindow();
+        stage.close();
+        NavigationController navControl = new NavigationController(userList);
     }
     public void authenticateFailed(){
         

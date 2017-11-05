@@ -5,9 +5,14 @@
  */
 package personalized.job.matcher;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -16,9 +21,15 @@ import javafx.fxml.Initializable;
  */
 public class NavigationUiController implements Initializable {
 
-	/**
-	 * Initializes the controller class.
-	 */
+	
+        
+        
+        public NavigationUiController(){
+            
+        }
+        public void redirectHome() {
+            
+        }
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
 		// TODO
