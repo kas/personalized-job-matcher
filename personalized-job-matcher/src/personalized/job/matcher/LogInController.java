@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 public class LogInController implements Initializable {
     
     JobSeekerList userList;
+    JobSeeker currentJobSeeker;
     @FXML private TextField username;
     @FXML private PasswordField pw;
     
@@ -53,7 +54,7 @@ public class LogInController implements Initializable {
         loginSuccessPrompt();
         Stage stage = (Stage) username.getScene().getWindow();
         stage.close();
-        NavigationController navControl = new NavigationController(userList);
+        NavigationController navControl = new NavigationController(currentJobSeeker);
     }
     public void authenticateFailed(){
         
@@ -67,6 +68,7 @@ public class LogInController implements Initializable {
                 flag = true;
                 if (flag == true && object.getPassword().equals(password)){
                     authenticateFlag = true;
+                    currentJobSeeker = object;
                 }
             }
         }

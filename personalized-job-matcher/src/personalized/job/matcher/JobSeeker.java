@@ -13,14 +13,25 @@ public class JobSeeker extends User {
     private String lastName;
     private int profile;
     private String password;
+    private String age;
+    private String city;
+    private String state;
+    private String currentJob;
+    private String sex;
     
-    public JobSeeker(String newUsername, String newFirstName, String newLastName, int newProfile, String newPassword)
+    
+    public JobSeeker(String newUsername, String newFirstName, String newLastName, int newProfile, String newPassword, String newAge, String newCity, String newState, String newCurrentJob, String newSex)
     {
 	this.username = newUsername;
         this.firstName = newFirstName;
         this.lastName = newLastName; 
         this.profile = newProfile;
         this.password = newPassword;
+        this.age = newAge;
+        this.city = newCity;
+        this.state = newState;
+        this.currentJob = newCurrentJob;
+        this.sex = newSex;
         
         
     }
@@ -98,5 +109,85 @@ public class JobSeeker extends User {
      */
     public void setPassword(String password) {
         this.password = password;
+    }
+    
+    public String getLocation(){
+        String location = this.city + ", " + this.state;       
+        return location;
+    }
+    
+    public String getFullName(){
+        String name = this.firstName + " " + this.lastName;
+        return name;
+    }
+
+    /**
+     * @return the age
+     */
+    public String getAge() {
+        return age;
+    }
+
+    /**
+     * @param age the age to set
+     */
+    public void setAge(String age) {
+        this.age = age;
+    }
+
+    /**
+     * @return the city
+     */
+    public String getCity() {
+        return city;
+    }
+
+    /**
+     * @param city the city to set
+     */
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    /**
+     * @return the state
+     */
+    public String getState() {
+        return state;
+    }
+
+    /**
+     * @param state the state to set
+     */
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    /**
+     * @return the currentJob
+     */
+    public String getCurrentJob() {
+        return currentJob;
+    }
+
+    /**
+     * @param currentJob the currentJob to set
+     */
+    public void setCurrentJob(String currentJob) {
+        this.currentJob = currentJob;
+    }
+
+    /**
+     * @return the sex
+     */
+    public String getSex() {
+        return sex;
+    }
+
+    /**
+     * @param sex the sex to set
+     */
+    public void setSex(String sex) {
+        this.sex = sex;
     }
 }
