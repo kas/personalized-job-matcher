@@ -29,7 +29,7 @@ public class LogInController implements Initializable {
     
     
     
-    @FXML protected void handleSubmitButtonAction(ActionEvent event) {
+    @FXML protected void handleLoginButtonAction(ActionEvent event) {
         
         
         String userText = username.getText();
