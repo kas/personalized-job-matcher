@@ -134,7 +134,7 @@ public class NavigationUiController implements Initializable {
     }
 
     public void setLabels() {
-        name.setText(currentJobSeeker.getFullName());
+        name.setText(currentJobSeeker.getName());
         age.setText(currentJobSeeker.getAge());
         location.setText(currentJobSeeker.getLocation());
         sex.setText(currentJobSeeker.getSex());

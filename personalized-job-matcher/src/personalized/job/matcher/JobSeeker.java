@@ -9,60 +9,40 @@ package personalized.job.matcher;
  */
 public class JobSeeker extends User {
     private String username;
-    private String firstName;
-    private String lastName;
+    //private String firstName;
+    //private String lastName;
     private int profile;
     private String password;
     private String age;
-    private String city;
-    private String state;
+    // private String city;
+    //private String state;
     private String currentJob;
     private String sex;
+    private String name;
+    private String location;
     
     
-    public JobSeeker(String newUsername, String newFirstName, String newLastName, int newProfile, String newPassword, String newAge, String newCity, String newState, String newCurrentJob, String newSex)
+    public JobSeeker(String newUsername, /*String newFirstName, String newLastName,*/
+            String newName, int newProfile, String newPassword, String newAge, /*String newCity, 
+            String newState,*/ String newLocation, String newSex, String newCurrentJob)
     {
+        /*Code Commented Out Until we decide how specific to make some profile fields*/
 	this.username = newUsername;
-        this.firstName = newFirstName;
-        this.lastName = newLastName; 
+        //this.firstName = newFirstName;
+        //this.lastName = newLastName; 
         this.profile = newProfile;
         this.password = newPassword;
         this.age = newAge;
-        this.city = newCity;
-        this.state = newState;
+        //this.city = newCity;
+        //this.state = newState;
         this.currentJob = newCurrentJob;
         this.sex = newSex;
+        this.name = newName;
+        this.location = newLocation;
         
         
     }
 
-    /**
-     * @return the firstName
-     */
-    public String getFirstName() {
-        return firstName;
-    }
-
-    /**
-     * @param firstName the firstName to set
-     */
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    /**
-     * @return the lastName
-     */
-    public String getLastName() {
-        return lastName;
-    }
-
-    /**
-     * @param lastName the lastName to set
-     */
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 
     /**
      * @return the profile
@@ -111,15 +91,6 @@ public class JobSeeker extends User {
         this.password = password;
     }
     
-    public String getLocation(){
-        String location = this.city + ", " + this.state;       
-        return location;
-    }
-    
-    public String getFullName(){
-        String name = this.firstName + " " + this.lastName;
-        return name;
-    }
 
     /**
      * @return the age
@@ -133,34 +104,6 @@ public class JobSeeker extends User {
      */
     public void setAge(String age) {
         this.age = age;
-    }
-
-    /**
-     * @return the city
-     */
-    public String getCity() {
-        return city;
-    }
-
-    /**
-     * @param city the city to set
-     */
-    public void setCity(String city) {
-        this.city = city;
-    }
-
-    /**
-     * @return the state
-     */
-    public String getState() {
-        return state;
-    }
-
-    /**
-     * @param state the state to set
-     */
-    public void setState(String state) {
-        this.state = state;
     }
 
     /**
@@ -189,5 +132,33 @@ public class JobSeeker extends User {
      */
     public void setSex(String sex) {
         this.sex = sex;
+    }
+
+    /**
+     * @return the name
+     */
+    public String getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    /**
+     * @return the location
+     */
+    public String getLocation() {
+        return location;
+    }
+
+    /**
+     * @param location the location to set
+     */
+    public void setLocation(String location) {
+        this.location = location;
     }
 }

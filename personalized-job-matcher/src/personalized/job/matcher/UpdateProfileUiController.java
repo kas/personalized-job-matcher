@@ -44,7 +44,7 @@ public class UpdateProfileUiController implements Initializable {
             //currentJobSeeker.setCity(city.getText());
             //currentJobSeeker.setState(state.getText());
             //currentJobSeeker.setCurrentJob(job.getText());
-            System.out.println(currentJobSeeker.getFullName());
+            System.out.println(currentJobSeeker.getName());
             System.out.println(currentJobSeeker.getAge());
             System.out.println(currentJobSeeker.getLocation());
             System.out.println(currentJobSeeker.getCurrentJob());

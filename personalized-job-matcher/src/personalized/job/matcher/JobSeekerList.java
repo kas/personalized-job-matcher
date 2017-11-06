@@ -14,12 +14,12 @@ public class JobSeekerList {
     }
 
     private void makeUserList() {
-        JobSeeker user1 = new JobSeeker ("testuser1","Test", "User", 1, "password", "28", "State College", "PA", "Student", "Male");
-        JobSeeker user2 = new JobSeeker ("testuser2","Test", "User", 2, "password", "28", "State College", "PA", "Student", "Male");
-        JobSeeker user3 = new JobSeeker ("testuser3","Test", "User", 3, "password", "28", "State College", "PA", "Student", "Male");
-        JobSeeker user4 = new JobSeeker ("testuser4","Test", "User", 4, "password", "28", "State College", "PA", "Student", "Male");
-        JobSeeker user5 = new JobSeeker ("testuser5","Test", "User", 5, "password", "28", "State College", "PA", "Student", "Male");
-        JobSeeker user6 = new JobSeeker ("testuser6","Test", "User", 6, "password", "28", "State College", "PA", "Student", "Male");
+        JobSeeker user1 = new JobSeeker ("testuser1","TestUser", 1, "password", "28", "State College PA", "Male", "Student");
+        JobSeeker user2 = new JobSeeker ("testuser1","TestUser", 2, "password", "28", "State College PA", "Male", "Student");
+        JobSeeker user3 = new JobSeeker ("testuser1","TestUser", 3, "password", "28", "State College PA", "Male", "Student");
+        JobSeeker user4 = new JobSeeker ("testuser1","TestUser", 4, "password", "28", "State College PA", "Male", "Student");
+        JobSeeker user5 = new JobSeeker ("testuser1","TestUser", 5, "password", "28", "State College PA", "Male", "Student");
+        JobSeeker user6 = new JobSeeker ("testuser1","TestUser", 6, "password", "28", "State College PA", "Male", "Student");
         
         userList.add(user1);
         userList.add(user2);
@@ -43,5 +43,8 @@ public class JobSeekerList {
         this.userList = userList;
     }
     
-    
+    public int getSize()
+    {
+        return this.userList.size();
+    }
 }

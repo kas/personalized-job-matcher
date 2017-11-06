@@ -6,6 +6,7 @@
 package personalized.job.matcher;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 import javafx.event.ActionEvent;
@@ -38,9 +39,11 @@ public class CreateProfileUIController implements Initializable {
     
     @FXML protected void handleSubmitAction(ActionEvent event) {
         String userText = username.getText();
-        UserProfile newUser = new UserProfile(username.getText(), password.getText(), name.getText(), Integer.parseInt(age.getText()),
-            location.getText(), sex.getText(), currentJob.getText());
-        
+        ArrayList<JobSeeker> newList = new ArrayList<JobSeeker>();
+        newList = JobSeekerList.JobSeekerList();
+        JobSeeker newJobSeeker = new JobSeeker(username.getText(), name.getText(), 7, password.getText(), 
+            age.getText(), location.getText(), sex.getText(), currentJob.getText());
+        JobSeekerList.userList.add(newJobSeeker);
     }
     
      @FXML protected void handleCancelAction(ActionEvent event) {
