@@ -5,6 +5,7 @@
  */
 package personalized.job.matcher;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
@@ -16,6 +17,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -56,14 +58,21 @@ public class CreateProfileUIController implements Initializable {
     @FXML private TextField currentJob;
     @FXML private AnchorPane ap;
     
-    @FXML protected void handleSubmitAction(ActionEvent event) {
+    @FXML protected void handleSubmitAction(ActionEvent event) throws IOException {
         ArrayList<JobSeeker> newList = new ArrayList<JobSeeker>();
         JobSeeker newJobSeeker = new JobSeeker(username.getText(), name.getText(), 7, password.getText(), 
             age.getText(), location.getText(), sex.getText(), currentJob.getText());
         //JobSeekerList.JobSeekerList.add(newJobSeeker);
         Stage stage = (Stage) username.getScene().getWindow();
         stage.close();
-        NavigationController navControl = new NavigationController(newJobSeeker);
+        
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("NavigationUi.fxml"));
+        stage.setScene(new Scene((Pane) loader.load()));
+
+        NavigationUiController controller = loader.<NavigationUiController>getController();
+        controller.initData(newJobSeeker);
+        
+        stage.show();             
     }
     
      @FXML protected void handleCancelAction(ActionEvent event) {

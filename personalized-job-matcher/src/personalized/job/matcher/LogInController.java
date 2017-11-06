@@ -1,15 +1,19 @@
 
 package personalized.job.matcher;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -21,7 +25,7 @@ public class LogInController implements Initializable {
     JobSeeker currentJobSeeker;
     @FXML private TextField username;
     @FXML private PasswordField pw;
-    @FXML private AnchorPane ap;
+    
     public LogInController() {   
         
         userList = new JobSeekerList();
@@ -31,7 +35,7 @@ public class LogInController implements Initializable {
     
     
     
-    @FXML protected void handleLoginButtonAction(ActionEvent event) {
+    @FXML protected void handleLoginButtonAction(ActionEvent event) throws IOException {
         
         
         String userText = username.getText();
@@ -48,20 +52,28 @@ public class LogInController implements Initializable {
     }
         
     @FXML protected void handleCreateButtonAction(ActionEvent event) {
-        /*Stage stage = (Stage) username.getScene().getWindow();
+        Stage stage = (Stage) username.getScene().getWindow();
         stage.close();
-        CreateProfileUIController createProfileContrl = new CreateProfileUIController();*/
-        //This code is here for use in Spring 2, where we allow the creation of new users and further features.
+        CreateProfileUIController createProfileContrl = new CreateProfileUIController();
         
     }
-    public void authenticatePass(){
+    public void authenticatePass() throws IOException{
         
         //loginPrompt.setVisible(false);
         loginSuccessPrompt();
-        Stage stage = (Stage) ap.getScene().getWindow();
+        Stage stage = (Stage) username.getScene().getWindow();
         stage.close();
-        NavigationController navControl = new NavigationController(currentJobSeeker);
+        
+        
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("NavigationUi.fxml"));
+        stage.setScene(new Scene((Pane) loader.load()));
+
+        NavigationUiController controller = loader.<NavigationUiController>getController();
+        controller.initData(this.currentJobSeeker);
+        
+        stage.show();             
     }
+    
     public void authenticateFailed(){
         
         loginFailPrompt();
