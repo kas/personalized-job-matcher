@@ -49,10 +49,10 @@ public class UpdateProfileUiController implements Initializable {
             //currentJobSeeker.setState(state.getText());
             currentJobSeeker.setLocation(city.getText() + " " + state.getText());
             currentJobSeeker.setCurrentJob(job.getText());
-            //System.out.println(currentJobSeeker.getName());
-            //System.out.println(currentJobSeeker.getAge());
-            //System.out.println(currentJobSeeker.getLocation());
-            //System.out.println(currentJobSeeker.getCurrentJob());
+            System.out.println(currentJobSeeker.getName());
+            System.out.println(currentJobSeeker.getAge());
+            System.out.println(currentJobSeeker.getLocation());
+            System.out.println(currentJobSeeker.getCurrentJob());
                   
         }
     @FXML protected void handleCancelButtonAction(ActionEvent event) {
