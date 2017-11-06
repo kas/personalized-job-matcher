@@ -5,12 +5,16 @@
  */
 package personalized.job.matcher;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
 /**
@@ -40,7 +44,7 @@ public class UpdateProfileUiController implements Initializable {
     
     
     
-    @FXML protected void handleUpdateButtonAction(ActionEvent event) {
+    @FXML protected void handleUpdateButtonAction(ActionEvent event) throws IOException {
             currentJobSeeker.setName(firstName.getText() + " " + lastName.getText());
             //currentJobSeeker.setFirstName(firstName.getText());
             //currentJobSeeker.setLastName(lastName.getText());
@@ -53,11 +57,25 @@ public class UpdateProfileUiController implements Initializable {
             System.out.println(currentJobSeeker.getAge());
             System.out.println(currentJobSeeker.getLocation());
             System.out.println(currentJobSeeker.getCurrentJob());
-                  
-        }
-    @FXML protected void handleCancelButtonAction(ActionEvent event) {
+            
             Stage stage = (Stage) firstName.getScene().getWindow();
-            stage.hide();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("NavigationUi.fxml"));
+            stage.setScene(new Scene((Pane) loader.load()));
+            
+            NavigationUiController controller = loader.<NavigationUiController>getController();
+            controller.initData(this.currentJobSeeker);
+        
+            stage.show();        
+        }
+    @FXML protected void handleCancelButtonAction(ActionEvent event) throws IOException {
+            Stage stage = (Stage) firstName.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("NavigationUi.fxml"));
+            stage.setScene(new Scene((Pane) loader.load()));
+            
+            NavigationUiController controller = loader.<NavigationUiController>getController();
+            controller.initData(this.currentJobSeeker);
+        
+            stage.show();    
         }
     @Override
     public void initialize(URL url, ResourceBundle rb) {
