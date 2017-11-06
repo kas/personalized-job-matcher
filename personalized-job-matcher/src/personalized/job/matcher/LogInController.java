@@ -44,8 +44,12 @@ public class LogInController implements Initializable {
         }else{
             authenticateFailed();
         }
+    }
         
-        
+    @FXML protected void handleCreateButtonAction(ActionEvent event) {
+        Stage stage = (Stage) username.getScene().getWindow();
+        stage.close();
+        CreateProfileUIController createProfileContrl = new CreateProfileUIController();
         
     }
     public void authenticatePass(){

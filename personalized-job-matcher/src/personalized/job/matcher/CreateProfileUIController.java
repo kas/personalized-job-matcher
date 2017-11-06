@@ -11,8 +11,12 @@ import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -21,12 +25,25 @@ import javafx.scene.text.Text;
  */
 public class CreateProfileUIController implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
+    Parent root1;
+    Stage stage;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        try {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CreateProfileUI.fxml"));
+                
+                root1 = (Parent) fxmlLoader.load();
+                CreateProfileUIController customController = new CreateProfileUIController();
+                fxmlLoader.setController(customController);
+                stage = new Stage();
+                stage.setScene(new Scene(root1));                
+                stage.show();
+                
+                
+                
+        } catch(Exception e) {
+           e.printStackTrace();
+          }
     }    
     @FXML private Text actiontarget;
     @FXML private TextField username;
@@ -38,16 +55,19 @@ public class CreateProfileUIController implements Initializable {
     @FXML private TextField currentJob;
     
     @FXML protected void handleSubmitAction(ActionEvent event) {
-        String userText = username.getText();
         ArrayList<JobSeeker> newList = new ArrayList<JobSeeker>();
-        newList = JobSeekerList.JobSeekerList();
         JobSeeker newJobSeeker = new JobSeeker(username.getText(), name.getText(), 7, password.getText(), 
             age.getText(), location.getText(), sex.getText(), currentJob.getText());
-        JobSeekerList.userList.add(newJobSeeker);
+        //JobSeekerList.JobSeekerList.add(newJobSeeker);
+        Stage stage = (Stage) username.getScene().getWindow();
+        stage.close();
+        NavigationController navControl = new NavigationController(newJobSeeker);
     }
     
      @FXML protected void handleCancelAction(ActionEvent event) {
-        actiontarget.setText("Sign in button pressed");
+        Stage stage = (Stage) username.getScene().getWindow();
+        stage.close();
+        LogInController logInContrl = new LogInController();
     }
     
 }
