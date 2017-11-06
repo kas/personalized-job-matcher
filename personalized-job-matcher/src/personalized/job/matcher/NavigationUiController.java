@@ -19,6 +19,8 @@ import javafx.scene.control.Label;
  */
 public class NavigationUiController implements Initializable {
 
+    
+JobSeeker currentJobSeeker;
 @FXML
     private Label name;	
     
@@ -31,6 +33,8 @@ public class NavigationUiController implements Initializable {
         
         public void initData(JobSeeker jobSeeker) {
             System.out.println("hello");
+            currentJobSeeker = jobSeeker;
+            System.out.println(jobSeeker.getUsername());
         }
         
         @FXML protected void handleUpdateProfileButtonAction(ActionEvent event) {
