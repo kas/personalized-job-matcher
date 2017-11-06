@@ -46,7 +46,7 @@ public class NavigationUiController implements Initializable {
     NavigationUiController(JobSeeker newCurrentJobSeeker) {
         this.currentJobSeeker = newCurrentJobSeeker;
         System.out.println(currentJobSeeker.getUsername());
-        setLabels();
+        //setLabels();
     }
 
         
