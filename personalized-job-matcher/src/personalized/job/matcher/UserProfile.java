@@ -21,7 +21,7 @@ public class UserProfile {
     private String sex;
     private String currentJob;
     
-    ArrayList<UserProfile> userProfileList = new ArrayList<UserProfile>();
+    private ArrayList<UserProfile> userProfileList = new ArrayList<UserProfile>();
     
     public UserProfile(String username, String password, String name, int age, String location, String sex, String currentJob)
     {
@@ -130,5 +130,19 @@ public class UserProfile {
      */
     public void setCurrentJob(String currentJob) {
         this.currentJob = currentJob;
+    }
+
+    /**
+     * @return the userProfileList
+     */
+    public ArrayList<UserProfile> getUserProfileList() {
+        return userProfileList;
+    }
+
+    /**
+     * @param userProfileList the userProfileList to set
+     */
+    public void setUserProfileList(ArrayList<UserProfile> userProfileList) {
+        this.userProfileList = userProfileList;
     }
 }

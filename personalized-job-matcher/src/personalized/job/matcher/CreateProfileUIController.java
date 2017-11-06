@@ -28,8 +28,8 @@ import javafx.stage.Stage;
  */
 public class CreateProfileUIController implements Initializable {
 
-    Parent root1;
-    Stage stage;
+    private Parent root1;
+    private Stage stage;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
@@ -79,6 +79,160 @@ public class CreateProfileUIController implements Initializable {
         Stage stage = (Stage) ap.getScene().getWindow();
         stage.close();
         LogInController logInContrl = new LogInController();
+    }
+
+    /**
+     * @return the root1
+     */
+    public Parent getRoot1() {
+        return root1;
+    }
+
+    /**
+     * @param root1 the root1 to set
+     */
+    public void setRoot1(Parent root1) {
+        this.root1 = root1;
+    }
+
+    /**
+     * @return the stage
+     */
+    public Stage getStage() {
+        return stage;
+    }
+
+    /**
+     * @param stage the stage to set
+     */
+    public void setStage(Stage stage) {
+        this.stage = stage;
+    }
+
+    /**
+     * @return the actiontarget
+     */
+    public Text getActiontarget() {
+        return actiontarget;
+    }
+
+    /**
+     * @param actiontarget the actiontarget to set
+     */
+    public void setActiontarget(Text actiontarget) {
+        this.actiontarget = actiontarget;
+    }
+
+    /**
+     * @return the username
+     */
+    public TextField getUsername() {
+        return username;
+    }
+
+    /**
+     * @param username the username to set
+     */
+    public void setUsername(TextField username) {
+        this.username = username;
+    }
+
+    /**
+     * @return the password
+     */
+    public TextField getPassword() {
+        return password;
+    }
+
+    /**
+     * @param password the password to set
+     */
+    public void setPassword(TextField password) {
+        this.password = password;
+    }
+
+    /**
+     * @return the name
+     */
+    public TextField getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(TextField name) {
+        this.name = name;
+    }
+
+    /**
+     * @return the age
+     */
+    public TextField getAge() {
+        return age;
+    }
+
+    /**
+     * @param age the age to set
+     */
+    public void setAge(TextField age) {
+        this.age = age;
+    }
+
+    /**
+     * @return the location
+     */
+    public TextField getLocation() {
+        return location;
+    }
+
+    /**
+     * @param location the location to set
+     */
+    public void setLocation(TextField location) {
+        this.location = location;
+    }
+
+    /**
+     * @return the sex
+     */
+    public TextField getSex() {
+        return sex;
+    }
+
+    /**
+     * @param sex the sex to set
+     */
+    public void setSex(TextField sex) {
+        this.sex = sex;
+    }
+
+    /**
+     * @return the currentJob
+     */
+    public TextField getCurrentJob() {
+        return currentJob;
+    }
+
+    /**
+     * @param currentJob the currentJob to set
+     */
+    public void setCurrentJob(TextField currentJob) {
+        this.currentJob = currentJob;
+    }
+
+    /**
+     * @return the ap
+     */
+    public AnchorPane getAp() {
+        return ap;
+    }
+
+    /**
+     * @param ap the ap to set
+     */
+    public void setAp(AnchorPane ap) {
+        this.ap = ap;
     }
     
 }

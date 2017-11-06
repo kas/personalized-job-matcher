@@ -25,7 +25,7 @@ import javafx.stage.Stage;
 public class NavigationUiController implements Initializable {
 
     
-JobSeeker currentJobSeeker;
+private JobSeeker currentJobSeeker;
 @FXML
     private Label name;	
 
@@ -79,5 +79,103 @@ JobSeeker currentJobSeeker;
             stage.show();   
             
         }
+
+    /**
+     * @return the currentJobSeeker
+     */
+    public JobSeeker getCurrentJobSeeker() {
+        return currentJobSeeker;
+    }
+
+    /**
+     * @param currentJobSeeker the currentJobSeeker to set
+     */
+    public void setCurrentJobSeeker(JobSeeker currentJobSeeker) {
+        this.currentJobSeeker = currentJobSeeker;
+    }
+
+    /**
+     * @return the name
+     */
+    public Label getName() {
+        return name;
+    }
+
+    /**
+     * @param name the name to set
+     */
+    public void setName(Label name) {
+        this.name = name;
+    }
+
+    /**
+     * @return the age
+     */
+    public Label getAge() {
+        return age;
+    }
+
+    /**
+     * @param age the age to set
+     */
+    public void setAge(Label age) {
+        this.age = age;
+    }
+
+    /**
+     * @return the location
+     */
+    public Label getLocation() {
+        return location;
+    }
+
+    /**
+     * @param location the location to set
+     */
+    public void setLocation(Label location) {
+        this.location = location;
+    }
+
+    /**
+     * @return the sex
+     */
+    public Label getSex() {
+        return sex;
+    }
+
+    /**
+     * @param sex the sex to set
+     */
+    public void setSex(Label sex) {
+        this.sex = sex;
+    }
+
+    /**
+     * @return the job
+     */
+    public Label getJob() {
+        return job;
+    }
+
+    /**
+     * @param job the job to set
+     */
+    public void setJob(Label job) {
+        this.job = job;
+    }
+
+    /**
+     * @return the traits
+     */
+    public Label getTraits() {
+        return traits;
+    }
+
+    /**
+     * @param traits the traits to set
+     */
+    public void setTraits(Label traits) {
+        this.traits = traits;
+    }
 	
 }

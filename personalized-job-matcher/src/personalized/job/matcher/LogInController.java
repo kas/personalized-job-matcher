@@ -9,7 +9,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
@@ -21,8 +20,8 @@ import javax.swing.JPanel;
 
 public class LogInController implements Initializable {
     
-    JobSeekerList userList;
-    JobSeeker currentJobSeeker;
+    private JobSeekerList userList;
+    private JobSeeker currentJobSeeker;
     @FXML private TextField username;
     @FXML private PasswordField pw;
     
@@ -114,5 +113,61 @@ public class LogInController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    /**
+     * @return the userList
+     */
+    public JobSeekerList getUserList() {
+        return userList;
+    }
+
+    /**
+     * @param userList the userList to set
+     */
+    public void setUserList(JobSeekerList userList) {
+        this.userList = userList;
+    }
+
+    /**
+     * @return the currentJobSeeker
+     */
+    public JobSeeker getCurrentJobSeeker() {
+        return currentJobSeeker;
+    }
+
+    /**
+     * @param currentJobSeeker the currentJobSeeker to set
+     */
+    public void setCurrentJobSeeker(JobSeeker currentJobSeeker) {
+        this.currentJobSeeker = currentJobSeeker;
+    }
+
+    /**
+     * @return the username
+     */
+    public TextField getUsername() {
+        return username;
+    }
+
+    /**
+     * @param username the username to set
+     */
+    public void setUsername(TextField username) {
+        this.username = username;
+    }
+
+    /**
+     * @return the pw
+     */
+    public PasswordField getPw() {
+        return pw;
+    }
+
+    /**
+     * @param pw the pw to set
+     */
+    public void setPw(PasswordField pw) {
+        this.pw = pw;
+    }
     
 }
