@@ -11,7 +11,6 @@ public class NavigationController {
     Parent root1;
     Stage stage;
     
-    
     public NavigationController(JobSeeker jobSeeker){
         this.jobSeeker = jobSeeker;
         
@@ -33,9 +32,6 @@ public class NavigationController {
                 stage = new Stage();
                 stage.setScene(new Scene(root1));                
                 stage.show();
-                
-                
-                
         } catch(Exception e) {
            e.printStackTrace();
           }
