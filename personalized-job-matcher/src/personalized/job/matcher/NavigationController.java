@@ -6,27 +6,30 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-
 public class NavigationController {
-    
-    JobSeekerList userList;
-    JobSeeker currentJobSeeker;
+    JobSeeker jobSeeker;
     Parent root1;
     Stage stage;
     
     
-    public NavigationController(JobSeeker newJobSeeker){
-        this.currentJobSeeker = newJobSeeker;
-        System.out.println(currentJobSeeker.getUsername());
-        System.out.println(currentJobSeeker.getAge());
+    public NavigationController(JobSeeker jobSeeker){
+        this.jobSeeker = jobSeeker;
+        
+	System.out.println(jobSeeker.getUsername());
+        System.out.println(jobSeeker.getAge());
+	
         try {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("NavigationUi.fxml"));
+		FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("NavigationUi.fxml"));
                 
                 root1 = (Parent) fxmlLoader.load();
-                //NavigationUiController controller = fxmlLoader.<NavigationUiController>getController();
-                NavigationUiController customController = new NavigationUiController(currentJobSeeker);
-                //controller.setCurrentJobSeeker(currentJobSeeker);
-                fxmlLoader.setController(customController);
+                
+		//NavigationUiController controller = fxmlLoader.<NavigationUiController>getController();
+
+		NavigationUiController customController = new NavigationUiController(this.jobSeeker);
+                
+		//controller.setCurrentJobSeeker(currentJobSeeker);
+                
+		fxmlLoader.setController(customController);
                 stage = new Stage();
                 stage.setScene(new Scene(root1));                
                 stage.show();
@@ -36,6 +39,5 @@ public class NavigationController {
         } catch(Exception e) {
            e.printStackTrace();
           }
-        
     }
 }
