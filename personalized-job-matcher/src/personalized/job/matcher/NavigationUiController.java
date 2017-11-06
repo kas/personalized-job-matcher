@@ -46,7 +46,17 @@ public class NavigationUiController implements Initializable {
     NavigationUiController(JobSeeker newCurrentJobSeeker) {
         this.currentJobSeeker = newCurrentJobSeeker;
         System.out.println(currentJobSeeker.getUsername());
-        //setLabels();
+        System.out.println(currentJobSeeker.getAge());
+        System.out.println(currentJobSeeker.getLocation());
+        System.out.println(currentJobSeeker.getSex());
+        System.out.println(currentJobSeeker.getCurrentJob());
+        name.setText("test");
+        //name.setText(currentJobSeeker.getName());
+        //age.setText(currentJobSeeker.getAge());
+        //location.setText(currentJobSeeker.getLocation());
+        //sex.setText(currentJobSeeker.getSex());
+        //job.setText(currentJobSeeker.getCurrentJob());
+        //traits.setText("Personality Test not taken yet.");
     }
 
         
@@ -76,7 +86,7 @@ public class NavigationUiController implements Initializable {
         
 	@Override
 	public void initialize(URL url, ResourceBundle rb) {
-		// TODO
+		
 	}	
 
     /**

@@ -15,6 +15,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -53,6 +54,7 @@ public class CreateProfileUIController implements Initializable {
     @FXML private TextField location;
     @FXML private TextField sex;
     @FXML private TextField currentJob;
+    @FXML private AnchorPane ap;
     
     @FXML protected void handleSubmitAction(ActionEvent event) {
         ArrayList<JobSeeker> newList = new ArrayList<JobSeeker>();
@@ -65,7 +67,7 @@ public class CreateProfileUIController implements Initializable {
     }
     
      @FXML protected void handleCancelAction(ActionEvent event) {
-        Stage stage = (Stage) username.getScene().getWindow();
+        Stage stage = (Stage) ap.getScene().getWindow();
         stage.close();
         LogInController logInContrl = new LogInController();
     }

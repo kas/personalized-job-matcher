@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -20,7 +21,7 @@ public class LogInController implements Initializable {
     JobSeeker currentJobSeeker;
     @FXML private TextField username;
     @FXML private PasswordField pw;
-    
+    @FXML private AnchorPane ap;
     public LogInController() {   
         
         userList = new JobSeekerList();
@@ -47,16 +48,17 @@ public class LogInController implements Initializable {
     }
         
     @FXML protected void handleCreateButtonAction(ActionEvent event) {
-        Stage stage = (Stage) username.getScene().getWindow();
+        /*Stage stage = (Stage) username.getScene().getWindow();
         stage.close();
-        CreateProfileUIController createProfileContrl = new CreateProfileUIController();
+        CreateProfileUIController createProfileContrl = new CreateProfileUIController();*/
+        //This code is here for use in Spring 2, where we allow the creation of new users and further features.
         
     }
     public void authenticatePass(){
         
         //loginPrompt.setVisible(false);
         loginSuccessPrompt();
-        Stage stage = (Stage) username.getScene().getWindow();
+        Stage stage = (Stage) ap.getScene().getWindow();
         stage.close();
         NavigationController navControl = new NavigationController(currentJobSeeker);
     }
