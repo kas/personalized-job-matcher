@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -55,8 +56,8 @@ public class UpdateProfileUiController implements Initializable {
                   
         }
     @FXML protected void handleCancelButtonAction(ActionEvent event) {
-            
-                  
+            Stage stage = (Stage) firstName.getScene().getWindow();
+            stage.hide();
         }
     @Override
     public void initialize(URL url, ResourceBundle rb) {

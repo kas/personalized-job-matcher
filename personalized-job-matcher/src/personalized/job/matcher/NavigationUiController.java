@@ -39,10 +39,10 @@ JobSeeker currentJobSeeker;
     private Label sex;	
 
 @FXML
-    private Label currentJob;	
+    private Label job;	
 
 @FXML
-    private Label personalityTraits;	
+    private Label traits;	
     
     /**
 	 * Initializes the controller class.
@@ -53,11 +53,13 @@ JobSeeker currentJobSeeker;
         
         public void initData(JobSeeker jobSeeker) {
             try {
+            this.currentJobSeeker = jobSeeker;
             this.name.setText(jobSeeker.getName());
             this.age.setText(jobSeeker.getAge());
             this.location.setText(jobSeeker.getLocation());
             this.sex.setText(jobSeeker.getSex());
-            this.currentJob.setText(jobSeeker.getCurrentJob());
+            this.job.setText(jobSeeker.getCurrentJob());
+            this.traits.setText("Later sprint");
             // TODO populate personality traits
             }
             catch (Exception e) {
@@ -75,6 +77,7 @@ JobSeeker currentJobSeeker;
             controller.initData(this.currentJobSeeker);
         
             stage.show();   
+            
         }
 	
 }
