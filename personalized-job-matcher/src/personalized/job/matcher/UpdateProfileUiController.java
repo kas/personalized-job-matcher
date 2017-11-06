@@ -45,14 +45,18 @@ public class UpdateProfileUiController implements Initializable {
     
     
     @FXML protected void handleUpdateButtonAction(ActionEvent event) throws IOException {
-            currentJobSeeker.setName(firstName.getText() + " " + lastName.getText());
-            //currentJobSeeker.setFirstName(firstName.getText());
-            //currentJobSeeker.setLastName(lastName.getText());
+        
+            currentJobSeeker.setName(firstName.getText() + " " + lastName.getText()); //need to change this later
+        
+        if(!(age.getText().equals(""))){
             currentJobSeeker.setAge(age.getText());
-            //currentJobSeeker.setCity(city.getText());
-            //currentJobSeeker.setState(state.getText());
-            currentJobSeeker.setLocation(city.getText() + " " + state.getText());
+        }
+        
+            currentJobSeeker.setLocation(city.getText() + " " + state.getText()); //need to change this later
+           
+        if(!(job.getText().equals(""))){
             currentJobSeeker.setCurrentJob(job.getText());
+        }    
             System.out.println(currentJobSeeker.getName());
             System.out.println(currentJobSeeker.getAge());
             System.out.println(currentJobSeeker.getLocation());
