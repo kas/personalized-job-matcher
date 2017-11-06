@@ -1,4 +1,3 @@
-
 package personalized.job.matcher;
 
 import javafx.fxml.FXMLLoader;
