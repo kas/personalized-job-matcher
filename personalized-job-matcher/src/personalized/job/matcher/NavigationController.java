@@ -32,7 +32,7 @@ public class NavigationController {
                 stage.setScene(new Scene(root1));                
                 stage.show();
         } catch(Exception e) {
-           e.printStackTrace();
-          }
+		e.printStackTrace();
+	}
     }
 }
