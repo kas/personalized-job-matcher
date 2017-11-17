@@ -9,19 +9,17 @@
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="personalized.job.matcher.PersonalityTestController">
    <children>
-      <Label layoutX="27.0" layoutY="82.0" prefHeight="18.0" prefWidth="64.0" text="Question:" />
-      <Button fx:id="next" layoutX="348.0" layoutY="306.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="68.0" text="Next" />
-      <Button fx:id="previous" layoutX="187.0" layoutY="304.0" mnemonicParsing="false" text="Previous" />
+      <Button fx:id="next" layoutX="266.0" layoutY="309.0" mnemonicParsing="false" onAction="#handleNextAction" prefHeight="32.0" prefWidth="68.0" text="Next" />
       <Label fx:id="questionArea" layoutX="104.0" layoutY="83.0" prefHeight="78.0" prefWidth="451.0" AnchorPane.bottomAnchor="239.0" AnchorPane.leftAnchor="104.0" AnchorPane.rightAnchor="45.0" AnchorPane.topAnchor="83.0" />
       <Label alignment="CENTER" layoutY="-5.0" prefHeight="53.0" prefWidth="600.0" text="Personality Test" textAlignment="CENTER" />
       <VBox layoutX="178.0" layoutY="172.0" prefHeight="71.0" prefWidth="87.0">
          <children>
-            <RadioButton mnemonicParsing="false" text="Yes">
+            <RadioButton fx:id="rbYes" mnemonicParsing="false" selected="true" text="Yes">
                <toggleGroup>
                   <ToggleGroup fx:id="rbGroup" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton mnemonicParsing="false" prefWidth="54.0" text="No" toggleGroup="$rbGroup" />
+            <RadioButton fx:id="rbNo" mnemonicParsing="false" prefWidth="54.0" text="No" toggleGroup="$rbGroup" />
          </children>
       </VBox>
    </children>

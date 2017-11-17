@@ -37,9 +37,9 @@ public class UpdateProfileUiController implements Initializable {
     }
     
     public void initData(JobSeeker jobSeeker) {
-            System.out.println("hello");
+            //System.out.println("hello");
             currentJobSeeker = jobSeeker;
-            System.out.println(jobSeeker.getUsername());
+            //System.out.println(jobSeeker.getUsername());
         }
     
     

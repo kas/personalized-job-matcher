@@ -12,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
@@ -74,7 +75,7 @@ private JobSeeker currentJobSeeker;
             stage.setScene(new Scene((Pane) loader.load()));
 
             UpdateProfileUiController controller = loader.<UpdateProfileUiController>getController();
-            //controller.initData(this.currentJobSeeker);
+            controller.initData(this.currentJobSeeker);
         
             stage.show();   
             
@@ -86,10 +87,28 @@ private JobSeeker currentJobSeeker;
             stage.setScene(new Scene((Pane) loader.load()));
 
             PersonalityTestController controller = loader.<PersonalityTestController>getController();
-            //controller.initData(this.currentJobSeeker);
+            controller.initData(this.currentJobSeeker);
         
             stage.show();   
             
+            
+            
+            
+            
+            /*
+            Parent root;
+            Scene scene;
+            
+           
+            Stage theStage = (Stage) name.getScene().getWindow();
+            theStage.hide();
+            root = FXMLLoader.load(getClass().getResource("PersonalityTest.fxml"));
+            scene = new Scene(root);           
+            
+            theStage.setTitle("Personality Test");
+            theStage.setScene(scene);
+            theStage.show();
+            */
         }
 
     /**
