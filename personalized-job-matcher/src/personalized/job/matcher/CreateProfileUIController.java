@@ -62,7 +62,7 @@ public class CreateProfileUIController implements Initializable {
         ArrayList<JobSeeker> newList = new ArrayList<JobSeeker>();
         JobSeeker newJobSeeker = new JobSeeker(username.getText(), name.getText(), 7, password.getText(), 
             age.getText(), location.getText(), sex.getText(), currentJob.getText());
-        //JobSeekerList.JobSeekerList.add(newJobSeeker);
+
         Stage stage = (Stage) username.getScene().getWindow();
         stage.close();
         

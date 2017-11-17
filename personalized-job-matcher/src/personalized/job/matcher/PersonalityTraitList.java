@@ -25,9 +25,23 @@ public class PersonalityTraitList {
         PersonalityTrait personalityTrait3 = new PersonalityTrait ("");
         PersonalityTrait personalityTrait4 = new PersonalityTrait ("");
         
-        personalityTraitList.add(personalityTrait1);
-        personalityTraitList.add(personalityTrait2);
-        personalityTraitList.add(personalityTrait3);
-        personalityTraitList.add(personalityTrait4);
+        getPersonalityTraitList().add(personalityTrait1);
+        getPersonalityTraitList().add(personalityTrait2);
+        getPersonalityTraitList().add(personalityTrait3);
+        getPersonalityTraitList().add(personalityTrait4);
+    }
+
+    /**
+     * @return the personalityTraitList
+     */
+    public ArrayList<PersonalityTrait> getPersonalityTraitList() {
+        return personalityTraitList;
+    }
+
+    /**
+     * @param personalityTraitList the personalityTraitList to set
+     */
+    public void setPersonalityTraitList(ArrayList<PersonalityTrait> personalityTraitList) {
+        this.personalityTraitList = personalityTraitList;
     }
 }
