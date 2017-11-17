@@ -12,7 +12,7 @@
       <Button fx:id="updateProfile" layoutX="166.0" layoutY="33.0" mnemonicParsing="false" onAction="#handleUpdateProfileButtonAction" text="Update Profile" />
       <Button layoutX="279.0" layoutY="33.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" text="Search Jobs" />
       <Button layoutX="380.0" layoutY="33.0" mnemonicParsing="false" text="Search Careers" />
-      <Button layoutX="501.0" layoutY="33.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="90.0" text="Take Test" />
+      <Button layoutX="501.0" layoutY="33.0" mnemonicParsing="false" onAction="#handleTestPersonalityButtonAction" prefHeight="25.0" prefWidth="90.0" text="Take Test" />
       <Button layoutX="166.0" layoutY="64.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="92.0" text="Notifications" />
       <Button layoutX="279.0" layoutY="64.0" mnemonicParsing="false" text="Applications" />
       <Button layoutX="380.0" layoutY="64.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" text="Resume" />
