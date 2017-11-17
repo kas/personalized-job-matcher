@@ -77,8 +77,13 @@ public class LogInController implements Initializable {
         }
         stage.setScene(new Scene((Pane) loader.load()));
 
-        NavigationUiController controller = loader.<NavigationUiController>getController();
-        controller.initData(this.currentJobSeeker);
+        if (isEmployer) {
+            EmployerNavigationUiController controller = loader.<EmployerNavigationUiController>getController();
+            controller.initData(this.currentEmployer);
+        } else {
+            JobSeekerNavigationUiController controller = loader.<JobSeekerNavigationUiController>getController();
+            controller.initData(this.currentJobSeeker);
+        }
         
         stage.show();             
     }

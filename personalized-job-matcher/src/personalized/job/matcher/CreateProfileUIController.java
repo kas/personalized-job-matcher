@@ -66,10 +66,10 @@ public class CreateProfileUIController implements Initializable {
         Stage stage = (Stage) username.getScene().getWindow();
         stage.close();
         
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("NavigationUi.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("JobSeekerNavigationUi.fxml"));
         stage.setScene(new Scene((Pane) loader.load()));
 
-        NavigationUiController controller = loader.<NavigationUiController>getController();
+        JobSeekerNavigationUiController controller = loader.<JobSeekerNavigationUiController>getController();
         controller.initData(newJobSeeker);
         
         stage.show();             

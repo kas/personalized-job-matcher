@@ -63,20 +63,20 @@ public class UpdateProfileUiController implements Initializable {
             System.out.println(currentJobSeeker.getCurrentJob());
             
             Stage stage = (Stage) firstName.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("NavigationUi.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("JobSeekerNavigationUi.fxml"));
             stage.setScene(new Scene((Pane) loader.load()));
             
-            NavigationUiController controller = loader.<NavigationUiController>getController();
+            JobSeekerNavigationUiController controller = loader.<JobSeekerNavigationUiController>getController();
             controller.initData(this.currentJobSeeker);
         
             stage.show();        
         }
     @FXML protected void handleCancelButtonAction(ActionEvent event) throws IOException {
             Stage stage = (Stage) firstName.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("NavigationUi.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("JobSeekerNavigationUi.fxml"));
             stage.setScene(new Scene((Pane) loader.load()));
             
-            NavigationUiController controller = loader.<NavigationUiController>getController();
+            JobSeekerNavigationUiController controller = loader.<JobSeekerNavigationUiController>getController();
             controller.initData(this.currentJobSeeker);
         
             stage.show();    

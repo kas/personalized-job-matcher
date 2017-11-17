@@ -25,7 +25,7 @@ import javafx.stage.Stage;
 public class EmployerNavigationUiController implements Initializable {
 
     
-private JobSeeker currentJobSeeker;
+private Employer currentEmployer;
 @FXML
     private Label name;	
 
@@ -51,47 +51,47 @@ private JobSeeker currentJobSeeker;
 	public void initialize(URL url, ResourceBundle rb) {
 	}	
         
-        public void initData(JobSeeker jobSeeker) {
-            try {
-            this.currentJobSeeker = jobSeeker;
-            this.name.setText(jobSeeker.getName());
-            this.age.setText(jobSeeker.getAge());
-            this.location.setText(jobSeeker.getLocation());
-            this.sex.setText(jobSeeker.getSex());
-            this.job.setText(jobSeeker.getCurrentJob());
-            this.traits.setText("Later sprint");
-            // TODO populate personality traits
-            }
-            catch (Exception e) {
-            System.out.println(e.getStackTrace());
-        }
+        public void initData(Employer employer) {
+//            try {
+//                this.currentEmployer = employer;
+//                this.name.setText(employer.getName());
+//                this.age.setText(employer.getAge());
+//                this.location.setText(employer.getLocation());
+//                this.sex.setText(employer.getSex());
+//                this.job.setText(employer.getCurrentJob());
+//                this.traits.setText("Later sprint");
+//            // TODO populate personality traits
+//            }
+//            catch (Exception e) {
+//            System.out.println(e.getStackTrace());
+//        }
         }
         
         @FXML protected void handleUpdateProfileButtonAction(ActionEvent event) throws IOException {
-            Stage stage = (Stage) name.getScene().getWindow();
-            System.out.println("pressed button");
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("UpdateProfileUi.fxml"));
-            stage.setScene(new Scene((Pane) loader.load()));
-
-            UpdateProfileUiController controller = loader.<UpdateProfileUiController>getController();
-            controller.initData(this.currentJobSeeker);
-        
-            stage.show();   
+//            Stage stage = (Stage) name.getScene().getWindow();
+//            System.out.println("pressed button");
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("UpdateProfileUi.fxml"));
+//            stage.setScene(new Scene((Pane) loader.load()));
+//
+//            UpdateProfileUiController controller = loader.<UpdateProfileUiController>getController();
+//            controller.initData(this.currentEmployer);
+//        
+//            stage.show();   
             
         }
 
     /**
-     * @return the currentJobSeeker
+     * @return the currentEmployer
      */
-    public JobSeeker getCurrentJobSeeker() {
-        return currentJobSeeker;
+    public Employer getCurrentEmployer() {
+        return currentEmployer;
     }
 
     /**
-     * @param currentJobSeeker the currentJobSeeker to set
+     * @param currentEmployer the currentEmployer to set
      */
-    public void setCurrentJobSeeker(JobSeeker currentJobSeeker) {
-        this.currentJobSeeker = currentJobSeeker;
+    public void setCurrentEmployer(Employer currentEmployer) {
+        this.currentEmployer = currentEmployer;
     }
 
     /**
