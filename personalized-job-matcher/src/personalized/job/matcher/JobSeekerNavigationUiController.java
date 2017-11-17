@@ -12,6 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
@@ -80,15 +81,18 @@ private JobSeeker currentJobSeeker;
             
         }
         @FXML protected void handleTestPersonalityButtonAction(ActionEvent event) throws IOException {
-            Stage stage = (Stage) name.getScene().getWindow();
+            Parent root;
+            Scene scene;
+            
             //System.out.println("pressed button");
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("PersonalityTest.fxml"));
-            stage.setScene(new Scene((Pane) loader.load()));
-
-            PersonalityTestController controller = loader.<PersonalityTestController>getController();
-            //controller.initData(this.currentJobSeeker);
-        
-            stage.show();   
+            Stage theStage = (Stage) name.getScene().getWindow();
+            theStage.hide();
+            root = FXMLLoader.load(getClass().getResource("PersonalityTest.fxml"));
+            scene = new Scene(root);           
+            
+            theStage.setTitle("Personality Test");
+            theStage.setScene(scene);
+            theStage.show();
             
         }
 
