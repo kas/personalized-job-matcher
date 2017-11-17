@@ -26,7 +26,7 @@ public class PersonalityTestController implements Initializable {
     TestQuestionList questions = new TestQuestionList();
     TestAnswers testAnswers = new TestAnswers();
     private Parent root1;
-   
+    private JobSeeker currentJobSeeker;
     @FXML private Label questionArea;
     @FXML RadioButton rbYes;
     @FXML RadioButton rbNo;
@@ -72,7 +72,7 @@ public class PersonalityTestController implements Initializable {
             stage.setScene(new Scene((Pane) loader.load()));
             
             JobSeekerNavigationUiController controller = loader.<JobSeekerNavigationUiController>getController();
-            
+            controller.initData(this.currentJobSeeker);
         
             stage.show();    
         }
@@ -85,5 +85,9 @@ public class PersonalityTestController implements Initializable {
         "Test Complete",
         JOptionPane.PLAIN_MESSAGE);
     }
-    
+    public void initData(JobSeeker jobSeeker) {
+            
+            currentJobSeeker = jobSeeker;
+            System.out.println(jobSeeker.getUsername());
+        }
 }

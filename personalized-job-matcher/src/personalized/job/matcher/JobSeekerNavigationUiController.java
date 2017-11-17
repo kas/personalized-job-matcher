@@ -75,16 +75,31 @@ private JobSeeker currentJobSeeker;
             stage.setScene(new Scene((Pane) loader.load()));
 
             UpdateProfileUiController controller = loader.<UpdateProfileUiController>getController();
-            //controller.initData(this.currentJobSeeker);
+            controller.initData(this.currentJobSeeker);
         
             stage.show();   
             
         }
         @FXML protected void handleTestPersonalityButtonAction(ActionEvent event) throws IOException {
+            Stage stage = (Stage) name.getScene().getWindow();
+            //System.out.println("pressed button");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("PersonalityTest.fxml"));
+            stage.setScene(new Scene((Pane) loader.load()));
+
+            PersonalityTestController controller = loader.<PersonalityTestController>getController();
+            controller.initData(this.currentJobSeeker);
+        
+            stage.show();   
+            
+            
+            
+            
+            
+            /*
             Parent root;
             Scene scene;
             
-            //System.out.println("pressed button");
+           
             Stage theStage = (Stage) name.getScene().getWindow();
             theStage.hide();
             root = FXMLLoader.load(getClass().getResource("PersonalityTest.fxml"));
@@ -93,7 +108,7 @@ private JobSeeker currentJobSeeker;
             theStage.setTitle("Personality Test");
             theStage.setScene(scene);
             theStage.show();
-            
+            */
         }
 
     /**
