@@ -17,15 +17,15 @@ public class TestQuestionList {
 
     private void createQuestions() {
         TestQuestion question1 = new TestQuestion("Do you enjoy working in teams?");
-        TestQuestion question2 = new TestQuestion("Do you enjoy working in teams?");
-        TestQuestion question3 = new TestQuestion("Do you enjoy working in teams?");
-        TestQuestion question4 = new TestQuestion("Do you enjoy working in teams?");
-        TestQuestion question5 = new TestQuestion("Do you enjoy working in teams?");
-        TestQuestion question6 = new TestQuestion("Do you enjoy working in teams?");
-        TestQuestion question7 = new TestQuestion("Do you enjoy working in teams?");
-        TestQuestion question8 = new TestQuestion("Do you enjoy working in teams?");
-        TestQuestion question9 = new TestQuestion("Do you enjoy working in teams?");
-        TestQuestion question10 = new TestQuestion("Do you enjoy working in teams?");
+        TestQuestion question2 = new TestQuestion("question2");
+        TestQuestion question3 = new TestQuestion("question3");
+        TestQuestion question4 = new TestQuestion("question4");
+        TestQuestion question5 = new TestQuestion("question5");
+        TestQuestion question6 = new TestQuestion("question6");
+        TestQuestion question7 = new TestQuestion("question7");
+        TestQuestion question8 = new TestQuestion("question8");
+        TestQuestion question9 = new TestQuestion("question9");
+        TestQuestion question10 = new TestQuestion("question10");
         
         testQuestions.add(question1);
         testQuestions.add(question2);
