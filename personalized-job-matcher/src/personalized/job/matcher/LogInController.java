@@ -50,15 +50,17 @@ public class LogInController implements Initializable {
             loginResult = validateEmployerUserPass(employerList.getEmployerList(), userText, passwordText);
             if (loginResult) {
                 authenticatePass(true);
+            } else {
+                authenticateFailed();
             }
         } else {
             loginResult = validateJobSeekerUserPass(jobSeekerList.getJobSeekerList(), userText, passwordText);
             if (loginResult) {
                 authenticatePass(false);
+            } else {
+                authenticateFailed();
             }
         }
-       
-        authenticateFailed();
     }
         
     @FXML protected void handleCreateButtonAction(ActionEvent event) {
