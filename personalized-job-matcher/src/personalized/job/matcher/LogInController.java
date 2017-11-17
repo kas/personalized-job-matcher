@@ -27,22 +27,26 @@ public class LogInController implements Initializable {
     private EmployerList employerList;
     @FXML private TextField username;
     @FXML private PasswordField pw;
-    @FXML private ToggleButton isEmployer;
     
     public LogInController() {   
         jobSeekerList = new JobSeekerList();
         employerList = new EmployerList();
     }
+
+    @FXML protected void handleJobSeekerLoginButtonAction(ActionEvent event) throws IOException {
+        handleLoginButtonAction(false); 
+    }
     
+    @FXML protected void handleEmployerLoginButtonAction(ActionEvent event) throws IOException {
+        handleLoginButtonAction(true); 
+    }
     
-    
-    
-    @FXML protected void handleLoginButtonAction(ActionEvent event) throws IOException {
+    private void handleLoginButtonAction(boolean isEmployer) throws IOException {
         String userText = username.getText();
         String passwordText = pw.getText();
         boolean loginResult;
         
-        if (isEmployer.isSelected()) {
+        if (isEmployer) {
             loginResult = validateEmployerUserPass(employerList.getEmployerList(), userText, passwordText);
             if (loginResult) {
                 authenticatePass(true);
