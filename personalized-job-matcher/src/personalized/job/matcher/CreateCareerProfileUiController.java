@@ -14,8 +14,9 @@ import javafx.fxml.Initializable;
  *
  * @author austi
  */
-public class CreateCareerProfileUIController implements Initializable {
-
+public class CreateCareerProfileUiController implements Initializable {
+    private Employer currentEmployer;
+    
     /**
      * Initializes the controller class.
      */
@@ -23,5 +24,14 @@ public class CreateCareerProfileUIController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+    
+    public void initData(Employer employer) {
+            try {
+                this.currentEmployer = employer;
+            }
+            catch (Exception e) {
+                System.out.println(e.getStackTrace());
+        }
+        }
     
 }
