@@ -27,22 +27,7 @@ public class EmployerNavigationUiController implements Initializable {
     
 private Employer currentEmployer;
 @FXML
-    private Label name;	
-
-@FXML
-    private Label age;
-
-@FXML
-    private Label location;	
-
-@FXML
-    private Label sex;	
-
-@FXML
-    private Label job;	
-
-@FXML
-    private Label traits;	
+    private Label name;		
     
     /**
 	 * Initializes the controller class.
@@ -52,32 +37,24 @@ private Employer currentEmployer;
 	}	
         
         public void initData(Employer employer) {
-//            try {
-//                this.currentEmployer = employer;
-//                this.name.setText(employer.getName());
-//                this.age.setText(employer.getAge());
-//                this.location.setText(employer.getLocation());
-//                this.sex.setText(employer.getSex());
-//                this.job.setText(employer.getCurrentJob());
-//                this.traits.setText("Later sprint");
-//            // TODO populate personality traits
-//            }
-//            catch (Exception e) {
-//            System.out.println(e.getStackTrace());
-//        }
+            try {
+                this.currentEmployer = employer;
+                this.name.setText(employer.getName());
+            }
+            catch (Exception e) {
+                System.out.println(e.getStackTrace());
+            }
         }
         
-        @FXML protected void handleUpdateProfileButtonAction(ActionEvent event) throws IOException {
-//            Stage stage = (Stage) name.getScene().getWindow();
-//            System.out.println("pressed button");
-//            FXMLLoader loader = new FXMLLoader(getClass().getResource("UpdateProfileUi.fxml"));
-//            stage.setScene(new Scene((Pane) loader.load()));
-//
-//            UpdateProfileUiController controller = loader.<UpdateProfileUiController>getController();
-//            controller.initData(this.currentEmployer);
-//        
-//            stage.show();   
-            
+        @FXML protected void handleCreateCareerProfileButtonAction(ActionEvent event) throws IOException {            
+            Stage stage = (Stage) name.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("CreateCareerProfileUi.fxml"));
+            stage.setScene(new Scene((Pane) loader.load()));
+
+            CreateCareerProfileUiController controller = loader.<CreateCareerProfileUiController>getController();
+            controller.initData(this.currentEmployer);
+        
+            stage.show();
         }
 
     /**
@@ -107,75 +84,4 @@ private Employer currentEmployer;
     public void setName(Label name) {
         this.name = name;
     }
-
-    /**
-     * @return the age
-     */
-    public Label getAge() {
-        return age;
-    }
-
-    /**
-     * @param age the age to set
-     */
-    public void setAge(Label age) {
-        this.age = age;
-    }
-
-    /**
-     * @return the location
-     */
-    public Label getLocation() {
-        return location;
-    }
-
-    /**
-     * @param location the location to set
-     */
-    public void setLocation(Label location) {
-        this.location = location;
-    }
-
-    /**
-     * @return the sex
-     */
-    public Label getSex() {
-        return sex;
-    }
-
-    /**
-     * @param sex the sex to set
-     */
-    public void setSex(Label sex) {
-        this.sex = sex;
-    }
-
-    /**
-     * @return the job
-     */
-    public Label getJob() {
-        return job;
-    }
-
-    /**
-     * @param job the job to set
-     */
-    public void setJob(Label job) {
-        this.job = job;
-    }
-
-    /**
-     * @return the traits
-     */
-    public Label getTraits() {
-        return traits;
-    }
-
-    /**
-     * @param traits the traits to set
-     */
-    public void setTraits(Label traits) {
-        this.traits = traits;
-    }
-	
 }
