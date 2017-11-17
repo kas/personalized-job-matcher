@@ -13,8 +13,8 @@ import java.util.ArrayList;
  */
 public class PersonalityTraitList {
     private ArrayList<PersonalityTrait> personalityTraitList;
-    
-    public PersonalityTraitList(){
+     
+   public PersonalityTraitList(){
         personalityTraitList = new ArrayList<>();
         makePersonalityTraitList();
     }

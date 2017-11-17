@@ -14,6 +14,7 @@ import javafx.scene.Scene;
 
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
@@ -23,11 +24,14 @@ import javax.swing.JPanel;
 public class PersonalityTestController implements Initializable {
 
     TestQuestionList questions = new TestQuestionList();
+    TestAnswers testAnswers = new TestAnswers();
     private Parent root1;
    
     @FXML private Label questionArea;
     @FXML RadioButton rbYes;
     @FXML RadioButton rbNo;
+    @FXML ToggleGroup rbGroup;
+    
     int questionNumber = 0;
     
     
@@ -35,14 +39,33 @@ public class PersonalityTestController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         questionArea.setText(questions.testQuestions.get(questionNumber).questionText);
+        
+        
     }    
     
     @FXML protected void handleNextAction(ActionEvent event) throws IOException {
         if (questionNumber < questions.testQuestions.size() - 1){
             questionNumber++;
             questionArea.setText(questions.testQuestions.get(questionNumber).questionText);
+            if (rbGroup.getSelectedToggle().equals(rbYes)){
+                testAnswers.setTempAnswer((Boolean) true);
+                testAnswers.addAnswer();               
+            }else if(rbGroup.getSelectedToggle().equals(rbNo)){
+                testAnswers.setTempAnswer((Boolean) false);
+                testAnswers.addAnswer();  
+            }
+                
+            
+            
+            
         }else if (questionNumber == questions.testQuestions.size() - 1){
+            
             testDone();
+            
+            for (int i = 0; i < testAnswers.getAnswers().size(); i++){
+                System.out.println(testAnswers.getAnswers().get(i));
+            }
+            
             
             Stage stage = (Stage) questionArea.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("JobSeekerNavigationUi.fxml"));
