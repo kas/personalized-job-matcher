@@ -15,9 +15,9 @@ public class CareerProfile {
     private String name;
     private String medianSalary;
     private String description;
-    private List<PersonalityTrait> personalityTraits;    
+    private List<String> personalityTraits;    
     
-    public CareerProfile(String name, String medianSalary, String description, List<PersonalityTrait> personalityTraits) {
+    public CareerProfile(String name, String medianSalary, String description, List<String> personalityTraits) {
         this.name = name;
         this.medianSalary = medianSalary;
         this.description = description;
@@ -69,14 +69,14 @@ public class CareerProfile {
     /**
      * @return the personalityTraits
      */
-    public List<PersonalityTrait> getPersonalityTraits() {
+    public List<String> getPersonalityTraits() {
         return personalityTraits;
     }
 
     /**
      * @param personalityTraits the personalityTraits to set
      */
-    public void setPersonalityTraits(List<PersonalityTrait> personalityTraits) {
+    public void setPersonalityTraits(List<String> personalityTraits) {
         this.personalityTraits = personalityTraits;
     }
 }

@@ -10,6 +10,9 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.beans.property.ListProperty;
+import javafx.beans.property.SimpleListProperty;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -44,6 +47,7 @@ public class CreateCareerProfileUiController implements Initializable {
     @FXML private TextArea description;
     @FXML private ListView personalityTraits;
     private PersonalityTraitList personalityTraitList;
+     protected ListProperty<String> listProperty = new SimpleListProperty<>();
     
     public void initData(Employer employer) {
         personalityTraitList = new PersonalityTraitList();
@@ -52,6 +56,9 @@ public class CreateCareerProfileUiController implements Initializable {
                 this.currentEmployer = employer;
                 
                 //this.personalityTraits.setItems(personalityTraitList.getPersonalityTraitList());
+                 listProperty.set(FXCollections.observableArrayList(personalityTraitList.getPersonalityTraitList()));
+                personalityTraits.itemsProperty().bind(listProperty);
+                
                // TODO populate listview with personality traits (personalitytraitlist)
             }
             catch (Exception e) {
@@ -68,7 +75,7 @@ public class CreateCareerProfileUiController implements Initializable {
     @FXML protected void handleSubmitAction(ActionEvent event) throws IOException {
         ArrayList<CareerProfile> newList = new ArrayList<CareerProfile>();
         
-        List<PersonalityTrait> personalityTraitsList = personalityTraits.getSelectionModel().getSelectedItems();
+        List<String> personalityTraitsList = personalityTraits.getSelectionModel().getSelectedItems();
         
         CareerProfile careerProfile = new CareerProfile(name.getText(), medianSalary.getText(), description.getText(), personalityTraitsList);
 

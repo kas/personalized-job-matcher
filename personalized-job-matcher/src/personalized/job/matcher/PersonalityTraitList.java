@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author KAS6570
  */
 public class PersonalityTraitList {
-    private ArrayList<PersonalityTrait> personalityTraitList;
+    private ArrayList<String> personalityTraitList;
      
    public PersonalityTraitList(){
         personalityTraitList = new ArrayList<>();
@@ -20,10 +20,10 @@ public class PersonalityTraitList {
     }
     
     private void makePersonalityTraitList() {
-        PersonalityTrait personalityTrait1 = new PersonalityTrait ("independent");
-        PersonalityTrait personalityTrait2 = new PersonalityTrait ("teamwork");
-        PersonalityTrait personalityTrait3 = new PersonalityTrait ("");
-        PersonalityTrait personalityTrait4 = new PersonalityTrait ("");
+         String personalityTrait1 =  "independent";
+         String personalityTrait2 =  "teamwork";
+         String personalityTrait3 =  "";
+         String personalityTrait4 =  "";
         
         getPersonalityTraitList().add(personalityTrait1);
         getPersonalityTraitList().add(personalityTrait2);
@@ -34,14 +34,14 @@ public class PersonalityTraitList {
     /**
      * @return the personalityTraitList
      */
-    public ArrayList<PersonalityTrait> getPersonalityTraitList() {
+    public ArrayList<String> getPersonalityTraitList() {
         return personalityTraitList;
     }
 
     /**
      * @param personalityTraitList the personalityTraitList to set
      */
-    public void setPersonalityTraitList(ArrayList<PersonalityTrait> personalityTraitList) {
+    public void setPersonalityTraitList(ArrayList<String> personalityTraitList) {
         this.personalityTraitList = personalityTraitList;
     }
 }
