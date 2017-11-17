@@ -14,7 +14,7 @@
       <Label alignment="CENTER" layoutY="-5.0" prefHeight="53.0" prefWidth="600.0" text="Personality Test" textAlignment="CENTER" />
       <VBox layoutX="178.0" layoutY="172.0" prefHeight="71.0" prefWidth="87.0">
          <children>
-            <RadioButton fx:id="rbYes" mnemonicParsing="false" text="Yes">
+            <RadioButton fx:id="rbYes" mnemonicParsing="false" selected="true" text="Yes">
                <toggleGroup>
                   <ToggleGroup fx:id="rbGroup" />
                </toggleGroup>
