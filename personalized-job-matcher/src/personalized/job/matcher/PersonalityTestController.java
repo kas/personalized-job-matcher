@@ -1,4 +1,3 @@
-
 package personalized.job.matcher;
 
 import java.io.IOException;
@@ -20,74 +19,74 @@ import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-
 public class PersonalityTestController implements Initializable {
 
     TestQuestionList questions = new TestQuestionList();
     TestAnswers testAnswers = new TestAnswers();
+
     private Parent root1;
     private JobSeeker currentJobSeeker;
-    @FXML private Label questionArea;
-    @FXML RadioButton rbYes;
-    @FXML RadioButton rbNo;
-    @FXML ToggleGroup rbGroup;
-    
+
+    @FXML
+    private Label questionArea;
+    @FXML
+    RadioButton rbYes;
+    @FXML
+    RadioButton rbNo;
+    @FXML
+    ToggleGroup rbGroup;
+
     int questionNumber = 0;
-    
-    
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         questionArea.setText(questions.testQuestions.get(questionNumber).questionText);
-        
-        
-    }    
-    
-    @FXML protected void handleNextAction(ActionEvent event) throws IOException {
-        if (questionNumber < questions.testQuestions.size() - 1){
+
+    }
+
+    @FXML
+    protected void handleNextAction(ActionEvent event) throws IOException {
+        if (questionNumber < questions.testQuestions.size() - 1) {
             questionNumber++;
             questionArea.setText(questions.testQuestions.get(questionNumber).questionText);
-            if (rbGroup.getSelectedToggle().equals(rbYes)){
+            if (rbGroup.getSelectedToggle().equals(rbYes)) {
                 testAnswers.setTempAnswer((Boolean) true);
-                testAnswers.addAnswer();               
-            }else if(rbGroup.getSelectedToggle().equals(rbNo)){
+                testAnswers.addAnswer();
+            } else if (rbGroup.getSelectedToggle().equals(rbNo)) {
                 testAnswers.setTempAnswer((Boolean) false);
-                testAnswers.addAnswer();  
+                testAnswers.addAnswer();
             }
-                
-            
-            
-            
-        }else if (questionNumber == questions.testQuestions.size() - 1){
-            
+
+        } else if (questionNumber == questions.testQuestions.size() - 1) {
+
             testDone();
-            
-            for (int i = 0; i < testAnswers.getAnswers().size(); i++){
+
+            for (int i = 0; i < testAnswers.getAnswers().size(); i++) {
                 System.out.println(testAnswers.getAnswers().get(i));
             }
-            
-            
+
             Stage stage = (Stage) questionArea.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("JobSeekerNavigationUi.fxml"));
             stage.setScene(new Scene((Pane) loader.load()));
-            
+
             JobSeekerNavigationUiController controller = loader.<JobSeekerNavigationUiController>getController();
             controller.initData(this.currentJobSeeker);
-        
-            stage.show();    
+
+            stage.show();
         }
-        
+
     }
-    
-    public void testDone(){
+
+    public void testDone() {
         JOptionPane.showMessageDialog(new JPanel(),
-        "Test Complete",
-        "Test Complete",
-        JOptionPane.PLAIN_MESSAGE);
+                "Test Complete",
+                "Test Complete",
+                JOptionPane.PLAIN_MESSAGE);
     }
+
     public void initData(JobSeeker jobSeeker) {
-            
-            currentJobSeeker = jobSeeker;
-            //System.out.println(jobSeeker.getUsername());
-        }
+
+        currentJobSeeker = jobSeeker;
+        //System.out.println(jobSeeker.getUsername());
+    }
 }
