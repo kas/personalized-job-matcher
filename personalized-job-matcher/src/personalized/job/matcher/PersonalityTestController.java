@@ -88,6 +88,6 @@ public class PersonalityTestController implements Initializable {
     public void initData(JobSeeker jobSeeker) {
             
             currentJobSeeker = jobSeeker;
-            System.out.println(jobSeeker.getUsername());
+            //System.out.println(jobSeeker.getUsername());
         }
 }
