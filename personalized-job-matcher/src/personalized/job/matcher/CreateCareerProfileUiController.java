@@ -52,7 +52,7 @@ public class CreateCareerProfileUiController implements Initializable {
                 this.currentEmployer = employer;
                 
                 //this.personalityTraits.setItems(personalityTraitList.getPersonalityTraitList());
-               
+               // TODO populate listview with personality traits (personalitytraitlist)
             }
             catch (Exception e) {
                 System.out.println(e.getStackTrace());
