@@ -12,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleButton;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javax.swing.JOptionPane;
@@ -20,34 +21,40 @@ import javax.swing.JPanel;
 
 public class LogInController implements Initializable {
     
-    private JobSeekerList userList;
+    private JobSeekerList jobSeekerList;
     private JobSeeker currentJobSeeker;
+    private Employer currentEmployer;
+    private EmployerList employerList;
     @FXML private TextField username;
     @FXML private PasswordField pw;
+    @FXML private ToggleButton isEmployer;
     
     public LogInController() {   
-        
-        userList = new JobSeekerList();
-	
+        jobSeekerList = new JobSeekerList();
+        employerList = new EmployerList();
     }
     
     
     
     
     @FXML protected void handleLoginButtonAction(ActionEvent event) throws IOException {
-        
-        
         String userText = username.getText();
         String passwordText = pw.getText();
-        boolean userInList;
+        boolean loginResult;
         
-        userInList = validateUserPass(userList.getUserList(), userText, passwordText);
-        if (userInList == true){
-            authenticatePass();
-            
-        }else{
-            authenticateFailed();
+        if (isEmployer.isSelected()) {
+            loginResult = validateEmployerUserPass(employerList.getEmployerList(), userText, passwordText);
+            if (loginResult) {
+                authenticatePass(true);
+            }
+        } else {
+            loginResult = validateJobSeekerUserPass(jobSeekerList.getJobSeekerList(), userText, passwordText);
+            if (loginResult) {
+                authenticatePass(false);
+            }
         }
+       
+        authenticateFailed();
     }
         
     @FXML protected void handleCreateButtonAction(ActionEvent event) {
@@ -56,15 +63,18 @@ public class LogInController implements Initializable {
         CreateProfileUIController createProfileContrl = new CreateProfileUIController();
         
     }
-    public void authenticatePass() throws IOException{
-        
-        //loginPrompt.setVisible(false);
+    public void authenticatePass(boolean isEmployer) throws IOException{
         loginSuccessPrompt();
         Stage stage = (Stage) username.getScene().getWindow();
         stage.close();
         
+        FXMLLoader loader;
         
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("NavigationUi.fxml"));
+        if (isEmployer) {
+            loader = new FXMLLoader(getClass().getResource("EmployerNavigationUi.fxml"));
+        } else {
+            loader = new FXMLLoader(getClass().getResource("JobSeekerNavigationUi.fxml"));
+        }
         stage.setScene(new Scene((Pane) loader.load()));
 
         NavigationUiController controller = loader.<NavigationUiController>getController();
@@ -74,10 +84,9 @@ public class LogInController implements Initializable {
     }
     
     public void authenticateFailed(){
-        
         loginFailPrompt();
     }
-    public boolean validateUserPass(ArrayList<JobSeeker> userList, String userName,String password){
+    public boolean validateJobSeekerUserPass(ArrayList<JobSeeker> userList, String userName,String password){
         boolean flag = false;
         boolean authenticateFlag = false;
         for(JobSeeker object : userList){
@@ -91,6 +100,22 @@ public class LogInController implements Initializable {
         }
         return authenticateFlag;
     }
+    
+        public boolean validateEmployerUserPass(ArrayList<Employer> userList, String userName,String password){
+        boolean flag = false;
+        boolean authenticateFlag = false;
+        for(Employer object : userList){
+            if (object.getUsername().equalsIgnoreCase(userName)){
+                flag = true;
+                if (flag == true && object.getPassword().equals(password)){
+                    authenticateFlag = true;
+                    currentEmployer = object;
+                }
+            }
+        }
+        return authenticateFlag;
+    }
+
     public void loginFailPrompt(){
         
         JOptionPane.showMessageDialog(new JPanel(),
@@ -118,14 +143,14 @@ public class LogInController implements Initializable {
      * @return the userList
      */
     public JobSeekerList getUserList() {
-        return userList;
+        return jobSeekerList;
     }
 
     /**
      * @param userList the userList to set
      */
-    public void setUserList(JobSeekerList userList) {
-        this.userList = userList;
+    public void setJobSeekerList(JobSeekerList userList) {
+        this.jobSeekerList = userList;
     }
 
     /**

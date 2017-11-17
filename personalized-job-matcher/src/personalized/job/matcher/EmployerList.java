@@ -22,6 +22,20 @@ public class EmployerList {
     private void makeEmployerList() {
         Employer employer1 = new Employer("Walmart", "walmart", "password");
         
-        employerList.add(employer1);
+        getEmployerList().add(employer1);
+    }
+
+    /**
+     * @return the employerList
+     */
+    public ArrayList<Employer> getEmployerList() {
+        return employerList;
+    }
+
+    /**
+     * @param employerList the employerList to set
+     */
+    public void setEmployerList(ArrayList<Employer> employerList) {
+        this.employerList = employerList;
     }
 }

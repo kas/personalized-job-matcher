@@ -22,7 +22,7 @@ import javafx.stage.Stage;
  *
  * @author kas
  */
-public class NavigationUiController implements Initializable {
+public class JobSeekerNavigationUiController implements Initializable {
 
     
 private JobSeeker currentJobSeeker;

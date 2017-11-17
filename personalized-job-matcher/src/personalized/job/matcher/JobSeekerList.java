@@ -6,45 +6,45 @@ import java.util.ArrayList;
 
 public class JobSeekerList {
     
-    private ArrayList<JobSeeker> userList;
+    private ArrayList<JobSeeker> jobSeekerList;
     
     public JobSeekerList(){
-        userList = new ArrayList<>();
-        makeUserList();
+        jobSeekerList = new ArrayList<>();
+        makeJobSeekerList();
     }
 
-    private void makeUserList() {
-        JobSeeker user1 = new JobSeeker ("testuser1","TestUser", 1, "password", "28", "State College PA", "Male", "Student");
-        JobSeeker user2 = new JobSeeker ("testuser1","TestUser", 2, "password", "28", "State College PA", "Male", "Student");
-        JobSeeker user3 = new JobSeeker ("testuser1","TestUser", 3, "password", "28", "State College PA", "Male", "Student");
-        JobSeeker user4 = new JobSeeker ("testuser1","TestUser", 4, "password", "28", "State College PA", "Male", "Student");
-        JobSeeker user5 = new JobSeeker ("testuser1","TestUser", 5, "password", "28", "State College PA", "Male", "Student");
-        JobSeeker user6 = new JobSeeker ("testuser1","TestUser", 6, "password", "28", "State College PA", "Male", "Student");
+    private void makeJobSeekerList() {
+        JobSeeker jobSeeker1 = new JobSeeker ("testuser1","TestUser", 1, "password", "28", "State College PA", "Male", "Student");
+        JobSeeker jobSeeker2 = new JobSeeker ("testuser1","TestUser", 2, "password", "28", "State College PA", "Male", "Student");
+        JobSeeker jobSeeker3 = new JobSeeker ("testuser1","TestUser", 3, "password", "28", "State College PA", "Male", "Student");
+        JobSeeker jobSeeker4 = new JobSeeker ("testuser1","TestUser", 4, "password", "28", "State College PA", "Male", "Student");
+        JobSeeker jobSeeker5 = new JobSeeker ("testuser1","TestUser", 5, "password", "28", "State College PA", "Male", "Student");
+        JobSeeker jobSeeker6 = new JobSeeker ("testuser1","TestUser", 6, "password", "28", "State College PA", "Male", "Student");
         
-        userList.add(user1);
-        userList.add(user2);
-        userList.add(user3);
-        userList.add(user4);
-        userList.add(user5);
-        userList.add(user6);
+        jobSeekerList.add(jobSeeker1);
+        jobSeekerList.add(jobSeeker2);
+        jobSeekerList.add(jobSeeker3);
+        jobSeekerList.add(jobSeeker4);
+        jobSeekerList.add(jobSeeker5);
+        jobSeekerList.add(jobSeeker6);
     }
 
     /**
-     * @return the userList
+     * @return the jobSeekerList
      */
-    public ArrayList<JobSeeker> getUserList() {
-        return userList;
+    public ArrayList<JobSeeker> getJobSeekerList() {
+        return jobSeekerList;
     }
 
     /**
-     * @param userList the userList to set
+     * @param jobSeekerList the jobSeekerList to set
      */
-    public void setUserList(ArrayList<JobSeeker> userList) {
-        this.userList = userList;
+    public void setUserList(ArrayList<JobSeeker> jobSeekerList) {
+        this.jobSeekerList = jobSeekerList;
     }
     
     public int getSize()
     {
-        return this.userList.size();
+        return this.jobSeekerList.size();
     }
 }
