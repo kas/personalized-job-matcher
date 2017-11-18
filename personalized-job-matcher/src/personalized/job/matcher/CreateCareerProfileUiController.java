@@ -21,6 +21,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
@@ -46,11 +47,12 @@ public class CreateCareerProfileUiController implements Initializable {
     @FXML private TextArea description;
     @FXML private ListView listView;
     private PersonalityTraitList personalityTraitList;
-    PersonalityTraits2 personalitytraits2 = new PersonalityTraits2();
      protected ListProperty<String> listProperty = new SimpleListProperty<>();
     
     public void initData(Employer employer) {
         this.currentEmployer = employer;
+        
+        listView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         
         personalityTraitList = new PersonalityTraitList();
 
