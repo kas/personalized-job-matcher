@@ -8,7 +8,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 
 import javafx.scene.control.Label;
@@ -21,44 +20,43 @@ import javax.swing.JPanel;
 
 public class PersonalityTestController implements Initializable {
 
-    TestQuestionList questions = new TestQuestionList();
-    TestAnswers testAnswers = new TestAnswers();
-    PersonalityTraitList traits = new PersonalityTraitList();
+    private TestQuestionList questions = new TestQuestionList();
+    private TestAnswers testAnswers = new TestAnswers();
+    private PersonalityTraitList traits = new PersonalityTraitList();
 
-    
     private JobSeeker currentJobSeeker;
 
     @FXML
     private Label questionArea;
     @FXML
-    RadioButton rbYes;
+    private RadioButton rbYes;
     @FXML
-    RadioButton rbNo;
+    private RadioButton rbNo;
     @FXML
-    ToggleGroup rbGroup;
+    private ToggleGroup rbGroup;
 
-    int questionNumber = 0;
+    private int questionNumber = 0;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        questionArea.setText(questions.testQuestions.get(questionNumber).questionText);
+        questionArea.setText(questions.getTestQuestions().get(questionNumber).getQuestionText());
 
     }
 
     @FXML
     protected void handleNextAction(ActionEvent event) throws IOException {
-        if (questionNumber < questions.testQuestions.size() - 1) {
+        int answerNumber = 0;
+        if (questionNumber < questions.getTestQuestions().size() - 1) {
             questionNumber++;
-            questionArea.setText(questions.testQuestions.get(questionNumber).questionText);
+            questionArea.setText(questions.getTestQuestions().get(questionNumber).getQuestionText());
             if (rbGroup.getSelectedToggle().equals(rbYes)) {
-                testAnswers.setTempAnswer((Boolean) true);
-                testAnswers.addAnswer();
+                String tempAnswer = questions.getTestQuestions().get(questionNumber).getAssociatedTrait();
+                testAnswers.getAnswers().add(answerNumber, tempAnswer);
             } else if (rbGroup.getSelectedToggle().equals(rbNo)) {
-                testAnswers.setTempAnswer((Boolean) false);
-                testAnswers.addAnswer();
+
             }
 
-        } else if (questionNumber == questions.testQuestions.size() - 1) {
+        } else if (questionNumber == questions.getTestQuestions().size() - 1) {
 
             testDone();
 
@@ -89,5 +87,131 @@ public class PersonalityTestController implements Initializable {
 
         currentJobSeeker = jobSeeker;
         //System.out.println(jobSeeker.getUsername());
+    }
+
+    /**
+     * @return the questions
+     */
+    public TestQuestionList getQuestions() {
+        return questions;
+    }
+
+    /**
+     * @param questions the questions to set
+     */
+    public void setQuestions(TestQuestionList questions) {
+        this.questions = questions;
+    }
+
+    /**
+     * @return the testAnswers
+     */
+    public TestAnswers getTestAnswers() {
+        return testAnswers;
+    }
+
+    /**
+     * @param testAnswers the testAnswers to set
+     */
+    public void setTestAnswers(TestAnswers testAnswers) {
+        this.testAnswers = testAnswers;
+    }
+
+    /**
+     * @return the traits
+     */
+    public PersonalityTraitList getTraits() {
+        return traits;
+    }
+
+    /**
+     * @param traits the traits to set
+     */
+    public void setTraits(PersonalityTraitList traits) {
+        this.traits = traits;
+    }
+
+    /**
+     * @return the currentJobSeeker
+     */
+    public JobSeeker getCurrentJobSeeker() {
+        return currentJobSeeker;
+    }
+
+    /**
+     * @param currentJobSeeker the currentJobSeeker to set
+     */
+    public void setCurrentJobSeeker(JobSeeker currentJobSeeker) {
+        this.currentJobSeeker = currentJobSeeker;
+    }
+
+    /**
+     * @return the questionArea
+     */
+    public Label getQuestionArea() {
+        return questionArea;
+    }
+
+    /**
+     * @param questionArea the questionArea to set
+     */
+    public void setQuestionArea(Label questionArea) {
+        this.questionArea = questionArea;
+    }
+
+    /**
+     * @return the rbYes
+     */
+    public RadioButton getRbYes() {
+        return rbYes;
+    }
+
+    /**
+     * @param rbYes the rbYes to set
+     */
+    public void setRbYes(RadioButton rbYes) {
+        this.rbYes = rbYes;
+    }
+
+    /**
+     * @return the rbNo
+     */
+    public RadioButton getRbNo() {
+        return rbNo;
+    }
+
+    /**
+     * @param rbNo the rbNo to set
+     */
+    public void setRbNo(RadioButton rbNo) {
+        this.rbNo = rbNo;
+    }
+
+    /**
+     * @return the rbGroup
+     */
+    public ToggleGroup getRbGroup() {
+        return rbGroup;
+    }
+
+    /**
+     * @param rbGroup the rbGroup to set
+     */
+    public void setRbGroup(ToggleGroup rbGroup) {
+        this.rbGroup = rbGroup;
+    }
+
+    /**
+     * @return the questionNumber
+     */
+    public int getQuestionNumber() {
+        return questionNumber;
+    }
+
+    /**
+     * @param questionNumber the questionNumber to set
+     */
+    public void setQuestionNumber(int questionNumber) {
+        this.questionNumber = questionNumber;
     }
 }

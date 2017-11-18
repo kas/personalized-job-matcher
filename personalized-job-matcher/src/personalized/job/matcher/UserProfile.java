@@ -9,10 +9,10 @@ package personalized.job.matcher;
  *
  * @author austi
  */
-
 import java.util.*;
 
 public class UserProfile {
+
     private String username;
     private String password;
     private String name;
@@ -20,11 +20,10 @@ public class UserProfile {
     private String location;
     private String sex;
     private String currentJob;
-    
+
     private ArrayList<UserProfile> userProfileList = new ArrayList<UserProfile>();
-    
-    public UserProfile(String username, String password, String name, int age, String location, String sex, String currentJob)
-    {
+
+    public UserProfile(String username, String password, String name, int age, String location, String sex, String currentJob) {
         this.username = username;
         this.password = password;
         this.name = name;

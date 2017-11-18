@@ -12,25 +12,26 @@ import java.util.ArrayList;
  * @author KAS6570
  */
 public class PersonalityTraitList {
+
     private ArrayList<String> personalityTraitList;
-     
-   public PersonalityTraitList(){
+
+    public PersonalityTraitList() {
         personalityTraitList = new ArrayList<>();
         makePersonalityTraitList();
     }
-    
+
     private void makePersonalityTraitList() {
-         String personalityTrait1 =  "Introverted";
-         String personalityTrait2 =  "Extroverted";
-         String personalityTrait3 =  "Organized";
-         String personalityTrait4 =  "Competitive";
-         String personalityTrait5 =  "Selfless";
-         String personalityTrait6 =  "Creative";
-         String personalityTrait7 =  "Confident";
-         String personalityTrait8 =  "Adaptable";
-         String personalityTrait9 =  "Energetic";
-         String personalityTrait10 =  "Sympathetic";
-        
+        String personalityTrait1 = "Introverted";
+        String personalityTrait2 = "Extroverted";
+        String personalityTrait3 = "Organized";
+        String personalityTrait4 = "Competitive";
+        String personalityTrait5 = "Selfless";
+        String personalityTrait6 = "Creative";
+        String personalityTrait7 = "Confident";
+        String personalityTrait8 = "Adaptable";
+        String personalityTrait9 = "Energetic";
+        String personalityTrait10 = "Sympathetic";
+
         getPersonalityTraitList().add(personalityTrait1);
         getPersonalityTraitList().add(personalityTrait2);
         getPersonalityTraitList().add(personalityTrait3);
@@ -41,7 +42,7 @@ public class PersonalityTraitList {
         getPersonalityTraitList().add(personalityTrait8);
         getPersonalityTraitList().add(personalityTrait9);
         getPersonalityTraitList().add(personalityTrait10);
-        
+
     }
 
     /**
