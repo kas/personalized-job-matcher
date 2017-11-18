@@ -20,15 +20,28 @@ public class PersonalityTraitList {
     }
     
     private void makePersonalityTraitList() {
-         String personalityTrait1 =  "independent";
-         String personalityTrait2 =  "teamwork";
-         String personalityTrait3 =  "";
-         String personalityTrait4 =  "";
+         String personalityTrait1 =  "Introverted";
+         String personalityTrait2 =  "Extroverted";
+         String personalityTrait3 =  "Organized";
+         String personalityTrait4 =  "Competitive";
+         String personalityTrait5 =  "Selfless";
+         String personalityTrait6 =  "Creative";
+         String personalityTrait7 =  "Confident";
+         String personalityTrait8 =  "Adaptable";
+         String personalityTrait9 =  "Energetic";
+         String personalityTrait10 =  "Sympathetic";
         
         getPersonalityTraitList().add(personalityTrait1);
         getPersonalityTraitList().add(personalityTrait2);
         getPersonalityTraitList().add(personalityTrait3);
         getPersonalityTraitList().add(personalityTrait4);
+        getPersonalityTraitList().add(personalityTrait5);
+        getPersonalityTraitList().add(personalityTrait6);
+        getPersonalityTraitList().add(personalityTrait7);
+        getPersonalityTraitList().add(personalityTrait8);
+        getPersonalityTraitList().add(personalityTrait9);
+        getPersonalityTraitList().add(personalityTrait10);
+        
     }
 
     /**

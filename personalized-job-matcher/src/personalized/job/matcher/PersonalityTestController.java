@@ -23,8 +23,9 @@ public class PersonalityTestController implements Initializable {
 
     TestQuestionList questions = new TestQuestionList();
     TestAnswers testAnswers = new TestAnswers();
+    PersonalityTraitList traits = new PersonalityTraitList();
 
-    private Parent root1;
+    
     private JobSeeker currentJobSeeker;
 
     @FXML
