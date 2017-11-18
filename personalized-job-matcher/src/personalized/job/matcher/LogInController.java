@@ -1,4 +1,3 @@
-
 package personalized.job.matcher;
 
 import java.io.IOException;
@@ -18,34 +17,37 @@ import javafx.stage.Stage;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-
 public class LogInController implements Initializable {
-    
+
     private JobSeekerList jobSeekerList;
     private JobSeeker currentJobSeeker;
     private Employer currentEmployer;
     private EmployerList employerList;
-    @FXML private TextField username;
-    @FXML private PasswordField pw;
-    
-    public LogInController() {   
+    @FXML
+    private TextField username;
+    @FXML
+    private PasswordField pw;
+
+    public LogInController() {
         jobSeekerList = new JobSeekerList();
         employerList = new EmployerList();
     }
 
-    @FXML protected void handleJobSeekerLoginButtonAction(ActionEvent event) throws IOException {
-        handleLoginButtonAction(false); 
+    @FXML
+    protected void handleJobSeekerLoginButtonAction(ActionEvent event) throws IOException {
+        handleLoginButtonAction(false);
     }
-    
-    @FXML protected void handleEmployerLoginButtonAction(ActionEvent event) throws IOException {
-        handleLoginButtonAction(true); 
+
+    @FXML
+    protected void handleEmployerLoginButtonAction(ActionEvent event) throws IOException {
+        handleLoginButtonAction(true);
     }
-    
+
     private void handleLoginButtonAction(boolean isEmployer) throws IOException {
         String userText = username.getText();
         String passwordText = pw.getText();
         boolean loginResult;
-        
+
         if (isEmployer) {
             loginResult = validateEmployerUserPass(employerList.getEmployerList(), userText, passwordText);
             if (loginResult) {
@@ -62,20 +64,22 @@ public class LogInController implements Initializable {
             }
         }
     }
-        
-    @FXML protected void handleCreateButtonAction(ActionEvent event) {
+
+    @FXML
+    protected void handleCreateButtonAction(ActionEvent event) {
         Stage stage = (Stage) username.getScene().getWindow();
         stage.close();
         CreateProfileUIController createProfileContrl = new CreateProfileUIController();
-        
+
     }
-    public void authenticatePass(boolean isEmployer) throws IOException{
+
+    public void authenticatePass(boolean isEmployer) throws IOException {
         loginSuccessPrompt();
         Stage stage = (Stage) username.getScene().getWindow();
         stage.close();
-        
+
         FXMLLoader loader;
-        
+
         if (isEmployer) {
             loader = new FXMLLoader(getClass().getResource("EmployerNavigationUi.fxml"));
         } else {
@@ -90,20 +94,21 @@ public class LogInController implements Initializable {
             JobSeekerNavigationUiController controller = loader.<JobSeekerNavigationUiController>getController();
             controller.initData(this.currentJobSeeker);
         }
-        
-        stage.show();             
+
+        stage.show();
     }
-    
-    public void authenticateFailed(){
+
+    public void authenticateFailed() {
         loginFailPrompt();
     }
-    public boolean validateJobSeekerUserPass(ArrayList<JobSeeker> userList, String userName,String password){
+
+    public boolean validateJobSeekerUserPass(ArrayList<JobSeeker> userList, String userName, String password) {
         boolean flag = false;
         boolean authenticateFlag = false;
-        for(JobSeeker object : userList){
-            if (object.getUsername().equalsIgnoreCase(userName)){
+        for (JobSeeker object : userList) {
+            if (object.getUsername().equalsIgnoreCase(userName)) {
                 flag = true;
-                if (flag == true && object.getPassword().equals(password)){
+                if (flag == true && object.getPassword().equals(password)) {
                     authenticateFlag = true;
                     currentJobSeeker = object;
                 }
@@ -111,14 +116,14 @@ public class LogInController implements Initializable {
         }
         return authenticateFlag;
     }
-    
-        public boolean validateEmployerUserPass(ArrayList<Employer> userList, String userName,String password){
+
+    public boolean validateEmployerUserPass(ArrayList<Employer> userList, String userName, String password) {
         boolean flag = false;
         boolean authenticateFlag = false;
-        for(Employer object : userList){
-            if (object.getUsername().equalsIgnoreCase(userName)){
+        for (Employer object : userList) {
+            if (object.getUsername().equalsIgnoreCase(userName)) {
                 flag = true;
-                if (flag == true && object.getPassword().equals(password)){
+                if (flag == true && object.getPassword().equals(password)) {
                     authenticateFlag = true;
                     currentEmployer = object;
                 }
@@ -127,28 +132,26 @@ public class LogInController implements Initializable {
         return authenticateFlag;
     }
 
-    public void loginFailPrompt(){
-        
+    public void loginFailPrompt() {
+
         JOptionPane.showMessageDialog(new JPanel(),
-        "Incorrect username or password",
-        "Login Error",
-        JOptionPane.ERROR_MESSAGE);
-        
+                "Incorrect username or password",
+                "Login Error",
+                JOptionPane.ERROR_MESSAGE);
+
     }
-    
-    public void loginSuccessPrompt(){
+
+    public void loginSuccessPrompt() {
         JOptionPane.showMessageDialog(new JPanel(),
-        "Login successful!",
-        "Login Success",
-        JOptionPane.PLAIN_MESSAGE);
+                "Login successful!",
+                "Login Success",
+                JOptionPane.PLAIN_MESSAGE);
     }
-    
-    
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     /**
      * @return the userList
@@ -205,5 +208,40 @@ public class LogInController implements Initializable {
     public void setPw(PasswordField pw) {
         this.pw = pw;
     }
-    
+
+    /**
+     * @return the jobSeekerList
+     */
+    public JobSeekerList getJobSeekerList() {
+        return jobSeekerList;
+    }
+
+    /**
+     * @return the currentEmployer
+     */
+    public Employer getCurrentEmployer() {
+        return currentEmployer;
+    }
+
+    /**
+     * @param currentEmployer the currentEmployer to set
+     */
+    public void setCurrentEmployer(Employer currentEmployer) {
+        this.currentEmployer = currentEmployer;
+    }
+
+    /**
+     * @return the employerList
+     */
+    public EmployerList getEmployerList() {
+        return employerList;
+    }
+
+    /**
+     * @param employerList the employerList to set
+     */
+    public void setEmployerList(EmployerList employerList) {
+        this.employerList = employerList;
+    }
+
 }
