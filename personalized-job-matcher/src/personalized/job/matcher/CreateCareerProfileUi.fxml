@@ -8,7 +8,7 @@
 <?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="personalized.job.matcher.CreateCareerProfileUiController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="personalized.job.matcher.CreateCareerProfileUiController">
    <children>
       <TitledPane animated="false" prefHeight="400.0" prefWidth="600.0" text="Create Career Profile">
         <content>
@@ -21,7 +21,7 @@
                   <TextField id="medianSalary" layoutX="420.0" layoutY="23.0" />
                   <Label layoutX="274.0" layoutY="27.0" prefHeight="17.0" prefWidth="135.0" text="Median Starting Salary" />
                   <Label id="personalityTraits" layoutX="398.0" layoutY="76.0" text="Matching Personality Traits" />
-                  <ListView id="personalityTraits" layoutX="362.0" layoutY="101.0" prefHeight="215.0" prefWidth="215.0" />
+                  <ListView id="personalityTraits" fx:id="traitList" layoutX="362.0" layoutY="101.0" prefHeight="215.0" prefWidth="215.0" />
                   <Button layoutX="479.0" layoutY="330.0" mnemonicParsing="false" onAction="#handleSubmitAction" text="Submit" />
                   <Button layoutX="409.0" layoutY="330.0" mnemonicParsing="false" onAction="#handleCancelAction" text="Cancel" />
                </children>

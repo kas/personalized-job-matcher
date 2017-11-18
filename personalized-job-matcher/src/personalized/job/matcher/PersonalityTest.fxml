@@ -22,5 +22,6 @@
             <RadioButton fx:id="rbNo" mnemonicParsing="false" prefWidth="54.0" text="No" toggleGroup="$rbGroup" />
          </children>
       </VBox>
+      <Label layoutX="109.0" layoutY="65.0" prefHeight="18.0" prefWidth="451.0" text="Choose the answer that best fits your opinion of this statement:" />
    </children>
 </AnchorPane>

@@ -45,25 +45,29 @@ public class CreateCareerProfileUiController implements Initializable {
     @FXML private TextField name;
     @FXML private TextField medianSalary;
     @FXML private TextArea description;
-    @FXML private ListView personalityTraits;
+    @FXML private ListView traitList;
+    @FXML
+    private ObservableList<String> listofTraits;
     private PersonalityTraitList personalityTraitList;
+    PersonalityTraits2 personalitytraits2 = new PersonalityTraits2();
      protected ListProperty<String> listProperty = new SimpleListProperty<>();
     
     public void initData(Employer employer) {
-        personalityTraitList = new PersonalityTraitList();
-        
-            try {
+        //personalityTraitList = new PersonalityTraitList();
+          
+         listofTraits = personalitytraits2.getPersonalityTraits();
+            
                 this.currentEmployer = employer;
                 
-                //this.personalityTraits.setItems(personalityTraitList.getPersonalityTraitList());
-                 listProperty.set(FXCollections.observableArrayList(personalityTraitList.getPersonalityTraitList()));
-                personalityTraits.itemsProperty().bind(listProperty);
                 
+                 
+                
+                traitList.setItems(listofTraits);
                // TODO populate listview with personality traits (personalitytraitlist)
-            }
-            catch (Exception e) {
-                System.out.println(e.getStackTrace());
-            }
+            
+            
+              
+            
         }
     
     @FXML protected void handleCancelAction(ActionEvent event) {
@@ -75,7 +79,7 @@ public class CreateCareerProfileUiController implements Initializable {
     @FXML protected void handleSubmitAction(ActionEvent event) throws IOException {
         ArrayList<CareerProfile> newList = new ArrayList<CareerProfile>();
         
-        List<String> personalityTraitsList = personalityTraits.getSelectionModel().getSelectedItems();
+        List<String> personalityTraitsList = traitList.getSelectionModel().getSelectedItems();
         
         CareerProfile careerProfile = new CareerProfile(name.getText(), medianSalary.getText(), description.getText(), personalityTraitsList);
 
