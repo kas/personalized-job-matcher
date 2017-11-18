@@ -60,7 +60,9 @@ public class CreateCareerProfileUiController implements Initializable {
         listProperty.set(FXCollections.observableArrayList(personalityTraitList.getPersonalityTraitList()));
     }
     
-    @FXML protected void handleCancelAction(ActionEvent event) throws IOException {        
+    @FXML protected void handleCancelAction(ActionEvent event) throws IOException {
+        System.out.println("Canceled");
+        
         Stage stage = (Stage) name.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("EmployerNavigationUi.fxml"));
             stage.setScene(new Scene((Pane) loader.load()));
@@ -80,6 +82,8 @@ public class CreateCareerProfileUiController implements Initializable {
 
         CareerProfileList careerProfileList = new CareerProfileList();
         careerProfileList.add(careerProfile);
+        
+        System.out.println("Submitted Career Profile");
         
         Stage stage = (Stage) name.getScene().getWindow();
         stage.close();
