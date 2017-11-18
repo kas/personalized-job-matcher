@@ -20,8 +20,8 @@
                   <TextArea id="description" layoutX="14.0" layoutY="101.0" prefHeight="254.0" prefWidth="265.0" />
                   <TextField id="medianSalary" layoutX="420.0" layoutY="23.0" />
                   <Label layoutX="274.0" layoutY="27.0" prefHeight="17.0" prefWidth="135.0" text="Median Starting Salary" />
-                  <Label id="personalityTraits" layoutX="398.0" layoutY="76.0" text="Matching Personality Traits" />
-                  <ListView id="personalityTraits" fx:id="traitList" layoutX="362.0" layoutY="101.0" prefHeight="215.0" prefWidth="215.0" />
+                  <Label layoutX="398.0" layoutY="76.0" text="Matching Personality Traits" />
+                  <ListView fx:id="listView" layoutX="362.0" layoutY="101.0" prefHeight="215.0" prefWidth="215.0" />
                   <Button layoutX="479.0" layoutY="330.0" mnemonicParsing="false" onAction="#handleSubmitAction" text="Submit" />
                   <Button layoutX="409.0" layoutY="330.0" mnemonicParsing="false" onAction="#handleCancelAction" text="Cancel" />
                </children>

@@ -39,62 +39,50 @@ public class CreateCareerProfileUiController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
     }    
     
     @FXML private TextField name;
     @FXML private TextField medianSalary;
     @FXML private TextArea description;
-    @FXML private ListView traitList;
-    @FXML
-    private ObservableList<String> listofTraits;
+    @FXML private ListView listView;
     private PersonalityTraitList personalityTraitList;
     PersonalityTraits2 personalitytraits2 = new PersonalityTraits2();
      protected ListProperty<String> listProperty = new SimpleListProperty<>();
     
     public void initData(Employer employer) {
-        //personalityTraitList = new PersonalityTraitList();
-          
-         listofTraits = personalitytraits2.getPersonalityTraits();
-            
-                this.currentEmployer = employer;
-                
-                
-                 
-                
-                traitList.setItems(listofTraits);
-               // TODO populate listview with personality traits (personalitytraitlist)
-            
-            
-              
-            
-        }
+        this.currentEmployer = employer;
+        
+        personalityTraitList = new PersonalityTraitList();
+
+        listView.itemsProperty().bind(listProperty);
+        listProperty.set(FXCollections.observableArrayList(personalityTraitList.getPersonalityTraitList()));
+    }
     
     @FXML protected void handleCancelAction(ActionEvent event) {
-        Stage stage = (Stage) name.getScene().getWindow();
-        stage.close();
-        EmployerNavigationUiController employerNavigationUiController = new EmployerNavigationUiController();
+//        Stage stage = (Stage) name.getScene().getWindow();
+//        stage.close();
+//        EmployerNavigationUiController employerNavigationUiController = new EmployerNavigationUiController();
     }
     
     @FXML protected void handleSubmitAction(ActionEvent event) throws IOException {
-        ArrayList<CareerProfile> newList = new ArrayList<CareerProfile>();
-        
-        List<String> personalityTraitsList = traitList.getSelectionModel().getSelectedItems();
-        
-        CareerProfile careerProfile = new CareerProfile(name.getText(), medianSalary.getText(), description.getText(), personalityTraitsList);
-
-        CareerProfileList careerProfileList = new CareerProfileList();
-        careerProfileList.add(careerProfile);
-        
-        Stage stage = (Stage) name.getScene().getWindow();
-        stage.close();
-        
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("EmployerNavigationUi.fxml"));
-        stage.setScene(new Scene((Pane) loader.load()));
-
-        EmployerNavigationUiController controller = loader.<EmployerNavigationUiController>getController();
-        controller.initData(currentEmployer);
-        
-        stage.show();             
+//        ArrayList<CareerProfile> newList = new ArrayList<CareerProfile>();
+//        
+//        List<String> personalityTraitsList = listView.getSelectionModel().getSelectedItems();
+//        
+//        CareerProfile careerProfile = new CareerProfile(name.getText(), medianSalary.getText(), description.getText(), personalityTraitsList);
+//
+//        CareerProfileList careerProfileList = new CareerProfileList();
+//        careerProfileList.add(careerProfile);
+//        
+//        Stage stage = (Stage) name.getScene().getWindow();
+//        stage.close();
+//        
+//        FXMLLoader loader = new FXMLLoader(getClass().getResource("EmployerNavigationUi.fxml"));
+//        stage.setScene(new Scene((Pane) loader.load()));
+//
+//        EmployerNavigationUiController controller = loader.<EmployerNavigationUiController>getController();
+//        controller.initData(currentEmployer);
+//        
+//        stage.show();             
     }
 }
