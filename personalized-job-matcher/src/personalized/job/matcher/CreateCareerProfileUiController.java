@@ -60,31 +60,40 @@ public class CreateCareerProfileUiController implements Initializable {
         listProperty.set(FXCollections.observableArrayList(personalityTraitList.getPersonalityTraitList()));
     }
     
-    @FXML protected void handleCancelAction(ActionEvent event) {
-//        Stage stage = (Stage) name.getScene().getWindow();
-//        stage.close();
-//        EmployerNavigationUiController employerNavigationUiController = new EmployerNavigationUiController();
+    @FXML protected void handleCancelAction(ActionEvent event) throws IOException {
+        System.out.println("Canceled");
+        
+        Stage stage = (Stage) name.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("EmployerNavigationUi.fxml"));
+            stage.setScene(new Scene((Pane) loader.load()));
+            
+            EmployerNavigationUiController controller = loader.<EmployerNavigationUiController>getController();
+            controller.initData(this.currentEmployer);
+        
+            stage.show();    
     }
     
     @FXML protected void handleSubmitAction(ActionEvent event) throws IOException {
-//        ArrayList<CareerProfile> newList = new ArrayList<CareerProfile>();
-//        
-//        List<String> personalityTraitsList = listView.getSelectionModel().getSelectedItems();
-//        
-//        CareerProfile careerProfile = new CareerProfile(name.getText(), medianSalary.getText(), description.getText(), personalityTraitsList);
-//
-//        CareerProfileList careerProfileList = new CareerProfileList();
-//        careerProfileList.add(careerProfile);
-//        
-//        Stage stage = (Stage) name.getScene().getWindow();
-//        stage.close();
-//        
-//        FXMLLoader loader = new FXMLLoader(getClass().getResource("EmployerNavigationUi.fxml"));
-//        stage.setScene(new Scene((Pane) loader.load()));
-//
-//        EmployerNavigationUiController controller = loader.<EmployerNavigationUiController>getController();
-//        controller.initData(currentEmployer);
-//        
-//        stage.show();             
+        ArrayList<CareerProfile> newList = new ArrayList<CareerProfile>();
+        
+        List<String> personalityTraitsList = listView.getSelectionModel().getSelectedItems();
+        
+        CareerProfile careerProfile = new CareerProfile(name.getText(), medianSalary.getText(), description.getText(), personalityTraitsList);
+
+        CareerProfileList careerProfileList = new CareerProfileList();
+        careerProfileList.add(careerProfile);
+        
+        System.out.println("Submitted Career Profile");
+        
+        Stage stage = (Stage) name.getScene().getWindow();
+        stage.close();
+        
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("EmployerNavigationUi.fxml"));
+        stage.setScene(new Scene((Pane) loader.load()));
+
+        EmployerNavigationUiController controller = loader.<EmployerNavigationUiController>getController();
+        controller.initData(currentEmployer);
+        
+        stage.show();             
     }
 }
