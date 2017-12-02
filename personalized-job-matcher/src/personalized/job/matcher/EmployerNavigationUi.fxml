@@ -17,5 +17,6 @@
             <Font size="29.0" />
          </font>
       </Label>
+      <Button fx:id="updateProfile1" layoutX="300.0" layoutY="33.0" mnemonicParsing="false" onAction="#handlePostJobButtonAction" text="Post Job" />
    </children>
 </AnchorPane>

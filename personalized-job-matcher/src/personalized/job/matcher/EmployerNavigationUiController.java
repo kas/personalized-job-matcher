@@ -56,6 +56,17 @@ private Employer currentEmployer;
         
             stage.show();
         }
+        
+         @FXML protected void handlePostJobButtonAction(ActionEvent event) throws IOException {            
+            Stage stage = (Stage) name.getScene().getWindow();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("PostJobUi.fxml"));
+            stage.setScene(new Scene((Pane) loader.load()));
+
+            PostJobUiController controller = loader.<PostJobUiController>getController();
+            controller.initData(this.currentEmployer);
+        
+            stage.show();
+        }
 
     /**
      * @return the currentEmployer
