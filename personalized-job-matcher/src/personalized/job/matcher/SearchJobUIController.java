@@ -110,7 +110,7 @@ public class SearchJobUIController implements Initializable {
         
         observableArrayList.clear();
         jobs.clear();
-        searchList = 
+        
         searchList = (List<Job>) jobs;
         listProperty.set(FXCollections.observableArrayList(observableArrayList));
         searchResults.getItems().clear();
