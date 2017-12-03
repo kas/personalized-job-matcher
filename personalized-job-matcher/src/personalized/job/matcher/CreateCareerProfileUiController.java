@@ -74,14 +74,15 @@ public class CreateCareerProfileUiController implements Initializable {
     }
     
     @FXML protected void handleSubmitAction(ActionEvent event) throws IOException {
-        ArrayList<CareerProfile> newList = new ArrayList<CareerProfile>();
         
         List<String> personalityTraitsList = listView.getSelectionModel().getSelectedItems();
         
         CareerProfile careerProfile = new CareerProfile(name.getText(), medianSalary.getText(), description.getText(), personalityTraitsList);
 
-        CareerProfileList careerProfileList = new CareerProfileList();
+        //CareerProfileList careerProfileList = new CareerProfileList();
+        CareerProfileList careerProfileList= PersistentDataController.getPersistentDataController().getPersistentDataCollection().getTheCareerProfileList();
         careerProfileList.add(careerProfile);
+        PersistentDataController.getPersistentDataController().writeJSONDataModel();
         
         System.out.println("Submitted Career Profile");
         
@@ -93,7 +94,6 @@ public class CreateCareerProfileUiController implements Initializable {
 
         EmployerNavigationUiController controller = loader.<EmployerNavigationUiController>getController();
         controller.initData(currentEmployer);
-        
         stage.show();             
     }
 }

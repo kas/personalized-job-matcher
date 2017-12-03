@@ -74,7 +74,8 @@ public class LogInController implements Initializable {
     }
 
     public void authenticatePass(boolean isEmployer) throws IOException {
-        loginSuccessPrompt();
+        loginSuccessPrompt(); 
+        System.out.println(PersistentDataController.getPersistentDataController().getPersistentDataCollection().getTheCareerProfileList().getCareerProfileList());
         Stage stage = (Stage) username.getScene().getWindow();
         stage.close();
 
