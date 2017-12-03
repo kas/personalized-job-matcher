@@ -69,7 +69,6 @@ public class UpdateProfileUiController implements Initializable {
             
             JobSeekerNavigationUiController controller = loader.<JobSeekerNavigationUiController>getController();
             controller.initData(this.currentJobSeeker);
-        
             stage.show();        
         }
     @FXML protected void handleCancelButtonAction(ActionEvent event) throws IOException {

@@ -22,22 +22,57 @@ public class PersistentDataCollection implements Serializable{
     
     public PersistentDataCollection() {
         if (theCareerProfileList == null){
-            theCareerProfileList = new CareerProfileList
+            theCareerProfileList = new CareerProfileList();
         }  
         if (theJobSeekerList == null){
-            theJobSeekerList = new JobSeekerList
+            theJobSeekerList = new JobSeekerList();
         }  
         /*if (thePersonalityTestResultsList == null){
-            thePersonalityTestResultsList = new PersonalityTestResultsList
+            thePersonalityTestResultsList = new PersonalityTestResultsList();
         }*/  
-        if (theProfileList == null){
-            theProfileList = new ProfileList
+        if (theUserProfileList == null){
+            theUserProfileList = new UserProfileList();
         }  
         if (theEmployerList == null){
-            theEmployerList = new EmployerList
+            theEmployerList = new EmployerList();
         }  
         if (theJobList == null){
-            theJobList = new JobList
+            theJobList = new JobList();
         }  
     }   
+
+    /**
+     * @return the theCareerProfileList
+     */
+    public CareerProfileList getTheCareerProfileList() {
+        return theCareerProfileList;
+    }
+
+    /**
+     * @return the theJobSeekerList
+     */
+    public JobSeekerList getTheJobSeekerList() {
+        return theJobSeekerList;
+    }
+
+    /**
+     * @return the theUserProfileList
+     */
+    public UserProfileList getTheUserProfileList() {
+        return theUserProfileList;
+    }
+
+    /**
+     * @return the theEmployerList
+     */
+    public EmployerList getTheEmployerList() {
+        return theEmployerList;
+    }
+
+    /**
+     * @return the theJobList
+     */
+    public JobList getTheJobList() {
+        return theJobList;
+    }
 }
