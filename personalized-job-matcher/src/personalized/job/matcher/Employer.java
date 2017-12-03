@@ -22,6 +22,7 @@ public class Employer {
         this.username = username;
         this.password = password;
     }
+    
 
     /**
      * @return the name

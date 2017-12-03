@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="328.0" prefWidth="594.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="personalized.job.matcher.SearchJobUIController">
+   <children>
+      <TitledPane prefHeight="358.0" prefWidth="589.0" text="Search Jobs/Careers">
+         <content>
+            <AnchorPane prefHeight="71.0" prefWidth="592.0">
+               <children>
+                  <Label alignment="CENTER" layoutX="14.0" layoutY="-1.0" prefHeight="33.0" prefWidth="368.0" text="Search Results" textAlignment="CENTER" textFill="#3752ff">
+                     <font>
+                        <Font name="System Bold" size="17.0" />
+                     </font>
+                  </Label>
+                  <ListView layoutX="7.0" layoutY="32.0" prefHeight="264.0" prefWidth="375.0" />
+                  <TextField fx:id="Keyword" alignment="CENTER" layoutX="396.0" layoutY="3.0" prefHeight="25.0" prefWidth="176.0" promptText="Enter Keyword" />
+                  <RadioButton fx:id="JobRadio" layoutX="435.0" layoutY="65.0" mnemonicParsing="false" selected="true" text="Jobs">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="Selection" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton fx:id="CareerRadio" layoutX="435.0" layoutY="94.0" mnemonicParsing="false" text="Career Profiles" toggleGroup="$Selection" />
+                  <Button fx:id="SearchButton" layoutX="435.0" layoutY="154.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="97.0" text="Search" />
+                  <Button fx:id="DetailsButton" layoutX="435.0" layoutY="194.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="98.0" text="Details" />
+                  <Button fx:id="ExitButton" layoutX="434.0" layoutY="238.0" mnemonicParsing="false" onAction="#handleCancelButtonAction" prefHeight="25.0" prefWidth="100.0" text="Exit" />
+                  <Separator layoutX="382.0" layoutY="11.0" orientation="VERTICAL" prefHeight="312.0" prefWidth="16.0" />
+               </children>
+            </AnchorPane>
+         </content>
+      </TitledPane>
+   </children>
+</AnchorPane>

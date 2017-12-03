@@ -90,25 +90,20 @@ private JobSeeker currentJobSeeker;
             controller.initData(this.currentJobSeeker);
         
             stage.show();   
-            
-            
-            
-            
-            
-            /*
-            Parent root;
-            Scene scene;
-            
            
-            Stage theStage = (Stage) name.getScene().getWindow();
-            theStage.hide();
-            root = FXMLLoader.load(getClass().getResource("PersonalityTest.fxml"));
-            scene = new Scene(root);           
+        }
+        
+        @FXML protected void handleSearchJCButtonAction(ActionEvent event) throws IOException {
+            Stage stage = (Stage) name.getScene().getWindow();
+            //System.out.println("pressed button");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("SearchJobUI.fxml"));
+            stage.setScene(new Scene((Pane) loader.load()));
+
+            SearchJobUIController controller = loader.<SearchJobUIController>getController();
+            controller.initData(this.currentJobSeeker);
+        
+            stage.show();   
             
-            theStage.setTitle("Personality Test");
-            theStage.setScene(scene);
-            theStage.show();
-            */
         }
 
     /**
