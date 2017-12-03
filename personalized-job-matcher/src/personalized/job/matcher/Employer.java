@@ -5,6 +5,8 @@
  */
 package personalized.job.matcher;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author KAS6570
@@ -13,6 +15,7 @@ public class Employer {
     private String name;
     private String username;
     private String password;
+    private ArrayList<Job> jobs = new ArrayList<Job>();
     
     public Employer(String name, String username, String password) {
         this.name = name;
@@ -60,5 +63,19 @@ public class Employer {
      */
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    /**
+     * @return the jobs
+     */
+    public ArrayList<Job> getJobs() {
+        return jobs;
+    }
+
+    /**
+     * @param jobs the jobs to set
+     */
+    public void setJobs(ArrayList<Job> jobs) {
+        this.jobs = jobs;
     }
 }

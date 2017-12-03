@@ -5,6 +5,7 @@
  */
 package personalized.job.matcher;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,13 +16,17 @@ public class CareerProfile {
     private String name;
     private String medianSalary;
     private String description;
-    private List<String> personalityTraits;    
+    private List<String> personalityTraits;
     
     public CareerProfile(String name, String medianSalary, String description, List<String> personalityTraits) {
         this.name = name;
         this.medianSalary = medianSalary;
         this.description = description;
         this.personalityTraits = personalityTraits;
+    }
+    
+    public String toString() {
+        return this.name;
     }
 
     /**

@@ -10,6 +10,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+import javafx.application.Application;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.collections.FXCollections;
@@ -40,29 +41,44 @@ public class PostJobUiController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
     }    
     
-    @FXML private TextField name;
+    @FXML private TextField title;
     @FXML private TextArea description;
+    @FXML private ListView listView;
+    private CareerProfileList careerProfileList;
 
-    private PersonalityTraitList personalityTraitList;
     protected ListProperty<String> listProperty = new SimpleListProperty<>();
     
     public void initData(Employer employer) {
         this.currentEmployer = employer;
         
-        listView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        careerProfileList = new CareerProfileList(); // size 2
         
-        personalityTraitList = new PersonalityTraitList();
-
+//        ObservableList<CareerProfile> careerProfiles = FXCollections.observableArrayList();
+//        careerProfiles.addAll(careerProfileList.getCareerProfileList());
+//        
+//        System.out.println(careerProfiles.size()); // size 2
+        
+        
+        
         listView.itemsProperty().bind(listProperty);
-        listProperty.set(FXCollections.observableArrayList(personalityTraitList.getPersonalityTraitList()));
+        
+        ObservableList<String> observableArrayList = FXCollections.observableArrayList();
+        
+        for (CareerProfile careerProfile : careerProfileList.getCareerProfileList()) {
+            String string = careerProfile.toString();
+            observableArrayList.add(new String(string) );
+        }
+        
+        listProperty.set(FXCollections.observableArrayList(observableArrayList));
     }
     
     @FXML protected void handleCancelAction(ActionEvent event) throws IOException {
         System.out.println("Canceled");
         
-        Stage stage = (Stage) name.getScene().getWindow();
+        Stage stage = (Stage) title.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("EmployerNavigationUi.fxml"));
             stage.setScene(new Scene((Pane) loader.load()));
             
@@ -73,18 +89,21 @@ public class PostJobUiController implements Initializable {
     }
     
     @FXML protected void handleSubmitAction(ActionEvent event) throws IOException {
-        ArrayList<CareerProfile> newList = new ArrayList<CareerProfile>();
+        int careerProfileIndex =  listView.getSelectionModel().getSelectedIndex();
+        CareerProfile careerProfile = careerProfileList.getCareerProfileList().get(careerProfileIndex);
         
-        List<String> personalityTraitsList = listView.getSelectionModel().getSelectedItems();
+        Job job = new Job(title.getText(), description.getText(), careerProfile);
         
-        CareerProfile careerProfile = new CareerProfile(name.getText(), medianSalary.getText(), description.getText(), personalityTraitsList);
+        ArrayList<Job> jobs = currentEmployer.getJobs();
+        
+        jobs.add(job);
 
-        CareerProfileList careerProfileList = new CareerProfileList();
-        careerProfileList.add(careerProfile);
+        currentEmployer.setJobs(jobs);
         
-        System.out.println("Submitted Career Profile");
+        System.out.println("Submitted Job");
+         System.out.println("Title: " + job.getTitle() + " Description: " + job.getDescription() + " Career Profile: " + careerProfile.getName());
         
-        Stage stage = (Stage) name.getScene().getWindow();
+        Stage stage = (Stage) title.getScene().getWindow();
         stage.close();
         
         FXMLLoader loader = new FXMLLoader(getClass().getResource("EmployerNavigationUi.fxml"));
