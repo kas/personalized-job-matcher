@@ -29,7 +29,7 @@
                         <ToggleGroup fx:id="Selection" />
                      </toggleGroup></RadioButton>
                   <RadioButton fx:id="CareerRadio" layoutX="435.0" layoutY="94.0" mnemonicParsing="false" text="Career Profiles" toggleGroup="$Selection" />
-                  <Button fx:id="SearchButton" layoutX="435.0" layoutY="154.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="97.0" text="Search" />
+                  <Button fx:id="SearchButton" layoutX="435.0" layoutY="154.0" mnemonicParsing="false" onAction="#handleSearchButtonAction" prefHeight="25.0" prefWidth="97.0" text="Search" />
                   <Button fx:id="DetailsButton" layoutX="435.0" layoutY="194.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="98.0" text="Details" />
                   <Button fx:id="ExitButton" layoutX="434.0" layoutY="238.0" mnemonicParsing="false" onAction="#handleCancelButtonAction" prefHeight="25.0" prefWidth="100.0" text="Exit" />
                   <Separator layoutX="382.0" layoutY="11.0" orientation="VERTICAL" prefHeight="312.0" prefWidth="16.0" />

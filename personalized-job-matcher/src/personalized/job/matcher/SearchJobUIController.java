@@ -7,7 +7,13 @@ package personalized.job.matcher;
 
 import java.io.IOException;
 import java.net.URL;
+import static java.nio.file.Files.list;
+import static java.rmi.Naming.list;
+import java.util.Collection;
+import static java.util.Collections.list;
 import java.util.ResourceBundle;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,7 +31,8 @@ import javafx.stage.Stage;
 public class SearchJobUIController implements Initializable {
 
     private JobSeeker currentJobSeeker;
-    private JobSeeker tempEmployer;
+    private Employer tempEmployer;
+    private String keywordString;
     
     @FXML private TextField Keyword;
     @Override
@@ -50,4 +57,12 @@ public class SearchJobUIController implements Initializable {
         
             stage.show();    
         }
+    @FXML protected void handleSearchButtonAction(ActionEvent event) throws IOException {
+            keywordString = Keyword.getText().toLowerCase();
+            //tempEmployer.getJobs();
+            Collection<Job> jobs = tempEmployer.getJobs().stream().filter((d) -> d.getTitle().toLowerCase().equals(keywordString)).collect(Collectors.toList());
+            System.out.println(jobs);
+            //System.out.println(keywordString);
+        }
+     
 }
