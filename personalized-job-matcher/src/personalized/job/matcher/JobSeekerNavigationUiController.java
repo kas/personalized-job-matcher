@@ -27,6 +27,7 @@ public class JobSeekerNavigationUiController implements Initializable {
 
     
 private JobSeeker currentJobSeeker;
+
 @FXML
     private Label name;	
 
@@ -55,6 +56,7 @@ private JobSeeker currentJobSeeker;
         public void initData(JobSeeker jobSeeker) {
             try {
             this.currentJobSeeker = jobSeeker;
+            
             this.name.setText(jobSeeker.getName());
             this.age.setText(jobSeeker.getAge());
             this.location.setText(jobSeeker.getLocation());

@@ -22,7 +22,7 @@
                         <Font name="System Bold" size="17.0" />
                      </font>
                   </Label>
-                  <ListView layoutX="7.0" layoutY="32.0" prefHeight="264.0" prefWidth="375.0" />
+                  <ListView fx:id="searchResults" layoutX="7.0" layoutY="32.0" prefHeight="264.0" prefWidth="375.0" />
                   <TextField fx:id="Keyword" alignment="CENTER" layoutX="396.0" layoutY="3.0" prefHeight="25.0" prefWidth="176.0" promptText="Enter Keyword" />
                   <RadioButton fx:id="JobRadio" layoutX="435.0" layoutY="65.0" mnemonicParsing="false" selected="true" text="Jobs">
                      <toggleGroup>
@@ -30,8 +30,8 @@
                      </toggleGroup></RadioButton>
                   <RadioButton fx:id="CareerRadio" layoutX="435.0" layoutY="94.0" mnemonicParsing="false" text="Career Profiles" toggleGroup="$Selection" />
                   <Button fx:id="SearchButton" layoutX="435.0" layoutY="154.0" mnemonicParsing="false" onAction="#handleSearchButtonAction" prefHeight="25.0" prefWidth="97.0" text="Search" />
-                  <Button fx:id="DetailsButton" layoutX="435.0" layoutY="194.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="98.0" text="Details" />
-                  <Button fx:id="ExitButton" layoutX="434.0" layoutY="238.0" mnemonicParsing="false" onAction="#handleCancelButtonAction" prefHeight="25.0" prefWidth="100.0" text="Exit" />
+                  <Button fx:id="DetailsButton" layoutX="435.0" layoutY="211.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="98.0" text="Details" />
+                  <Button fx:id="ExitButton" layoutX="434.0" layoutY="271.0" mnemonicParsing="false" onAction="#handleCancelButtonAction" prefHeight="25.0" prefWidth="100.0" text="Exit" />
                   <Separator layoutX="382.0" layoutY="11.0" orientation="VERTICAL" prefHeight="312.0" prefWidth="16.0" />
                </children>
             </AnchorPane>
