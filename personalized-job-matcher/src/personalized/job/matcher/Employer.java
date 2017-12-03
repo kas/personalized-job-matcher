@@ -22,31 +22,10 @@ public class Employer {
         this.name = name;
         this.username = username;
         this.password = password;
+       
     }
     
-    public void addJobs(){
-        Job testjob1 = new Job("Test", "Tests the testing test", careerProfileList.get(0));
-        Job testjob2 = new Job("Test", "Tests the testing test", careerProfileList.get(0));
-        Job testjob3 = new Job("Test", "Tests the testing test", careerProfileList.get(0));
-        Job testjob4 = new Job("Test", "Tests the testing test", careerProfileList.get(0));
-        Job testjob5 = new Job("Test1", "Tests the testing test", careerProfileList.get(1));
-        Job testjob6 = new Job("Test1", "Tests the testing test", careerProfileList.get(1));
-        Job testjob7 = new Job("Test1", "Tests the testing test", careerProfileList.get(1));
-        Job testjob8 = new Job("Test1", "Tests the testing test", careerProfileList.get(1));
-        Job testjob9 = new Job("Test1", "Tests the testing test", careerProfileList.get(1));
-        
-        jobs.add(testjob1);
-        jobs.add(testjob2);
-        jobs.add(testjob3);
-        jobs.add(testjob4);
-        jobs.add(testjob5);
-        jobs.add(testjob6);
-        jobs.add(testjob7);
-        jobs.add(testjob8);
-        jobs.add(testjob9);
-        
-        
-    }
+    
     
     
     

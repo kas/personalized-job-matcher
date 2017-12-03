@@ -25,7 +25,7 @@ public class PersonalityTestController implements Initializable {
     private PersonalityTraitList traits = new PersonalityTraitList();
 
     private JobSeeker currentJobSeeker;
-
+    private Employer currentEmployer;
     @FXML
     private Label questionArea;
     @FXML
