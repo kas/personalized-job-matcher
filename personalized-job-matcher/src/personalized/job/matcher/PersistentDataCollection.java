@@ -13,23 +13,23 @@ import java.io.*;
  */
 public class PersistentDataCollection implements Serializable{
     
-    private CareerList theCareerList;
+    private CareerProfileList theCareerProfileList;
     private JobSeekerList theJobSeekerList;
-    private PersonalityTestResultsList thePersonalityTestResultsList;
-    private ProfileList theProfileList;
+    //private PersonalityTestResultsList thePersonalityTestResultsList;
+    private UserProfileList theUserProfileList;
     private EmployerList theEmployerList;
     private JobList theJobList;
     
     public PersistentDataCollection() {
-        if (theCareerList == null){
-            theCareerList = new CareerList
+        if (theCareerProfileList == null){
+            theCareerProfileList = new CareerProfileList
         }  
         if (theJobSeekerList == null){
             theJobSeekerList = new JobSeekerList
         }  
-        if (thePersonalityTestResultsList == null){
+        /*if (thePersonalityTestResultsList == null){
             thePersonalityTestResultsList = new PersonalityTestResultsList
-        }  
+        }*/  
         if (theProfileList == null){
             theProfileList = new ProfileList
         }  
