@@ -30,52 +30,62 @@ public class CreateProfileUIController implements Initializable {
 
     private Parent root1;
     private Stage stage;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CreateProfileUI.fxml"));
-                
-                root1 = (Parent) fxmlLoader.load();
-                CreateProfileUIController customController = new CreateProfileUIController();
-                fxmlLoader.setController(customController);
-                stage = new Stage();
-                stage.setScene(new Scene(root1));                
-                stage.show();
-                
-                
-                
-        } catch(Exception e) {
-           e.printStackTrace();
-          }
-    }    
-    @FXML private Text actiontarget;
-    @FXML private TextField username;
-    @FXML private TextField password;
-    @FXML private TextField name;
-    @FXML private TextField age;
-    @FXML private TextField location;
-    @FXML private TextField sex;
-    @FXML private TextField currentJob;
-    @FXML private AnchorPane ap;
-    
-    @FXML protected void handleSubmitAction(ActionEvent event) throws IOException {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CreateProfileUI.fxml"));
+
+            root1 = (Parent) fxmlLoader.load();
+            CreateProfileUIController customController = new CreateProfileUIController();
+            fxmlLoader.setController(customController);
+            stage = new Stage();
+            stage.setScene(new Scene(root1));
+            stage.show();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+    private Text actiontarget;
+    @FXML
+    private TextField username;
+    @FXML
+    private TextField password;
+    @FXML
+    private TextField name;
+    @FXML
+    private TextField age;
+    @FXML
+    private TextField location;
+    @FXML
+    private TextField sex;
+    @FXML
+    private TextField currentJob;
+    @FXML
+    private AnchorPane ap;
+
+    @FXML
+    protected void handleSubmitAction(ActionEvent event) throws IOException {
         ArrayList<JobSeeker> newList = new ArrayList<JobSeeker>();
-        JobSeeker newJobSeeker = new JobSeeker(username.getText(), name.getText(), 7, password.getText(), 
-            age.getText(), location.getText(), sex.getText(), currentJob.getText());
+        JobSeeker newJobSeeker = new JobSeeker(username.getText(), name.getText(), 7, password.getText(),
+                age.getText(), location.getText(), sex.getText(), currentJob.getText());
 
         Stage stage = (Stage) username.getScene().getWindow();
         stage.close();
-        
+
         FXMLLoader loader = new FXMLLoader(getClass().getResource("JobSeekerNavigationUi.fxml"));
         stage.setScene(new Scene((Pane) loader.load()));
 
         JobSeekerNavigationUiController controller = loader.<JobSeekerNavigationUiController>getController();
         controller.initData(newJobSeeker);
-        
-        stage.show();             
+
+        stage.show();
     }
-    
-     @FXML protected void handleCancelAction(ActionEvent event) {
+
+    @FXML
+    protected void handleCancelAction(ActionEvent event) {
         Stage stage = (Stage) ap.getScene().getWindow();
         stage.close();
         LogInController logInContrl = new LogInController();
@@ -234,5 +244,5 @@ public class CreateProfileUIController implements Initializable {
     public void setAp(AnchorPane ap) {
         this.ap = ap;
     }
-    
+
 }

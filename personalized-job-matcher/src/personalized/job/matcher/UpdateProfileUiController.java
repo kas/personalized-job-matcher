@@ -23,71 +23,77 @@ import javafx.stage.Stage;
  * @author Krafty
  */
 public class UpdateProfileUiController implements Initializable {
-    
-    @FXML private TextField firstName;
-    @FXML private TextField lastName;
-    @FXML private TextField city;
-    @FXML private TextField state;
-    @FXML private TextField age;
-    @FXML private TextField job;
+
+    @FXML
+    private TextField firstName;
+    @FXML
+    private TextField lastName;
+    @FXML
+    private TextField city;
+    @FXML
+    private TextField state;
+    @FXML
+    private TextField age;
+    @FXML
+    private TextField job;
     private JobSeeker currentJobSeeker;
-    
-    public UpdateProfileUiController(){
-        
+
+    public UpdateProfileUiController() {
+
     }
-    
+
     public void initData(JobSeeker jobSeeker) {
-            //System.out.println("hello");
-            currentJobSeeker = jobSeeker;
-            //System.out.println(jobSeeker.getUsername());
-        }
-    
-    
-    
-    
-    @FXML protected void handleUpdateButtonAction(ActionEvent event) throws IOException {
-        
-            currentJobSeeker.setName(firstName.getText() + " " + lastName.getText()); //need to change this later
-        
-        if(!(age.getText().equals(""))){
+        //System.out.println("hello");
+        currentJobSeeker = jobSeeker;
+        //System.out.println(jobSeeker.getUsername());
+    }
+
+    @FXML
+    protected void handleUpdateButtonAction(ActionEvent event) throws IOException {
+
+        currentJobSeeker.setName(firstName.getText() + " " + lastName.getText()); //need to change this later
+
+        if (!(age.getText().equals(""))) {
             currentJobSeeker.setAge(age.getText());
         }
-        
-            currentJobSeeker.setLocation(city.getText() + " " + state.getText()); //need to change this later
-           
-        if(!(job.getText().equals(""))){
+
+        currentJobSeeker.setLocation(city.getText() + " " + state.getText()); //need to change this later
+
+        if (!(job.getText().equals(""))) {
             currentJobSeeker.setCurrentJob(job.getText());
-        }    
+        }
         /*
             System.out.println(currentJobSeeker.getName());
             System.out.println(currentJobSeeker.getAge());
             System.out.println(currentJobSeeker.getLocation());
             System.out.println(currentJobSeeker.getCurrentJob());
-        */  
-            PersistentDataController.getPersistentDataController().writeJSONDataModel();
-            Stage stage = (Stage) firstName.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("JobSeekerNavigationUi.fxml"));
-            stage.setScene(new Scene((Pane) loader.load()));
-            
-            JobSeekerNavigationUiController controller = loader.<JobSeekerNavigationUiController>getController();
-            controller.initData(this.currentJobSeeker);
-            stage.show();        
-        }
-    
-    @FXML protected void handleCancelButtonAction(ActionEvent event) throws IOException {
-            Stage stage = (Stage) firstName.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("JobSeekerNavigationUi.fxml"));
-            stage.setScene(new Scene((Pane) loader.load()));
-            
-            JobSeekerNavigationUiController controller = loader.<JobSeekerNavigationUiController>getController();
-            controller.initData(this.currentJobSeeker);
-        
-            stage.show();    
-        }
+         */
+        PersistentDataController.getPersistentDataController().writeJSONDataModel();
+        Stage stage = (Stage) firstName.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("JobSeekerNavigationUi.fxml"));
+        stage.setScene(new Scene((Pane) loader.load()));
+
+        JobSeekerNavigationUiController controller = loader.<JobSeekerNavigationUiController>getController();
+        controller.initData(this.currentJobSeeker);
+        stage.show();
+    }
+
+    @FXML
+    protected void handleCancelButtonAction(ActionEvent event) throws IOException {
+        Stage stage = (Stage) firstName.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("JobSeekerNavigationUi.fxml"));
+        stage.setScene(new Scene((Pane) loader.load()));
+
+        JobSeekerNavigationUiController controller = loader.<JobSeekerNavigationUiController>getController();
+        controller.initData(this.currentJobSeeker);
+
+        stage.show();
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
 
     /**
      * @return the firstName
@@ -186,5 +192,5 @@ public class UpdateProfileUiController implements Initializable {
     public void setCurrentJobSeeker(JobSeeker currentJobSeeker) {
         this.currentJobSeeker = currentJobSeeker;
     }
-    
+
 }

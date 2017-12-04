@@ -12,16 +12,17 @@ import java.util.ArrayList;
  * @author KAS6570
  */
 public class EmployerList {
+
     private ArrayList<Employer> employerList;
-    
+
     public EmployerList() {
         employerList = new ArrayList<>();
         makeEmployerList();
     }
-    
+
     private void makeEmployerList() {
         Employer employer1 = new Employer("Walmart", "walmart", "password");
-        
+
         getEmployerList().add(employer1);
     }
 

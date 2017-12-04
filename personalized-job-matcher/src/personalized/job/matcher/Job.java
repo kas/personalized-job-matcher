@@ -5,8 +5,6 @@
  */
 package personalized.job.matcher;
 
-import java.io.Serializable;
-
 /**
  *
  * @author KAS6570

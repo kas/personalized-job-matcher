@@ -12,23 +12,19 @@ import java.util.ArrayList;
  * @author KAS6570
  */
 public class Employer {
+
     private String name;
     private String username;
     private String password;
     private ArrayList<Job> jobs = new ArrayList<Job>();
     private ArrayList<CareerProfile> careerProfileList;
-    
+
     public Employer(String name, String username, String password) {
         this.name = name;
         this.username = username;
         this.password = password;
-       
+
     }
-    
-    
-    
-    
-    
 
     /**
      * @return the name

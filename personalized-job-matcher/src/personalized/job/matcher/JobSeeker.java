@@ -1,13 +1,11 @@
-
 package personalized.job.matcher;
-
-
 
 /**
  *
  * @author Christian Kim
  */
 public class JobSeeker extends User {
+
     private String username;
     //private String firstName;
     //private String lastName;
@@ -20,14 +18,12 @@ public class JobSeeker extends User {
     private String sex;
     private String name;
     private String location;
-    
-    
+
     public JobSeeker(String newUsername, /*String newFirstName, String newLastName,*/
             String newName, int newProfile, String newPassword, String newAge, /*String newCity, 
-            String newState,*/ String newLocation, String newSex, String newCurrentJob)
-    {
+            String newState,*/ String newLocation, String newSex, String newCurrentJob) {
         /*Code Commented Out Until we decide how specific to make some profile fields*/
-	this.username = newUsername;
+        this.username = newUsername;
         //this.firstName = newFirstName;
         //this.lastName = newLastName; 
         this.profile = newProfile;
@@ -39,10 +35,8 @@ public class JobSeeker extends User {
         this.sex = newSex;
         this.name = newName;
         this.location = newLocation;
-        
-        
-    }
 
+    }
 
     /**
      * @return the profile
@@ -90,7 +84,6 @@ public class JobSeeker extends User {
     public void setPassword(String password) {
         this.password = password;
     }
-    
 
     /**
      * @return the age

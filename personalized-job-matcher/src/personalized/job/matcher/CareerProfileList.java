@@ -6,29 +6,29 @@
 package personalized.job.matcher;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
  * @author KAS6570
  */
 public class CareerProfileList {
+
     private ArrayList<CareerProfile> careerProfileList;
 
     public CareerProfileList() {
         careerProfileList = new ArrayList<>();
         makeCareerProfileList();
     }
-    
+
     private void makeCareerProfileList() {
         ArrayList<String> personalities = new ArrayList<>();
         personalities.add("Organized");
         personalities.add("Competitive");
-    
+
         careerProfileList.add(new CareerProfile("Software Engineer", "75000", "Designs software", personalities));
         careerProfileList.add(new CareerProfile("Manager", "60000", "Manages people", personalities));
     }
-    
+
     public void add(CareerProfile careerProfile) {
         this.careerProfileList.add(careerProfile);
     }

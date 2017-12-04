@@ -30,41 +30,113 @@ import javafx.stage.Stage;
 public class ReviewResultsUIController implements Initializable {
 
     private JobSeeker currentJobSeeker;
-    @FXML private Label resultsLabel;
-    @FXML private ListView results;
+    @FXML
+    private Label resultsLabel;
+    @FXML
+    private ListView results;
     private PersonalityTraitList currentPersonalityTraitList;
-    protected ListProperty<String> listProperty = new SimpleListProperty<>();
-    
+    private ListProperty<String> listProperty = new SimpleListProperty<>();
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+    }
+
     public void initData(JobSeeker jobSeeker, PersonalityTraitList personalityTraitList) {
-            try {
+        try {
             this.currentJobSeeker = jobSeeker;
             results.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-        
+
             personalityTraitList = new PersonalityTraitList();
 
             results.itemsProperty().bind(listProperty);
             listProperty.set(FXCollections.observableArrayList(personalityTraitList.getPersonalityTraitList()));
-            
-            }
-            catch (Exception e) {
+
+        } catch (Exception e) {
             System.out.println(e.getStackTrace());
         }
-    
+
     }
-    
-    @FXML protected void handleExitButtonAction(ActionEvent event) throws IOException {
-            Stage stage = (Stage) resultsLabel.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("JobSeekerNavigationUi.fxml"));
-            stage.setScene(new Scene((Pane) loader.load()));
-            
-            JobSeekerNavigationUiController controller = loader.<JobSeekerNavigationUiController>getController();
-            controller.initData(this.currentJobSeeker);
-        
-            stage.show();    
-        }
+
+    @FXML
+    protected void handleExitButtonAction(ActionEvent event) throws IOException {
+        Stage stage = (Stage) resultsLabel.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("JobSeekerNavigationUi.fxml"));
+        stage.setScene(new Scene((Pane) loader.load()));
+
+        JobSeekerNavigationUiController controller = loader.<JobSeekerNavigationUiController>getController();
+        controller.initData(this.currentJobSeeker);
+
+        stage.show();
+    }
+
+    /**
+     * @return the currentJobSeeker
+     */
+    public JobSeeker getCurrentJobSeeker() {
+        return currentJobSeeker;
+    }
+
+    /**
+     * @param currentJobSeeker the currentJobSeeker to set
+     */
+    public void setCurrentJobSeeker(JobSeeker currentJobSeeker) {
+        this.currentJobSeeker = currentJobSeeker;
+    }
+
+    /**
+     * @return the resultsLabel
+     */
+    public Label getResultsLabel() {
+        return resultsLabel;
+    }
+
+    /**
+     * @param resultsLabel the resultsLabel to set
+     */
+    public void setResultsLabel(Label resultsLabel) {
+        this.resultsLabel = resultsLabel;
+    }
+
+    /**
+     * @return the results
+     */
+    public ListView getResults() {
+        return results;
+    }
+
+    /**
+     * @param results the results to set
+     */
+    public void setResults(ListView results) {
+        this.results = results;
+    }
+
+    /**
+     * @return the currentPersonalityTraitList
+     */
+    public PersonalityTraitList getCurrentPersonalityTraitList() {
+        return currentPersonalityTraitList;
+    }
+
+    /**
+     * @param currentPersonalityTraitList the currentPersonalityTraitList to set
+     */
+    public void setCurrentPersonalityTraitList(PersonalityTraitList currentPersonalityTraitList) {
+        this.currentPersonalityTraitList = currentPersonalityTraitList;
+    }
+
+    /**
+     * @return the listProperty
+     */
+    public ListProperty<String> getListProperty() {
+        return listProperty;
+    }
+
+    /**
+     * @param listProperty the listProperty to set
+     */
+    public void setListProperty(ListProperty<String> listProperty) {
+        this.listProperty = listProperty;
+    }
 }

@@ -11,35 +11,35 @@ import java.io.*;
  *
  * @author austi
  */
-public class PersistentDataCollection implements Serializable{
-    
+public class PersistentDataCollection implements Serializable {
+
     private CareerProfileList theCareerProfileList;
     private JobSeekerList theJobSeekerList;
     //private PersonalityTestResultsList thePersonalityTestResultsList;
     private UserProfileList theUserProfileList;
     private EmployerList theEmployerList;
     private JobList theJobList;
-    
+
     public PersistentDataCollection() {
-        if (theCareerProfileList == null){
+        if (theCareerProfileList == null) {
             theCareerProfileList = new CareerProfileList();
-        }  
-        if (theJobSeekerList == null){
+        }
+        if (theJobSeekerList == null) {
             theJobSeekerList = new JobSeekerList();
-        }  
+        }
         /*if (thePersonalityTestResultsList == null){
             thePersonalityTestResultsList = new PersonalityTestResultsList();
-        }*/  
-        if (theUserProfileList == null){
+        }*/
+        if (theUserProfileList == null) {
             theUserProfileList = new UserProfileList();
-        }  
-        if (theEmployerList == null){
+        }
+        if (theEmployerList == null) {
             theEmployerList = new EmployerList();
-        }  
-        if (theJobList == null){
+        }
+        if (theJobList == null) {
             theJobList = new JobList();
-        }  
-    }   
+        }
+    }
 
     /**
      * @return the theCareerProfileList

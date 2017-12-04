@@ -36,14 +36,14 @@ public class SearchJobUIController implements Initializable {
 
     private JobSeeker currentJobSeeker;
 
-    ArrayList<Job> allJobs = new ArrayList<Job>();
-    EmployerList employerList = PersistentDataController.getPersistentDataController().getPersistentDataCollection().getTheEmployerList();
-    List<Job> searchList = new ArrayList();
+    private ArrayList<Job> allJobs = new ArrayList<Job>();
+    private EmployerList employerList = PersistentDataController.getPersistentDataController().getPersistentDataCollection().getTheEmployerList();
+    private List<Job> searchList = new ArrayList();
     private CareerProfileList careerProfileList = new CareerProfileList();
     private String keywordString;
-    protected ListProperty<String> listProperty = new SimpleListProperty<>();
-    ObservableList<String> observableArrayList;
-    Collection<Job> jobs = searchList;
+    private ListProperty<String> listProperty = new SimpleListProperty<>();
+    private ObservableList<String> observableArrayList;
+    private Collection<Job> jobs = searchList;
     @FXML
     private ListView searchResults;
 
@@ -52,8 +52,8 @@ public class SearchJobUIController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
- 
-   }
+
+    }
 
     public void initData(JobSeeker jobSeeker) {
 
@@ -126,6 +126,160 @@ public class SearchJobUIController implements Initializable {
 
     public static boolean stringContainsItemFromList(String inputStr, ObservableList<String> observableArrayList) {
         return observableArrayList.parallelStream().anyMatch(inputStr::contains);
+    }
+
+    /**
+     * @return the currentJobSeeker
+     */
+    public JobSeeker getCurrentJobSeeker() {
+        return currentJobSeeker;
+    }
+
+    /**
+     * @param currentJobSeeker the currentJobSeeker to set
+     */
+    public void setCurrentJobSeeker(JobSeeker currentJobSeeker) {
+        this.currentJobSeeker = currentJobSeeker;
+    }
+
+    /**
+     * @return the allJobs
+     */
+    public ArrayList<Job> getAllJobs() {
+        return allJobs;
+    }
+
+    /**
+     * @param allJobs the allJobs to set
+     */
+    public void setAllJobs(ArrayList<Job> allJobs) {
+        this.allJobs = allJobs;
+    }
+
+    /**
+     * @return the employerList
+     */
+    public EmployerList getEmployerList() {
+        return employerList;
+    }
+
+    /**
+     * @param employerList the employerList to set
+     */
+    public void setEmployerList(EmployerList employerList) {
+        this.employerList = employerList;
+    }
+
+    /**
+     * @return the searchList
+     */
+    public List<Job> getSearchList() {
+        return searchList;
+    }
+
+    /**
+     * @param searchList the searchList to set
+     */
+    public void setSearchList(List<Job> searchList) {
+        this.searchList = searchList;
+    }
+
+    /**
+     * @return the careerProfileList
+     */
+    public CareerProfileList getCareerProfileList() {
+        return careerProfileList;
+    }
+
+    /**
+     * @param careerProfileList the careerProfileList to set
+     */
+    public void setCareerProfileList(CareerProfileList careerProfileList) {
+        this.careerProfileList = careerProfileList;
+    }
+
+    /**
+     * @return the keywordString
+     */
+    public String getKeywordString() {
+        return keywordString;
+    }
+
+    /**
+     * @param keywordString the keywordString to set
+     */
+    public void setKeywordString(String keywordString) {
+        this.keywordString = keywordString;
+    }
+
+    /**
+     * @return the listProperty
+     */
+    public ListProperty<String> getListProperty() {
+        return listProperty;
+    }
+
+    /**
+     * @param listProperty the listProperty to set
+     */
+    public void setListProperty(ListProperty<String> listProperty) {
+        this.listProperty = listProperty;
+    }
+
+    /**
+     * @return the observableArrayList
+     */
+    public ObservableList<String> getObservableArrayList() {
+        return observableArrayList;
+    }
+
+    /**
+     * @param observableArrayList the observableArrayList to set
+     */
+    public void setObservableArrayList(ObservableList<String> observableArrayList) {
+        this.observableArrayList = observableArrayList;
+    }
+
+    /**
+     * @return the jobs
+     */
+    public Collection<Job> getJobs() {
+        return jobs;
+    }
+
+    /**
+     * @param jobs the jobs to set
+     */
+    public void setJobs(Collection<Job> jobs) {
+        this.jobs = jobs;
+    }
+
+    /**
+     * @return the searchResults
+     */
+    public ListView getSearchResults() {
+        return searchResults;
+    }
+
+    /**
+     * @param searchResults the searchResults to set
+     */
+    public void setSearchResults(ListView searchResults) {
+        this.searchResults = searchResults;
+    }
+
+    /**
+     * @return the Keyword
+     */
+    public TextField getKeyword() {
+        return Keyword;
+    }
+
+    /**
+     * @param Keyword the Keyword to set
+     */
+    public void setKeyword(TextField Keyword) {
+        this.Keyword = Keyword;
     }
 
 }
