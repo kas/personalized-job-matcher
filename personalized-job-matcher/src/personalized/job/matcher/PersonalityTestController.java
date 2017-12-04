@@ -64,14 +64,15 @@ public class PersonalityTestController implements Initializable {
                 System.out.println(testAnswers.getAnswers().get(i));
             }
 
-            Stage stage = (Stage) questionArea.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("JobSeekerNavigationUi.fxml"));
+            Stage stage = (Stage) questionArea.getScene().getWindow();           
+            //System.out.println("pressed button");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ReviewResultsUI.fxml"));
             stage.setScene(new Scene((Pane) loader.load()));
 
-            JobSeekerNavigationUiController controller = loader.<JobSeekerNavigationUiController>getController();
-            controller.initData(this.currentJobSeeker);
-
-            stage.show();
+            ReviewResultsUIController controller = loader.<ReviewResultsUIController>getController();
+            controller.initData(this.currentJobSeeker, traits);
+        
+            stage.show();   
         }
 
     }

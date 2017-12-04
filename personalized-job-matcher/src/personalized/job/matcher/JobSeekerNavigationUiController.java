@@ -12,7 +12,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
@@ -78,7 +77,7 @@ private JobSeeker currentJobSeeker;
 
             UpdateProfileUiController controller = loader.<UpdateProfileUiController>getController();
             controller.initData(this.currentJobSeeker);
-        
+            
             stage.show();   
             
         }
@@ -107,6 +106,20 @@ private JobSeeker currentJobSeeker;
             stage.show();   
             
         }
+        /*
+        @FXML protected void handleReviewResultsButtonAction(ActionEvent event) throws IOException {
+            Stage stage = (Stage) name.getScene().getWindow();
+            //System.out.println("pressed button");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ReviewResultsUI.fxml"));
+            stage.setScene(new Scene((Pane) loader.load()));
+
+            ReviewResultsUIController controller = loader.<ReviewResultsUIController>getController();
+            controller.initData(this.currentJobSeeker);
+        
+            stage.show();   
+            
+        }
+        */
 
     /**
      * @return the currentJobSeeker

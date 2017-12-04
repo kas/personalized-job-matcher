@@ -35,7 +35,7 @@ import javafx.stage.Stage;
 public class SearchJobUIController implements Initializable {
 
     private JobSeeker currentJobSeeker;
-    
+
     ArrayList<Job> allJobs = new ArrayList<Job>();
     EmployerList employerList = PersistentDataController.getPersistentDataController().getPersistentDataCollection().getTheEmployerList();
     List<Job> searchList = new ArrayList();
@@ -52,23 +52,19 @@ public class SearchJobUIController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-        
-        
-    }
-
-
+ 
+   }
 
     public void initData(JobSeeker jobSeeker) {
-        
+
         currentJobSeeker = jobSeeker;
         addJobLists(employerList.getEmployerList());
-        
+
     }
-    
-    public ArrayList<Job> addJobLists(ArrayList<Employer> employerL){
+
+    public ArrayList<Job> addJobLists(ArrayList<Employer> employerL) {
         ArrayList<Job> tempList = new ArrayList<>();
-        for (int i = 0; i < employerL.size(); i++){
+        for (int i = 0; i < employerL.size(); i++) {
             tempList = employerL.get(i).getJobs();
             allJobs.addAll(tempList);
         }
@@ -89,27 +85,23 @@ public class SearchJobUIController implements Initializable {
 
     @FXML
     protected void handleSearchButtonAction(ActionEvent event) throws IOException {
-        
-        
-        
+
         observableArrayList = FXCollections.observableArrayList();
-        
+
         clearData();
-        
+
         observableArrayList.clear();
         jobs.clear();
-        
+
         searchList = (List<Job>) jobs;
         listProperty.set(FXCollections.observableArrayList(observableArrayList));
         searchResults.getItems().clear();
         searchResults.refresh();
-        
+
         keywordString = Keyword.getText().toLowerCase();
-        
-        
+
         jobs = allJobs.stream().filter((d) -> d.getTitle().toLowerCase().contains(keywordString)).collect(Collectors.toList());
-        
-        
+
         searchList = (List<Job>) jobs;
 
         for (int i = 0; i < searchList.size(); i++) {
@@ -121,24 +113,19 @@ public class SearchJobUIController implements Initializable {
 
         searchResults.itemsProperty().bind(listProperty);
         listProperty.set(FXCollections.observableArrayList(observableArrayList));
-        
-        
+
     }
-    
-    
 
     private void clearData() {
         observableArrayList.clear();
         jobs.clear();
-        searchList.clear();    
+        searchList.clear();
         searchResults.getItems().clear();
         searchResults.refresh();
     }
-    
+
     public static boolean stringContainsItemFromList(String inputStr, ObservableList<String> observableArrayList) {
         return observableArrayList.parallelStream().anyMatch(inputStr::contains);
-}
-    
-    
+    }
 
 }

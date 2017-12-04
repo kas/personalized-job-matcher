@@ -58,11 +58,13 @@ public class UpdateProfileUiController implements Initializable {
         if(!(job.getText().equals(""))){
             currentJobSeeker.setCurrentJob(job.getText());
         }    
+        /*
             System.out.println(currentJobSeeker.getName());
             System.out.println(currentJobSeeker.getAge());
             System.out.println(currentJobSeeker.getLocation());
             System.out.println(currentJobSeeker.getCurrentJob());
-            
+        */  
+            PersistentDataController.getPersistentDataController().writeJSONDataModel();
             Stage stage = (Stage) firstName.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("JobSeekerNavigationUi.fxml"));
             stage.setScene(new Scene((Pane) loader.load()));
@@ -71,6 +73,7 @@ public class UpdateProfileUiController implements Initializable {
             controller.initData(this.currentJobSeeker);
             stage.show();        
         }
+    
     @FXML protected void handleCancelButtonAction(ActionEvent event) throws IOException {
             Stage stage = (Stage) firstName.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("JobSeekerNavigationUi.fxml"));
