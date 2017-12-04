@@ -47,7 +47,7 @@ public class CreateCareerProfileUiController implements Initializable {
     @FXML private TextArea description;
     @FXML private ListView listView;
     private PersonalityTraitList personalityTraitList;
-     protected ListProperty<String> listProperty = new SimpleListProperty<>();
+    protected ListProperty<String> listProperty = new SimpleListProperty<>();
     
     public void initData(Employer employer) {
         this.currentEmployer = employer;
@@ -74,15 +74,15 @@ public class CreateCareerProfileUiController implements Initializable {
     }
     
     @FXML protected void handleSubmitAction(ActionEvent event) throws IOException {
-        ArrayList<CareerProfile> newList = new ArrayList<CareerProfile>();
+        ArrayList<CareerProfile> newList = PersistentDataController.getPersistentDataController().getPersistentDataCollection().getTheCareerProfileList().getCareerProfileList();
         
         List<String> personalityTraitsList = listView.getSelectionModel().getSelectedItems();
         
         CareerProfile careerProfile = new CareerProfile(name.getText(), medianSalary.getText(), description.getText(), personalityTraitsList);
 
-        CareerProfileList careerProfileList = new CareerProfileList();
+        CareerProfileList careerProfileList = PersistentDataController.getPersistentDataController().getPersistentDataCollection().getTheCareerProfileList();
         careerProfileList.add(careerProfile);
-        
+        PersistentDataController.getPersistentDataController().writeJSONDataModel();
         System.out.println("Submitted Career Profile");
         
         Stage stage = (Stage) name.getScene().getWindow();

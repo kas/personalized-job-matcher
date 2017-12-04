@@ -54,8 +54,8 @@ public class PostJobUiController implements Initializable {
     public void initData(Employer employer) {
         this.currentEmployer = employer;
         
-        careerProfileList = new CareerProfileList(); // size 2
-        
+        //careerProfileList = new CareerProfileList(); // size 2
+        careerProfileList = PersistentDataController.getPersistentDataController().getPersistentDataCollection().getTheCareerProfileList();
 //        ObservableList<CareerProfile> careerProfiles = FXCollections.observableArrayList();
 //        careerProfiles.addAll(careerProfileList.getCareerProfileList());
 //        
@@ -97,7 +97,7 @@ public class PostJobUiController implements Initializable {
         ArrayList<Job> jobs = currentEmployer.getJobs();
         
         jobs.add(job);
-
+        PersistentDataController.getPersistentDataController().writeJSONDataModel();
         currentEmployer.setJobs(jobs);
         
         System.out.println("Submitted Job");
