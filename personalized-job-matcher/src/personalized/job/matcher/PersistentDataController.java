@@ -74,7 +74,7 @@ public class PersistentDataController {
             BufferedReader br = new BufferedReader(new FileReader(JSON_FILE_NAME));
             thePersistentDataCollection = gson.fromJson(br, PersistentDataCollection.class);
             // Just a test to see if thePeristentDataCollection has been initialized from JSON 
-            System.out.println(thePersistentDataCollection.getTheCareerProfileList().getCareerProfileList().get(0).getName());
+            //System.out.println(thePersistentDataCollection.getTheCareerProfileList().getCareerProfileList().get(0).getName());
         }catch(Exception e){
             e.printStackTrace();
         }

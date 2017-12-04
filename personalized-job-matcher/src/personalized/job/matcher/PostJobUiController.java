@@ -97,8 +97,8 @@ public class PostJobUiController implements Initializable {
         ArrayList<Job> jobs = currentEmployer.getJobs();
         
         jobs.add(job);
-        PersistentDataController.getPersistentDataController().writeJSONDataModel();
         currentEmployer.setJobs(jobs);
+        PersistentDataController.getPersistentDataController().writeJSONDataModel();
         
         System.out.println("Submitted Job");
          System.out.println("Title: " + job.getTitle() + " Description: " + job.getDescription() + " Career Profile: " + careerProfile.getName());

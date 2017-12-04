@@ -7,14 +7,10 @@ package personalized.job.matcher;
 
 import java.io.IOException;
 import java.net.URL;
-import static java.nio.file.Files.list;
-import static java.rmi.Naming.list;
 import java.util.ArrayList;
 import java.util.Collection;
-import static java.util.Collections.list;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
@@ -39,7 +35,9 @@ import javafx.stage.Stage;
 public class SearchJobUIController implements Initializable {
 
     private JobSeeker currentJobSeeker;
-    private ArrayList<Job> testJobs = new ArrayList<Job>();
+    
+    ArrayList<Job> allJobs = new ArrayList<Job>();
+    EmployerList employerList = PersistentDataController.getPersistentDataController().getPersistentDataCollection().getTheEmployerList();
     List<Job> searchList = new ArrayList();
     private CareerProfileList careerProfileList = new CareerProfileList();
     private String keywordString;
@@ -54,37 +52,27 @@ public class SearchJobUIController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
+        
+        
+        
     }
 
-    public void addJobs() {
-        Job testjob1 = new Job("Software Engineer", "Tests the testing test", careerProfileList.getCareerProfileList().get(0));
-        Job testjob2 = new Job("Application Developer", "Tests the testing test", careerProfileList.getCareerProfileList().get(0));
-        Job testjob3 = new Job("Code Tester", "Tests the testing test", careerProfileList.getCareerProfileList().get(0));
-        Job testjob4 = new Job("Game Designer", "Tests the testing test", careerProfileList.getCareerProfileList().get(0));
-        Job testjob5 = new Job("Cashier", "Tests the testing test", careerProfileList.getCareerProfileList().get(1));
-        Job testjob6 = new Job("Manager", "Tests the testing test", careerProfileList.getCareerProfileList().get(1));
-        Job testjob7 = new Job("Supervisor", "Tests the testing test", careerProfileList.getCareerProfileList().get(1));
-        Job testjob8 = new Job("Stocker", "Tests the testing test", careerProfileList.getCareerProfileList().get(1));
-        Job testjob9 = new Job("Janitor", "Tests the testing test", careerProfileList.getCareerProfileList().get(1));
 
-        testJobs.add(testjob1);
-        testJobs.add(testjob2);
-        testJobs.add(testjob3);
-        testJobs.add(testjob4);
-        testJobs.add(testjob5);
-        testJobs.add(testjob6);
-        testJobs.add(testjob7);
-        testJobs.add(testjob8);
-        testJobs.add(testjob9);
-
-    }
 
     public void initData(JobSeeker jobSeeker) {
-        //System.out.println("hello");
+        
         currentJobSeeker = jobSeeker;
-        addJobs();
-        //System.out.println(jobSeeker.getUsername());
+        addJobLists(employerList.getEmployerList());
+        
+    }
+    
+    public ArrayList<Job> addJobLists(ArrayList<Employer> employerL){
+        ArrayList<Job> tempList = new ArrayList<>();
+        for (int i = 0; i < employerL.size(); i++){
+            tempList = employerL.get(i).getJobs();
+            allJobs.addAll(tempList);
+        }
+        return allJobs;
     }
 
     @FXML
@@ -119,7 +107,7 @@ public class SearchJobUIController implements Initializable {
         keywordString = Keyword.getText().toLowerCase();
         
         
-        jobs = testJobs.stream().filter((d) -> d.getTitle().toLowerCase().contains(keywordString)).collect(Collectors.toList());
+        jobs = allJobs.stream().filter((d) -> d.getTitle().toLowerCase().contains(keywordString)).collect(Collectors.toList());
         
         
         searchList = (List<Job>) jobs;

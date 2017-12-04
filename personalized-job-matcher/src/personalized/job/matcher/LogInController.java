@@ -29,8 +29,8 @@ public class LogInController implements Initializable {
     private PasswordField pw;
 
     public LogInController() {
-        jobSeekerList = new JobSeekerList();
-        employerList = new EmployerList();
+        jobSeekerList = PersistentDataController.getPersistentDataController().getPersistentDataCollection().getTheJobSeekerList();
+        employerList = PersistentDataController.getPersistentDataController().getPersistentDataCollection().getTheEmployerList();
     }
 
     @FXML
