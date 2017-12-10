@@ -12,8 +12,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -25,88 +25,130 @@ import javafx.stage.Stage;
  */
 public class JobSeekerNavigationUiController implements Initializable {
 
-    
-private JobSeeker currentJobSeeker;
+    private JobSeeker currentJobSeeker;
 
-@FXML
-    private Label name;	
+    @FXML
+    private Label name;
 
-@FXML
+    @FXML
     private Label age;
 
-@FXML
-    private Label location;	
+    @FXML
+    private Label location;
 
-@FXML
-    private Label sex;	
+    @FXML
+    private Label sex;
 
-@FXML
-    private Label job;	
+    @FXML
+    private Label job;
 
-@FXML
-    private Label traits;	
-    
+    @FXML
+    private Button viewSuitableJobs;
+
     /**
-	 * Initializes the controller class.
-	 */
-	@Override
-	public void initialize(URL url, ResourceBundle rb) {
-	}	
-        
-        public void initData(JobSeeker jobSeeker) {
-            try {
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+    }
+
+    public void initData(JobSeeker jobSeeker) {
+        try {
             this.currentJobSeeker = jobSeeker;
-            
+
             this.name.setText(jobSeeker.getName());
             this.age.setText(jobSeeker.getAge());
             this.location.setText(jobSeeker.getLocation());
             this.sex.setText(jobSeeker.getSex());
             this.job.setText(jobSeeker.getCurrentJob());
-            this.traits.setText("Later sprint");
-            // TODO populate personality traits
-            }
-            catch (Exception e) {
+
+        } catch (Exception e) {
             System.out.println(e.getStackTrace());
         }
-        }
-        
-        @FXML protected void handleUpdateProfileButtonAction(ActionEvent event) throws IOException {
-            Stage stage = (Stage) name.getScene().getWindow();
-            //System.out.println("pressed button");
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("UpdateProfileUi.fxml"));
-            stage.setScene(new Scene((Pane) loader.load()));
+    }
 
-            UpdateProfileUiController controller = loader.<UpdateProfileUiController>getController();
-            controller.initData(this.currentJobSeeker);
-        
-            stage.show();   
-            
-        }
-        @FXML protected void handleTestPersonalityButtonAction(ActionEvent event) throws IOException {
-            Stage stage = (Stage) name.getScene().getWindow();
-            //System.out.println("pressed button");
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("PersonalityTest.fxml"));
-            stage.setScene(new Scene((Pane) loader.load()));
+    @FXML
+    protected void handleUpdateProfileButtonAction(ActionEvent event) throws IOException {
+        Stage stage = (Stage) name.getScene().getWindow();
+        //System.out.println("pressed button");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("UpdateProfileUi.fxml"));
+        stage.setScene(new Scene((Pane) loader.load()));
 
-            PersonalityTestController controller = loader.<PersonalityTestController>getController();
-            controller.initData(this.currentJobSeeker);
-        
-            stage.show();   
-           
-        }
-        
-        @FXML protected void handleSearchJCButtonAction(ActionEvent event) throws IOException {
-            Stage stage = (Stage) name.getScene().getWindow();
-            //System.out.println("pressed button");
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("SearchJobUI.fxml"));
-            stage.setScene(new Scene((Pane) loader.load()));
+        UpdateProfileUiController controller = loader.<UpdateProfileUiController>getController();
+        controller.initData(this.currentJobSeeker);
 
-            SearchJobUIController controller = loader.<SearchJobUIController>getController();
-            controller.initData(this.currentJobSeeker);
-        
-            stage.show();   
-            
-        }
+        stage.show();
+
+    }
+
+    @FXML
+    protected void handleTestPersonalityButtonAction(ActionEvent event) throws IOException {
+        Stage stage = (Stage) name.getScene().getWindow();
+        //System.out.println("pressed button");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("PersonalityTest.fxml"));
+        stage.setScene(new Scene((Pane) loader.load()));
+
+        PersonalityTestController controller = loader.<PersonalityTestController>getController();
+        controller.initData(this.currentJobSeeker);
+
+        stage.show();
+
+    }
+
+    @FXML
+    protected void handleSearchJCButtonAction(ActionEvent event) throws IOException {
+        Stage stage = (Stage) name.getScene().getWindow();
+        //System.out.println("pressed button");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("SearchJobUI.fxml"));
+        stage.setScene(new Scene((Pane) loader.load()));
+
+        SearchJobUIController controller = loader.<SearchJobUIController>getController();
+        controller.initData(this.currentJobSeeker);
+
+        stage.show();
+
+    }
+
+    @FXML
+    protected void handleSearchCareerButtonAction(ActionEvent event) throws IOException {
+        Stage stage = (Stage) name.getScene().getWindow();
+        //System.out.println("pressed button");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("SearchCareerUI.fxml"));
+        stage.setScene(new Scene((Pane) loader.load()));
+
+        SearchCareerUIController controller = loader.<SearchCareerUIController>getController();
+        controller.initData(this.currentJobSeeker);
+
+        stage.show();
+
+    }
+
+    @FXML
+    protected void handleReviewResultsButtonAction(ActionEvent event) throws IOException {
+        Stage stage = (Stage) name.getScene().getWindow();
+        //System.out.println("pressed button");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ReviewResultsUI.fxml"));
+        stage.setScene(new Scene((Pane) loader.load()));
+
+        ReviewResultsUIController controller = loader.<ReviewResultsUIController>getController();
+        controller.initData(this.currentJobSeeker);
+
+        stage.show();
+
+    }
+
+    @FXML
+    protected void handleViewSuitableJobsButtonAction(ActionEvent event) throws IOException {
+        Stage stage = (Stage) name.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("JobSuitabilityUi.fxml"));
+        stage.setScene(new Scene((Pane) loader.load()));
+
+        JobSuitabilityUiController controller = loader.<JobSuitabilityUiController>getController();
+        controller.initData(this.currentJobSeeker);
+
+        stage.show();
+
+    }
 
     /**
      * @return the currentJobSeeker
@@ -192,18 +234,4 @@ private JobSeeker currentJobSeeker;
         this.job = job;
     }
 
-    /**
-     * @return the traits
-     */
-    public Label getTraits() {
-        return traits;
-    }
-
-    /**
-     * @param traits the traits to set
-     */
-    public void setTraits(Label traits) {
-        this.traits = traits;
-    }
-	
 }

@@ -9,14 +9,14 @@ import javafx.fxml.FXMLLoader;
 
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 
 public class PersonalityTestController implements Initializable {
 
@@ -34,6 +34,8 @@ public class PersonalityTestController implements Initializable {
     private RadioButton rbNo;
     @FXML
     private ToggleGroup rbGroup;
+    @FXML
+    private ProgressBar testProgress;
 
     private int questionNumber = 0;
 
@@ -45,30 +47,29 @@ public class PersonalityTestController implements Initializable {
 
     @FXML
     protected void handleNextAction(ActionEvent event) throws IOException {
-        int answerNumber = 0;
+
+        testProgress.setProgress((questionNumber + 1) * .1);
         if (questionNumber < questions.getTestQuestions().size() - 1) {
             questionNumber++;
             questionArea.setText(questions.getTestQuestions().get(questionNumber).getQuestionText());
             if (rbGroup.getSelectedToggle().equals(rbYes)) {
                 String tempAnswer = questions.getTestQuestions().get(questionNumber).getAssociatedTrait();
-                testAnswers.getAnswers().add(answerNumber, tempAnswer);
+                testAnswers.getAnswers().add(tempAnswer);
             } else if (rbGroup.getSelectedToggle().equals(rbNo)) {
 
             }
 
         } else if (questionNumber == questions.getTestQuestions().size() - 1) {
-
             testDone();
 
-            for (int i = 0; i < testAnswers.getAnswers().size(); i++) {
-                System.out.println(testAnswers.getAnswers().get(i));
-            }
+            currentJobSeeker.setTestAnswers(testAnswers.getAnswers());
 
             Stage stage = (Stage) questionArea.getScene().getWindow();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("JobSeekerNavigationUi.fxml"));
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ReviewResultsUI.fxml"));
             stage.setScene(new Scene((Pane) loader.load()));
 
-            JobSeekerNavigationUiController controller = loader.<JobSeekerNavigationUiController>getController();
+            ReviewResultsUIController controller = loader.<ReviewResultsUIController>getController();
             controller.initData(this.currentJobSeeker);
 
             stage.show();
@@ -77,10 +78,12 @@ public class PersonalityTestController implements Initializable {
     }
 
     public void testDone() {
-        JOptionPane.showMessageDialog(new JPanel(),
-                "Test Complete",
-                "Test Complete",
-                JOptionPane.PLAIN_MESSAGE);
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Personality Test");
+        alert.setHeaderText(null);
+        alert.setContentText("Your personality test is now complete.");
+        alert.showAndWait();
     }
 
     public void initData(JobSeeker jobSeeker) {
@@ -213,5 +216,33 @@ public class PersonalityTestController implements Initializable {
      */
     public void setQuestionNumber(int questionNumber) {
         this.questionNumber = questionNumber;
+    }
+
+    /**
+     * @return the currentEmployer
+     */
+    public Employer getCurrentEmployer() {
+        return currentEmployer;
+    }
+
+    /**
+     * @param currentEmployer the currentEmployer to set
+     */
+    public void setCurrentEmployer(Employer currentEmployer) {
+        this.currentEmployer = currentEmployer;
+    }
+
+    /**
+     * @return the testProgress
+     */
+    public ProgressBar getTestProgress() {
+        return testProgress;
+    }
+
+    /**
+     * @param testProgress the testProgress to set
+     */
+    public void setTestProgress(ProgressBar testProgress) {
+        this.testProgress = testProgress;
     }
 }

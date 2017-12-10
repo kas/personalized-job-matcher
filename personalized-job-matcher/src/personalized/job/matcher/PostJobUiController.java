@@ -8,9 +8,7 @@ package personalized.job.matcher;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
-import javafx.application.Application;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.collections.FXCollections;
@@ -20,9 +18,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
-import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
@@ -54,8 +50,8 @@ public class PostJobUiController implements Initializable {
     public void initData(Employer employer) {
         this.currentEmployer = employer;
         
-        careerProfileList = new CareerProfileList(); // size 2
-        
+        //careerProfileList = new CareerProfileList(); // size 2
+        careerProfileList = PersistentDataController.getPersistentDataController().getPersistentDataCollection().getTheCareerProfileList();
 //        ObservableList<CareerProfile> careerProfiles = FXCollections.observableArrayList();
 //        careerProfiles.addAll(careerProfileList.getCareerProfileList());
 //        
@@ -97,8 +93,8 @@ public class PostJobUiController implements Initializable {
         ArrayList<Job> jobs = currentEmployer.getJobs();
         
         jobs.add(job);
-
         currentEmployer.setJobs(jobs);
+        PersistentDataController.getPersistentDataController().writeJSONDataModel();
         
         System.out.println("Submitted Job");
          System.out.println("Title: " + job.getTitle() + " Description: " + job.getDescription() + " Career Profile: " + careerProfile.getName());
