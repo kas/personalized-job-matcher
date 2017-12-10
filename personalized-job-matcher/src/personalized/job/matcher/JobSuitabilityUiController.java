@@ -59,45 +59,30 @@ public class JobSuitabilityUiController implements Initializable {
 
         // get testanswers
         ArrayList<String> answers = currentJobSeeker.getTestAnswers();
+        try {
+            for (int i = 0; i < answers.size(); i++) {
+                System.out.println(answers.get(i));
+            }
         
-        for (int i = 0; i < answers.size(); i++) {
-            System.out.println(answers.get(i));
-        }
-        
-        // get all jobs that match testanswers
-        nextJob: for (int i = 0; i < jobs.size(); i++) {
-            for (int j = 0; j < jobs.get(i).getCareerProfile().getPersonalityTraits().size(); j++) {
-                for (int k = 0; k < answers.size(); k++) {
-                    if (jobs.get(i).getCareerProfile().getPersonalityTraits().get(j).equals(answers.get(k))) {
-                        displayedJobsPersonalities.add(answers.get(k));
-                        displayedJobs.add(jobs.get(i));
-                        continue nextJob;
+            // get all jobs that match testanswers
+            nextJob: for (int i = 0; i < jobs.size(); i++) {
+                for (int j = 0; j < jobs.get(i).getCareerProfile().getPersonalityTraits().size(); j++) {
+                    for (int k = 0; k < answers.size(); k++) {
+                        if (jobs.get(i).getCareerProfile().getPersonalityTraits().get(j).equals(answers.get(k))) {
+                            displayedJobsPersonalities.add(answers.get(k));
+                            displayedJobs.add(jobs.get(i));
+                            continue nextJob;
+                        }
                     }
                 }
             }
+
+            for (int i = 0; i < displayedJobs.size(); i++) {
+                System.out.println("displayedJob: " + displayedJobs.get(i).getTitle());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        
-        for (int i = 0; i < displayedJobs.size(); i++) {
-            System.out.println("displayedJob: " + displayedJobs.get(i).getTitle());
-        }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
         
         ObservableList<String> observableArrayList = FXCollections.observableArrayList();
         
@@ -111,20 +96,13 @@ public class JobSuitabilityUiController implements Initializable {
             
             observableArrayList.add(new String(string));
         }
+        
+        if (displayedJobs.size() <= 0) {
+            observableArrayList.add("No results to display! Consider (re)taking the Personality Test.");
+        }
 
         results.itemsProperty().bind(listProperty);
-        listProperty.set(FXCollections.observableArrayList(observableArrayList));
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        listProperty.set(FXCollections.observableArrayList(observableArrayList));        
     }
 
     @FXML
