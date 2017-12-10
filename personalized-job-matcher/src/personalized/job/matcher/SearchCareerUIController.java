@@ -49,20 +49,18 @@ public class SearchCareerUIController implements Initializable {
 
     @FXML
     private TextField Keyword;
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    }
+
     public void initData(JobSeeker jobSeeker) {
 
         currentJobSeeker = jobSeeker;
-        
 
     }
 
-    
-    
     @FXML
     protected void handleCancelButtonAction(ActionEvent event) throws IOException {
         Stage stage = (Stage) Keyword.getScene().getWindow();

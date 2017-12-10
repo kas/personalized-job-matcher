@@ -47,8 +47,8 @@ public class PersonalityTestController implements Initializable {
 
     @FXML
     protected void handleNextAction(ActionEvent event) throws IOException {
-        
-        testProgress.setProgress((questionNumber + 1)*.1);
+
+        testProgress.setProgress((questionNumber + 1) * .1);
         if (questionNumber < questions.getTestQuestions().size() - 1) {
             questionNumber++;
             questionArea.setText(questions.getTestQuestions().get(questionNumber).getQuestionText());
@@ -216,5 +216,33 @@ public class PersonalityTestController implements Initializable {
      */
     public void setQuestionNumber(int questionNumber) {
         this.questionNumber = questionNumber;
+    }
+
+    /**
+     * @return the currentEmployer
+     */
+    public Employer getCurrentEmployer() {
+        return currentEmployer;
+    }
+
+    /**
+     * @param currentEmployer the currentEmployer to set
+     */
+    public void setCurrentEmployer(Employer currentEmployer) {
+        this.currentEmployer = currentEmployer;
+    }
+
+    /**
+     * @return the testProgress
+     */
+    public ProgressBar getTestProgress() {
+        return testProgress;
+    }
+
+    /**
+     * @param testProgress the testProgress to set
+     */
+    public void setTestProgress(ProgressBar testProgress) {
+        this.testProgress = testProgress;
     }
 }
