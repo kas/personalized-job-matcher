@@ -1,5 +1,7 @@
 package personalized.job.matcher;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Christian Kim
@@ -18,6 +20,7 @@ public class JobSeeker extends User {
     private String sex;
     private String name;
     private String location;
+    private ArrayList<String> testAnswers;
 
     public JobSeeker(String newUsername, /*String newFirstName, String newLastName,*/
             String newName, int newProfile, String newPassword, String newAge, /*String newCity, 
@@ -153,5 +156,19 @@ public class JobSeeker extends User {
      */
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    /**
+     * @return the testAnswers
+     */
+    public ArrayList<String> getTestAnswers() {
+        return testAnswers;
+    }
+
+    /**
+     * @param testAnswers the testAnswers to set
+     */
+    public void setTestAnswers(ArrayList<String> testAnswers) {
+        this.testAnswers = testAnswers;
     }
 }

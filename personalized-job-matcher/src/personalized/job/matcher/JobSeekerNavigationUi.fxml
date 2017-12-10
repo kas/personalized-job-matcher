@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="personalized.job.matcher.JobSeekerNavigationUiController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="personalized.job.matcher.JobSeekerNavigationUiController">
    <children>
       <ImageView fitHeight="100.0" fitWidth="133.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
       <Button fx:id="updateProfile" layoutX="166.0" layoutY="33.0" mnemonicParsing="false" onAction="#handleUpdateProfileButtonAction" text="Update Profile" />
@@ -34,5 +34,6 @@
             <Font size="29.0" />
          </font>
       </Label>
+      <Button id="viewSuitableJobs" layoutX="166.0" layoutY="102.0" mnemonicParsing="false" onAction="#handleViewSuitableJobsButtonAction" prefHeight="25.0" prefWidth="121.0" text="View Suitable Jobs" />
    </children>
 </AnchorPane>

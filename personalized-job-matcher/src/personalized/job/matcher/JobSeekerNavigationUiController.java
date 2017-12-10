@@ -13,6 +13,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -43,6 +44,9 @@ public class JobSeekerNavigationUiController implements Initializable {
 
     @FXML
     private Label traits;
+    
+    @FXML
+    private Button viewSuitableJobs;
 
     /**
      * Initializes the controller class.
@@ -123,6 +127,19 @@ public class JobSeekerNavigationUiController implements Initializable {
             
         }
      */
+    
+    @FXML
+    protected void handleViewSuitableJobsButtonAction(ActionEvent event) throws IOException {
+        Stage stage = (Stage) name.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("JobSuitabilityUi.fxml"));
+        stage.setScene(new Scene((Pane) loader.load()));
+
+        JobSuitabilityUiController controller = loader.<JobSuitabilityUiController>getController();
+        controller.initData(this.currentJobSeeker);
+
+        stage.show();
+
+    }
 
     /**
      * @return the currentJobSeeker

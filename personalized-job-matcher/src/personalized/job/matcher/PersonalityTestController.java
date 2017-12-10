@@ -45,25 +45,25 @@ public class PersonalityTestController implements Initializable {
 
     @FXML
     protected void handleNextAction(ActionEvent event) throws IOException {
-        int answerNumber = 0;
         if (questionNumber < questions.getTestQuestions().size() - 1) {
             questionNumber++;
             questionArea.setText(questions.getTestQuestions().get(questionNumber).getQuestionText());
             if (rbGroup.getSelectedToggle().equals(rbYes)) {
                 String tempAnswer = questions.getTestQuestions().get(questionNumber).getAssociatedTrait();
-                testAnswers.getAnswers().add(answerNumber, tempAnswer);
+                testAnswers.getAnswers().add(tempAnswer);
             } else if (rbGroup.getSelectedToggle().equals(rbNo)) {
 
             }
 
         } else if (questionNumber == questions.getTestQuestions().size() - 1) {
-
             testDone();
 
             for (int i = 0; i < testAnswers.getAnswers().size(); i++) {
                 System.out.println(testAnswers.getAnswers().get(i));
             }
 
+            currentJobSeeker.setTestAnswers(testAnswers.getAnswers());
+            
             Stage stage = (Stage) questionArea.getScene().getWindow();
             //System.out.println("pressed button");
             FXMLLoader loader = new FXMLLoader(getClass().getResource("ReviewResultsUI.fxml"));
