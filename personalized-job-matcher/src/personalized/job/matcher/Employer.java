@@ -16,8 +16,8 @@ public class Employer {
     private String name;
     private String username;
     private String password;
-    private ArrayList<Job> jobs = new ArrayList<Job>();
-    private ArrayList<CareerProfile> careerProfileList;
+    private ArrayList<Job> jobs = new ArrayList<>();
+    private ArrayList<CareerProfile> careerProfileList = new ArrayList<>();
 
     public Employer(String name, String username, String password) {
         this.name = name;

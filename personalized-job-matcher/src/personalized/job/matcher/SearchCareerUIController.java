@@ -36,7 +36,7 @@ public class SearchCareerUIController implements Initializable {
 
     private JobSeeker currentJobSeeker;
 
-    private ArrayList<CareerProfile> allCareers = new ArrayList<>();
+    private ArrayList<CareerProfile> allCareers = PersistentDataController.getPersistentDataController().getPersistentDataCollection().getTheCareerProfileList().getCareerProfileList();
     private EmployerList employerList = PersistentDataController.getPersistentDataController().getPersistentDataCollection().getTheEmployerList();
     private List<CareerProfile> searchList = new ArrayList();
     private CareerProfileList careerProfileList = new CareerProfileList();
@@ -57,18 +57,11 @@ public class SearchCareerUIController implements Initializable {
     public void initData(JobSeeker jobSeeker) {
 
         currentJobSeeker = jobSeeker;
-        //addCareerLists(employerList.getEmployerList());
+        
 
     }
 
-    public ArrayList<CareerProfile> addCareerLists(ArrayList<Employer> employerL) {
-        ArrayList<CareerProfile> tempList = new ArrayList<>();
-        for (int i = 0; i < employerL.size(); i++) {
-            tempList = employerL.get(i).getCareerProfileList();
-            allCareers.addAll(tempList);
-        }
-        return allCareers;
-    }
+    
     
     @FXML
     protected void handleCancelButtonAction(ActionEvent event) throws IOException {
