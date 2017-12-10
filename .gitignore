@@ -32,6 +32,3 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
-
-# virtualenv
-venv/
