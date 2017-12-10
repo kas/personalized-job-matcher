@@ -9,6 +9,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
@@ -133,18 +135,21 @@ public class LogInController implements Initializable {
 
     public void loginFailPrompt() {
 
-        JOptionPane.showMessageDialog(new JPanel(),
-                "Incorrect username or password",
-                "Login Error",
-                JOptionPane.ERROR_MESSAGE);
+        Alert alert = new Alert(AlertType.ERROR);
+        alert.setTitle("Login Failed");
+        alert.setHeaderText(null);
+        alert.setContentText("Please try again with the correct username and password");
+        alert.showAndWait();
 
     }
 
     public void loginSuccessPrompt() {
-        JOptionPane.showMessageDialog(new JPanel(),
-                "Login successful!",
-                "Login Success",
-                JOptionPane.PLAIN_MESSAGE);
+        
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("Login Success");
+        alert.setHeaderText(null);
+        alert.setContentText("Welcome to WorkSuit");
+        alert.showAndWait();
     }
 
     @Override
