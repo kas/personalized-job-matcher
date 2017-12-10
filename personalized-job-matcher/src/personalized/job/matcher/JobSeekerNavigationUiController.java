@@ -108,6 +108,20 @@ public class JobSeekerNavigationUiController implements Initializable {
         stage.show();
 
     }
+    
+    @FXML
+    protected void handleSearchCareerButtonAction(ActionEvent event) throws IOException {
+        Stage stage = (Stage) name.getScene().getWindow();
+        //System.out.println("pressed button");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("SearchCareerUI.fxml"));
+        stage.setScene(new Scene((Pane) loader.load()));
+
+        SearchCareerUIController controller = loader.<SearchCareerUIController>getController();
+        controller.initData(this.currentJobSeeker);
+
+        stage.show();
+
+    }
 
     /*
         @FXML protected void handleReviewResultsButtonAction(ActionEvent event) throws IOException {

@@ -36,7 +36,7 @@ public class SearchJobUIController implements Initializable {
 
     private JobSeeker currentJobSeeker;
 
-    private ArrayList<Job> allJobs = new ArrayList<Job>();
+    private ArrayList<Job> allJobs = new ArrayList<>();
     private EmployerList employerList = PersistentDataController.getPersistentDataController().getPersistentDataCollection().getTheEmployerList();
     private List<Job> searchList = new ArrayList();
     private CareerProfileList careerProfileList = new CareerProfileList();
@@ -90,9 +90,6 @@ public class SearchJobUIController implements Initializable {
 
         clearData();
 
-        observableArrayList.clear();
-        jobs.clear();
-
         searchList = (List<Job>) jobs;
         listProperty.set(FXCollections.observableArrayList(observableArrayList));
         searchResults.getItems().clear();
@@ -106,8 +103,8 @@ public class SearchJobUIController implements Initializable {
 
         for (int i = 0; i < searchList.size(); i++) {
 
-            String string = searchList.get(i).getTitle().toString();
-            observableArrayList.add(new String(string));
+            String string = searchList.get(i).getTitle();
+            observableArrayList.add(string);
         }
         searchResults.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
 

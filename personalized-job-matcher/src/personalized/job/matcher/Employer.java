@@ -81,4 +81,18 @@ public class Employer {
     public void setJobs(ArrayList<Job> jobs) {
         this.jobs = jobs;
     }
+
+    /**
+     * @return the careerProfileList
+     */
+    public ArrayList<CareerProfile> getCareerProfileList() {
+        return careerProfileList;
+    }
+
+    /**
+     * @param careerProfileList the careerProfileList to set
+     */
+    public void setCareerProfileList(ArrayList<CareerProfile> careerProfileList) {
+        this.careerProfileList = careerProfileList;
+    }
 }
