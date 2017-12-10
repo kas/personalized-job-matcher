@@ -66,13 +66,7 @@ public class LogInController implements Initializable {
         }
     }
 
-    @FXML
-    protected void handleCreateButtonAction(ActionEvent event) {
-        Stage stage = (Stage) username.getScene().getWindow();
-        stage.close();
-        CreateProfileUIController createProfileContrl = new CreateProfileUIController();
-
-    }
+    
 
     public void authenticatePass(boolean isEmployer) throws IOException {
         loginSuccessPrompt();
