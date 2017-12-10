@@ -116,4 +116,158 @@ public class SearchCareerUIController implements Initializable {
     public static boolean stringContainsItemFromList(String inputStr, ObservableList<String> observableArrayList) {
         return observableArrayList.parallelStream().anyMatch(inputStr::contains);
     }
+
+    /**
+     * @return the currentJobSeeker
+     */
+    public JobSeeker getCurrentJobSeeker() {
+        return currentJobSeeker;
+    }
+
+    /**
+     * @param currentJobSeeker the currentJobSeeker to set
+     */
+    public void setCurrentJobSeeker(JobSeeker currentJobSeeker) {
+        this.currentJobSeeker = currentJobSeeker;
+    }
+
+    /**
+     * @return the allCareers
+     */
+    public ArrayList<CareerProfile> getAllCareers() {
+        return allCareers;
+    }
+
+    /**
+     * @param allCareers the allCareers to set
+     */
+    public void setAllCareers(ArrayList<CareerProfile> allCareers) {
+        this.allCareers = allCareers;
+    }
+
+    /**
+     * @return the employerList
+     */
+    public EmployerList getEmployerList() {
+        return employerList;
+    }
+
+    /**
+     * @param employerList the employerList to set
+     */
+    public void setEmployerList(EmployerList employerList) {
+        this.employerList = employerList;
+    }
+
+    /**
+     * @return the searchList
+     */
+    public List<CareerProfile> getSearchList() {
+        return searchList;
+    }
+
+    /**
+     * @param searchList the searchList to set
+     */
+    public void setSearchList(List<CareerProfile> searchList) {
+        this.searchList = searchList;
+    }
+
+    /**
+     * @return the careerProfileList
+     */
+    public CareerProfileList getCareerProfileList() {
+        return careerProfileList;
+    }
+
+    /**
+     * @param careerProfileList the careerProfileList to set
+     */
+    public void setCareerProfileList(CareerProfileList careerProfileList) {
+        this.careerProfileList = careerProfileList;
+    }
+
+    /**
+     * @return the keywordString
+     */
+    public String getKeywordString() {
+        return keywordString;
+    }
+
+    /**
+     * @param keywordString the keywordString to set
+     */
+    public void setKeywordString(String keywordString) {
+        this.keywordString = keywordString;
+    }
+
+    /**
+     * @return the listProperty
+     */
+    public ListProperty<String> getListProperty() {
+        return listProperty;
+    }
+
+    /**
+     * @param listProperty the listProperty to set
+     */
+    public void setListProperty(ListProperty<String> listProperty) {
+        this.listProperty = listProperty;
+    }
+
+    /**
+     * @return the observableArrayList
+     */
+    public ObservableList<String> getObservableArrayList() {
+        return observableArrayList;
+    }
+
+    /**
+     * @param observableArrayList the observableArrayList to set
+     */
+    public void setObservableArrayList(ObservableList<String> observableArrayList) {
+        this.observableArrayList = observableArrayList;
+    }
+
+    /**
+     * @return the careers
+     */
+    public Collection<CareerProfile> getCareers() {
+        return careers;
+    }
+
+    /**
+     * @param careers the careers to set
+     */
+    public void setCareers(Collection<CareerProfile> careers) {
+        this.careers = careers;
+    }
+
+    /**
+     * @return the searchResults
+     */
+    public ListView getSearchResults() {
+        return searchResults;
+    }
+
+    /**
+     * @param searchResults the searchResults to set
+     */
+    public void setSearchResults(ListView searchResults) {
+        this.searchResults = searchResults;
+    }
+
+    /**
+     * @return the Keyword
+     */
+    public TextField getKeyword() {
+        return Keyword;
+    }
+
+    /**
+     * @param Keyword the Keyword to set
+     */
+    public void setKeyword(TextField Keyword) {
+        this.Keyword = Keyword;
+    }
 }
