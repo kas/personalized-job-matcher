@@ -32,45 +32,37 @@ import javafx.stage.Stage;
  *
  * @author Krafty
  */
-public class SearchJobUIController implements Initializable {
+public class SearchCareerUIController implements Initializable {
 
     private JobSeeker currentJobSeeker;
 
-    private ArrayList<Job> allJobs = new ArrayList<>();
+    private ArrayList<CareerProfile> allCareers = PersistentDataController.getPersistentDataController().getPersistentDataCollection().getTheCareerProfileList().getCareerProfileList();
     private EmployerList employerList = PersistentDataController.getPersistentDataController().getPersistentDataCollection().getTheEmployerList();
-    private List<Job> searchList = new ArrayList();
+    private List<CareerProfile> searchList = new ArrayList();
     private CareerProfileList careerProfileList = new CareerProfileList();
     private String keywordString;
     private ListProperty<String> listProperty = new SimpleListProperty<>();
     private ObservableList<String> observableArrayList;
-    private Collection<Job> jobs = searchList;
+    private Collection<CareerProfile> careers = searchList;
     @FXML
     private ListView searchResults;
 
     @FXML
     private TextField Keyword;
-
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-
-    }
-
+        // TODO
+    }    
     public void initData(JobSeeker jobSeeker) {
 
         currentJobSeeker = jobSeeker;
-        addJobLists(employerList.getEmployerList());
+        
 
     }
 
-    public ArrayList<Job> addJobLists(ArrayList<Employer> employerL) {
-        ArrayList<Job> tempList = new ArrayList<>();
-        for (int i = 0; i < employerL.size(); i++) {
-            tempList = employerL.get(i).getJobs();
-            allJobs.addAll(tempList);
-        }
-        return allJobs;
-    }
-
+    
+    
     @FXML
     protected void handleCancelButtonAction(ActionEvent event) throws IOException {
         Stage stage = (Stage) Keyword.getScene().getWindow();
@@ -90,20 +82,20 @@ public class SearchJobUIController implements Initializable {
 
         clearData();
 
-        searchList = (List<Job>) jobs;
+        searchList = (List<CareerProfile>) careers;
         listProperty.set(FXCollections.observableArrayList(observableArrayList));
         searchResults.getItems().clear();
         searchResults.refresh();
 
         keywordString = Keyword.getText().toLowerCase();
 
-        jobs = allJobs.stream().filter((d) -> d.getTitle().toLowerCase().contains(keywordString)).collect(Collectors.toList());
+        careers = allCareers.stream().filter((d) -> d.getName().toLowerCase().contains(keywordString)).collect(Collectors.toList());
 
-        searchList = (List<Job>) jobs;
+        searchList = (List<CareerProfile>) careers;
 
         for (int i = 0; i < searchList.size(); i++) {
 
-            String string = searchList.get(i).getTitle();
+            String string = searchList.get(i).getName();
             observableArrayList.add(string);
         }
         searchResults.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
@@ -115,7 +107,7 @@ public class SearchJobUIController implements Initializable {
 
     private void clearData() {
         observableArrayList.clear();
-        jobs.clear();
+        careers.clear();
         searchList.clear();
         searchResults.getItems().clear();
         searchResults.refresh();
@@ -140,17 +132,17 @@ public class SearchJobUIController implements Initializable {
     }
 
     /**
-     * @return the allJobs
+     * @return the allCareers
      */
-    public ArrayList<Job> getAllJobs() {
-        return allJobs;
+    public ArrayList<CareerProfile> getAllCareers() {
+        return allCareers;
     }
 
     /**
-     * @param allJobs the allJobs to set
+     * @param allCareers the allCareers to set
      */
-    public void setAllJobs(ArrayList<Job> allJobs) {
-        this.allJobs = allJobs;
+    public void setAllCareers(ArrayList<CareerProfile> allCareers) {
+        this.allCareers = allCareers;
     }
 
     /**
@@ -170,14 +162,14 @@ public class SearchJobUIController implements Initializable {
     /**
      * @return the searchList
      */
-    public List<Job> getSearchList() {
+    public List<CareerProfile> getSearchList() {
         return searchList;
     }
 
     /**
      * @param searchList the searchList to set
      */
-    public void setSearchList(List<Job> searchList) {
+    public void setSearchList(List<CareerProfile> searchList) {
         this.searchList = searchList;
     }
 
@@ -238,17 +230,17 @@ public class SearchJobUIController implements Initializable {
     }
 
     /**
-     * @return the jobs
+     * @return the careers
      */
-    public Collection<Job> getJobs() {
-        return jobs;
+    public Collection<CareerProfile> getCareers() {
+        return careers;
     }
 
     /**
-     * @param jobs the jobs to set
+     * @param careers the careers to set
      */
-    public void setJobs(Collection<Job> jobs) {
-        this.jobs = jobs;
+    public void setCareers(Collection<CareerProfile> careers) {
+        this.careers = careers;
     }
 
     /**
@@ -278,5 +270,4 @@ public class SearchJobUIController implements Initializable {
     public void setKeyword(TextField Keyword) {
         this.Keyword = Keyword;
     }
-
 }

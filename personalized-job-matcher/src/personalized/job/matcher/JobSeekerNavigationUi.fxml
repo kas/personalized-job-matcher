@@ -11,7 +11,7 @@
       <ImageView fitHeight="100.0" fitWidth="133.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
       <Button fx:id="updateProfile" layoutX="166.0" layoutY="33.0" mnemonicParsing="false" onAction="#handleUpdateProfileButtonAction" text="Update Profile" />
       <Button fx:id="SearchJC" layoutX="279.0" layoutY="33.0" mnemonicParsing="false" onAction="#handleSearchJCButtonAction" prefHeight="25.0" prefWidth="82.0" text="Search Jobs" />
-      <Button layoutX="380.0" layoutY="33.0" mnemonicParsing="false" onAction="#handleSearchJCButtonAction" text="Search Careers" />
+      <Button layoutX="380.0" layoutY="33.0" mnemonicParsing="false" onAction="#handleSearchCareerButtonAction" text="Search Careers" />
       <Button layoutX="501.0" layoutY="33.0" mnemonicParsing="false" onAction="#handleTestPersonalityButtonAction" prefHeight="25.0" prefWidth="90.0" text="Take Test" />
       <Button layoutX="166.0" layoutY="64.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="92.0" text="Notifications" />
       <Button layoutX="279.0" layoutY="64.0" mnemonicParsing="false" text="Applications" />
@@ -22,13 +22,11 @@
       <Label layoutX="11.0" layoutY="192.0" text="Location" />
       <Label layoutX="15.0" layoutY="222.0" text="Sex" />
       <Label layoutX="10.0" layoutY="256.0" text="Current Job" />
-      <Label layoutX="10.0" layoutY="280.0" text="Personality Traits" />
       <Label id="name" fx:id="name" layoutX="166.0" layoutY="127.0" prefHeight="17.0" prefWidth="218.0" text="Label" />
       <Label id="age" fx:id="age" layoutX="166.0" layoutY="166.0" prefHeight="17.0" prefWidth="218.0" text="Label" />
       <Label id="location" fx:id="location" layoutX="166.0" layoutY="192.0" prefHeight="17.0" prefWidth="218.0" text="Label" />
       <Label id="sex" fx:id="sex" layoutX="166.0" layoutY="222.0" prefHeight="17.0" prefWidth="218.0" text="Label" />
       <Label id="currentJob" fx:id="job" layoutX="166.0" layoutY="256.0" prefHeight="17.0" prefWidth="218.0" text="Label" />
-      <Label id="personalityTraits" fx:id="traits" layoutX="166.0" layoutY="280.0" prefHeight="17.0" prefWidth="218.0" text="Label" />
       <Label layoutX="14.0" layoutY="6.0" prefHeight="25.0" prefWidth="121.0" text="Home">
          <font>
             <Font size="29.0" />

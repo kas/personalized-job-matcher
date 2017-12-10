@@ -41,9 +41,6 @@ public class JobSeekerNavigationUiController implements Initializable {
 
     @FXML
     private Label job;
-
-    @FXML
-    private Label traits;
     
     @FXML
     private Button viewSuitableJobs;
@@ -64,8 +61,7 @@ public class JobSeekerNavigationUiController implements Initializable {
             this.location.setText(jobSeeker.getLocation());
             this.sex.setText(jobSeeker.getSex());
             this.job.setText(jobSeeker.getCurrentJob());
-            this.traits.setText("Later sprint");
-            // TODO populate personality traits
+            
         } catch (Exception e) {
             System.out.println(e.getStackTrace());
         }
@@ -107,6 +103,20 @@ public class JobSeekerNavigationUiController implements Initializable {
         stage.setScene(new Scene((Pane) loader.load()));
 
         SearchJobUIController controller = loader.<SearchJobUIController>getController();
+        controller.initData(this.currentJobSeeker);
+
+        stage.show();
+
+    }
+    
+    @FXML
+    protected void handleSearchCareerButtonAction(ActionEvent event) throws IOException {
+        Stage stage = (Stage) name.getScene().getWindow();
+        //System.out.println("pressed button");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("SearchCareerUI.fxml"));
+        stage.setScene(new Scene((Pane) loader.load()));
+
+        SearchCareerUIController controller = loader.<SearchCareerUIController>getController();
         controller.initData(this.currentJobSeeker);
 
         stage.show();
@@ -225,18 +235,7 @@ public class JobSeekerNavigationUiController implements Initializable {
         this.job = job;
     }
 
-    /**
-     * @return the traits
-     */
-    public Label getTraits() {
-        return traits;
-    }
-
-    /**
-     * @param traits the traits to set
-     */
-    public void setTraits(Label traits) {
-        this.traits = traits;
-    }
+    
+    
 
 }
