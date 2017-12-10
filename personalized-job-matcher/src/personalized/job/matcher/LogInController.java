@@ -139,7 +139,7 @@ public class LogInController implements Initializable {
 
     public void loginSuccessPrompt() {
         
-        Alert alert = new Alert(AlertType.CONFIRMATION);
+        Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Login Success");
         alert.setHeaderText(null);
         alert.setContentText("Welcome to WorkSuit");

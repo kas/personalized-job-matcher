@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
@@ -78,10 +79,11 @@ public class PersonalityTestController implements Initializable {
     }
 
     public void testDone() {
-        JOptionPane.showMessageDialog(new JPanel(),
-                "Test Complete",
-                "Test Complete",
-                JOptionPane.PLAIN_MESSAGE);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Personality Test");
+            alert.setHeaderText(null);
+            alert.setContentText("Your personality test is now complete.");
+            alert.showAndWait();
     }
 
     public void initData(JobSeeker jobSeeker) {
