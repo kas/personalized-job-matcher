@@ -59,19 +59,15 @@ public class PersonalityTestController implements Initializable {
         } else if (questionNumber == questions.getTestQuestions().size() - 1) {
             testDone();
 
-            for (int i = 0; i < testAnswers.getAnswers().size(); i++) {
-                System.out.println(testAnswers.getAnswers().get(i));
-            }
-
             currentJobSeeker.setTestAnswers(testAnswers.getAnswers());
-            
+
             Stage stage = (Stage) questionArea.getScene().getWindow();
-            //System.out.println("pressed button");
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("ReviewResultsUI.fxml"));
             stage.setScene(new Scene((Pane) loader.load()));
 
             ReviewResultsUIController controller = loader.<ReviewResultsUIController>getController();
-            controller.initData(this.currentJobSeeker, traits);
+            controller.initData(this.currentJobSeeker);
 
             stage.show();
         }
@@ -79,11 +75,12 @@ public class PersonalityTestController implements Initializable {
     }
 
     public void testDone() {
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Personality Test");
-            alert.setHeaderText(null);
-            alert.setContentText("Your personality test is now complete.");
-            alert.showAndWait();
+
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Personality Test");
+        alert.setHeaderText(null);
+        alert.setContentText("Your personality test is now complete.");
+        alert.showAndWait();
     }
 
     public void initData(JobSeeker jobSeeker) {

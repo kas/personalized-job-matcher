@@ -6,17 +6,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="personalized.job.matcher.JobSeekerNavigationUiController">
+<AnchorPane id="AnchorPane" prefHeight="298.0" prefWidth="532.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="personalized.job.matcher.JobSeekerNavigationUiController">
    <children>
       <ImageView fitHeight="100.0" fitWidth="133.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
       <Button fx:id="updateProfile" layoutX="166.0" layoutY="33.0" mnemonicParsing="false" onAction="#handleUpdateProfileButtonAction" text="Update Profile" />
-      <Button fx:id="SearchJC" layoutX="279.0" layoutY="33.0" mnemonicParsing="false" onAction="#handleSearchJCButtonAction" prefHeight="25.0" prefWidth="82.0" text="Search Jobs" />
-      <Button layoutX="380.0" layoutY="33.0" mnemonicParsing="false" onAction="#handleSearchCareerButtonAction" text="Search Careers" />
-      <Button layoutX="501.0" layoutY="33.0" mnemonicParsing="false" onAction="#handleTestPersonalityButtonAction" prefHeight="25.0" prefWidth="90.0" text="Take Test" />
-      <Button layoutX="166.0" layoutY="64.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="92.0" text="Notifications" />
-      <Button layoutX="279.0" layoutY="64.0" mnemonicParsing="false" text="Applications" />
-      <Button layoutX="380.0" layoutY="64.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" text="Resume" />
-      <Button disable="true" layoutX="501.0" layoutY="64.0" mnemonicParsing="false" text="Review Results" />
+      <Button fx:id="SearchJC" layoutX="279.0" layoutY="33.0" mnemonicParsing="false" onAction="#handleSearchJCButtonAction" prefHeight="25.0" prefWidth="94.0" text="Search Jobs" />
+      <Button layoutX="391.0" layoutY="33.0" mnemonicParsing="false" onAction="#handleSearchCareerButtonAction" prefHeight="25.0" prefWidth="121.0" text="Search Careers" />
+      <Button layoutX="167.0" layoutY="64.0" mnemonicParsing="false" onAction="#handleTestPersonalityButtonAction" prefHeight="25.0" prefWidth="90.0" text="Take Test" />
+      <Button layoutX="279.0" layoutY="64.0" mnemonicParsing="false" onAction="#handleReviewResultsButtonAction" text="Review Results" />
       <Label layoutX="14.0" layoutY="127.0" text="Name" />
       <Label layoutX="15.0" layoutY="166.0" text="Age" />
       <Label layoutX="11.0" layoutY="192.0" text="Location" />
@@ -32,6 +29,6 @@
             <Font size="29.0" />
          </font>
       </Label>
-      <Button id="viewSuitableJobs" layoutX="166.0" layoutY="102.0" mnemonicParsing="false" onAction="#handleViewSuitableJobsButtonAction" prefHeight="25.0" prefWidth="121.0" text="View Suitable Jobs" />
+      <Button id="viewSuitableJobs" layoutX="391.0" layoutY="64.0" mnemonicParsing="false" onAction="#handleViewSuitableJobsButtonAction" prefHeight="25.0" prefWidth="121.0" text="View Suitable Jobs" />
    </children>
 </AnchorPane>

@@ -15,7 +15,7 @@ public class PersistentDataCollection implements Serializable {
 
     private CareerProfileList theCareerProfileList;
     private JobSeekerList theJobSeekerList;
-    //private PersonalityTestResultsList thePersonalityTestResultsList;
+
     private UserProfileList theUserProfileList;
     private EmployerList theEmployerList;
     private JobList theJobList;
@@ -27,9 +27,7 @@ public class PersistentDataCollection implements Serializable {
         if (theJobSeekerList == null) {
             theJobSeekerList = new JobSeekerList();
         }
-        /*if (thePersonalityTestResultsList == null){
-            thePersonalityTestResultsList = new PersonalityTestResultsList();
-        }*/
+
         if (theUserProfileList == null) {
             theUserProfileList = new UserProfileList();
         }
@@ -75,4 +73,5 @@ public class PersistentDataCollection implements Serializable {
     public JobList getTheJobList() {
         return theJobList;
     }
+
 }

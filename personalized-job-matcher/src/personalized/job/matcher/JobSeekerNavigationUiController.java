@@ -41,7 +41,7 @@ public class JobSeekerNavigationUiController implements Initializable {
 
     @FXML
     private Label job;
-    
+
     @FXML
     private Button viewSuitableJobs;
 
@@ -61,7 +61,7 @@ public class JobSeekerNavigationUiController implements Initializable {
             this.location.setText(jobSeeker.getLocation());
             this.sex.setText(jobSeeker.getSex());
             this.job.setText(jobSeeker.getCurrentJob());
-            
+
         } catch (Exception e) {
             System.out.println(e.getStackTrace());
         }
@@ -108,7 +108,7 @@ public class JobSeekerNavigationUiController implements Initializable {
         stage.show();
 
     }
-    
+
     @FXML
     protected void handleSearchCareerButtonAction(ActionEvent event) throws IOException {
         Stage stage = (Stage) name.getScene().getWindow();
@@ -123,21 +123,20 @@ public class JobSeekerNavigationUiController implements Initializable {
 
     }
 
-    /*
-        @FXML protected void handleReviewResultsButtonAction(ActionEvent event) throws IOException {
-            Stage stage = (Stage) name.getScene().getWindow();
-            //System.out.println("pressed button");
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ReviewResultsUI.fxml"));
-            stage.setScene(new Scene((Pane) loader.load()));
+    @FXML
+    protected void handleReviewResultsButtonAction(ActionEvent event) throws IOException {
+        Stage stage = (Stage) name.getScene().getWindow();
+        //System.out.println("pressed button");
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ReviewResultsUI.fxml"));
+        stage.setScene(new Scene((Pane) loader.load()));
 
-            ReviewResultsUIController controller = loader.<ReviewResultsUIController>getController();
-            controller.initData(this.currentJobSeeker);
-        
-            stage.show();   
-            
-        }
-     */
-    
+        ReviewResultsUIController controller = loader.<ReviewResultsUIController>getController();
+        controller.initData(this.currentJobSeeker);
+
+        stage.show();
+
+    }
+
     @FXML
     protected void handleViewSuitableJobsButtonAction(ActionEvent event) throws IOException {
         Stage stage = (Stage) name.getScene().getWindow();
@@ -234,8 +233,5 @@ public class JobSeekerNavigationUiController implements Initializable {
     public void setJob(Label job) {
         this.job = job;
     }
-
-    
-    
 
 }

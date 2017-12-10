@@ -7,6 +7,7 @@ package personalized.job.matcher;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
@@ -34,7 +35,7 @@ public class ReviewResultsUIController implements Initializable {
     private Label resultsLabel;
     @FXML
     private ListView results;
-    private PersonalityTraitList currentPersonalityTraitList;
+    private ArrayList<String> currentTestAnswers;
     private ListProperty<String> listProperty = new SimpleListProperty<>();
 
     @Override
@@ -42,15 +43,15 @@ public class ReviewResultsUIController implements Initializable {
         // TODO
     }
 
-    public void initData(JobSeeker jobSeeker, PersonalityTraitList personalityTraitList) {
+    public void initData(JobSeeker jobSeeker) {
         try {
             this.currentJobSeeker = jobSeeker;
             results.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
-
-            personalityTraitList = new PersonalityTraitList();
+            
+            currentTestAnswers = currentJobSeeker.getTestAnswers();
 
             results.itemsProperty().bind(listProperty);
-            listProperty.set(FXCollections.observableArrayList(personalityTraitList.getPersonalityTraitList()));
+            listProperty.set(FXCollections.observableArrayList(currentTestAnswers));
 
         } catch (Exception e) {
             System.out.println(e.getStackTrace());
@@ -112,19 +113,7 @@ public class ReviewResultsUIController implements Initializable {
         this.results = results;
     }
 
-    /**
-     * @return the currentPersonalityTraitList
-     */
-    public PersonalityTraitList getCurrentPersonalityTraitList() {
-        return currentPersonalityTraitList;
-    }
-
-    /**
-     * @param currentPersonalityTraitList the currentPersonalityTraitList to set
-     */
-    public void setCurrentPersonalityTraitList(PersonalityTraitList currentPersonalityTraitList) {
-        this.currentPersonalityTraitList = currentPersonalityTraitList;
-    }
+    
 
     /**
      * @return the listProperty
@@ -138,5 +127,19 @@ public class ReviewResultsUIController implements Initializable {
      */
     public void setListProperty(ListProperty<String> listProperty) {
         this.listProperty = listProperty;
+    }
+
+    /**
+     * @return the currentTestAnswers
+     */
+    public ArrayList<String> getCurrentTestAnswers() {
+        return currentTestAnswers;
+    }
+
+    /**
+     * @param currentTestAnswers the currentTestAnswers to set
+     */
+    public void setCurrentTestAnswers(ArrayList<String> currentTestAnswers) {
+        this.currentTestAnswers = currentTestAnswers;
     }
 }
