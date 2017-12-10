@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="328.0" prefWidth="594.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="personalized.job.matcher.JobSuitabilityUiController">
+<AnchorPane id="AnchorPane" prefHeight="328.0" prefWidth="594.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="personalized.job.matcher.JobSuitabilityUiController">
    <children>
       <TitledPane prefHeight="358.0" prefWidth="589.0" text="Job Suitability">
          <content>
@@ -19,7 +19,7 @@
                      </font>
                   </Label>
                   <ListView fx:id="results" layoutX="7.0" layoutY="32.0" prefHeight="264.0" prefWidth="561.0" />
-                  <Button layoutX="14.0" layoutY="303.0" mnemonicParsing="false" onAction="#handleCancelButtonAction" prefHeight="25.0" prefWidth="100.0" text="Cancel" />
+                  <Button layoutX="238.0" layoutY="302.0" mnemonicParsing="false" onAction="#handleCancelButtonAction" prefHeight="25.0" prefWidth="100.0" text="Exit" />
                </children>
             </AnchorPane>
          </content>
