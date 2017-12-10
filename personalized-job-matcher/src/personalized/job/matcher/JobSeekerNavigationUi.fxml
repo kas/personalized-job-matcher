@@ -11,7 +11,7 @@
       <ImageView fitHeight="100.0" fitWidth="133.0" layoutX="14.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
       <Button fx:id="updateProfile" layoutX="166.0" layoutY="33.0" mnemonicParsing="false" onAction="#handleUpdateProfileButtonAction" text="Update Profile" />
       <Button fx:id="SearchJC" layoutX="279.0" layoutY="33.0" mnemonicParsing="false" onAction="#handleSearchJCButtonAction" prefHeight="25.0" prefWidth="82.0" text="Search Jobs" />
-      <Button layoutX="380.0" layoutY="33.0" mnemonicParsing="false" onAction="#handleSearchJCButtonAction" text="Search Careers" />
+      <Button layoutX="380.0" layoutY="33.0" mnemonicParsing="false" onAction="#handleSearchCareerButtonAction" text="Search Careers" />
       <Button layoutX="501.0" layoutY="33.0" mnemonicParsing="false" onAction="#handleTestPersonalityButtonAction" prefHeight="25.0" prefWidth="90.0" text="Take Test" />
       <Button layoutX="166.0" layoutY="64.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="92.0" text="Notifications" />
       <Button layoutX="279.0" layoutY="64.0" mnemonicParsing="false" text="Applications" />

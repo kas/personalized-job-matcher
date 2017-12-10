@@ -57,7 +57,7 @@ public class SearchCareerUIController implements Initializable {
     public void initData(JobSeeker jobSeeker) {
 
         currentJobSeeker = jobSeeker;
-        addCareerLists(employerList.getEmployerList());
+        //addCareerLists(employerList.getEmployerList());
 
     }
 
