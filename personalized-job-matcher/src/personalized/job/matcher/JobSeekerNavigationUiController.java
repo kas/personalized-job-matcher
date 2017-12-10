@@ -41,8 +41,6 @@ public class JobSeekerNavigationUiController implements Initializable {
     @FXML
     private Label job;
 
-    @FXML
-    private Label traits;
 
     /**
      * Initializes the controller class.
@@ -60,8 +58,7 @@ public class JobSeekerNavigationUiController implements Initializable {
             this.location.setText(jobSeeker.getLocation());
             this.sex.setText(jobSeeker.getSex());
             this.job.setText(jobSeeker.getCurrentJob());
-            this.traits.setText("Later sprint");
-            // TODO populate personality traits
+            
         } catch (Exception e) {
             System.out.println(e.getStackTrace());
         }
@@ -222,18 +219,7 @@ public class JobSeekerNavigationUiController implements Initializable {
         this.job = job;
     }
 
-    /**
-     * @return the traits
-     */
-    public Label getTraits() {
-        return traits;
-    }
-
-    /**
-     * @param traits the traits to set
-     */
-    public void setTraits(Label traits) {
-        this.traits = traits;
-    }
+    
+    
 
 }
