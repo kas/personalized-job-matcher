@@ -57,9 +57,7 @@ public class JobSuitabilityUiController implements Initializable {
         // get testanswers
         ArrayList<String> answers = currentJobSeeker.getTestAnswers();
         try {
-            for (int i = 0; i < answers.size(); i++) {
-                System.out.println(answers.get(i));
-            }
+            
         
             // get all jobs that match testanswers
             nextJob: for (int i = 0; i < jobs.size(); i++) {
@@ -74,9 +72,7 @@ public class JobSuitabilityUiController implements Initializable {
                 }
             }
 
-            for (int i = 0; i < displayedJobs.size(); i++) {
-                System.out.println("displayedJob: " + displayedJobs.get(i).getTitle());
-            }
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
