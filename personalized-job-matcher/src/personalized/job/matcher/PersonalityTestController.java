@@ -12,12 +12,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 
 public class PersonalityTestController implements Initializable {
 
@@ -35,6 +34,8 @@ public class PersonalityTestController implements Initializable {
     private RadioButton rbNo;
     @FXML
     private ToggleGroup rbGroup;
+    @FXML
+    private ProgressBar testProgress;
 
     private int questionNumber = 0;
 
@@ -46,6 +47,8 @@ public class PersonalityTestController implements Initializable {
 
     @FXML
     protected void handleNextAction(ActionEvent event) throws IOException {
+        
+        testProgress.setProgress((questionNumber + 1)*.1);
         if (questionNumber < questions.getTestQuestions().size() - 1) {
             questionNumber++;
             questionArea.setText(questions.getTestQuestions().get(questionNumber).getQuestionText());
